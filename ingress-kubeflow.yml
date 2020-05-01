@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-kubeflow
+  namespace: kubeflow
+  annotations:
+    kubernetes.io/ingress.class: nginx
+#    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+#    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /pipeline*
+        backend:
+          serviceName: ml-ui-services
+          servicePort: 80
+      - path: /katib*
+        backend:
+          serviceName: katib-ui
+          servicePort: 80
+      - path: /argo
+        backend:
+          serviceName: argo-ui
+          servicePort: 80

@@ -1,0 +1,1 @@
+http://a9fe6070e113b413081ec16e49e38a20-1078971088.us-east-1.elb.amazonaws.com/ambassador/v0/diag/

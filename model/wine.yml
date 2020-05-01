@@ -1,0 +1,16 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: whiner
+  namespace: models
+spec:
+  name: wines
+  serviceAccountName: s3account
+  predictors:
+    - graph:
+        children: []
+        implementation: MLFLOW_SERVER
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/64d5ec124f194430ac151acf7dc99696/artifacts/wine
+        name: classifier
+      name: default
+      replicas: 1

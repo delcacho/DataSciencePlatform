@@ -1,0 +1,30 @@
+{
+ "display_name": "PySparkling + Sparkling Water",
+ "language": "python",
+ "argv": [
+  "python3",
+  "-m",
+  "ipykernel",
+  "-f",
+  "{connection_file}",
+  "--config=/usr/local/share/jupyter/kernels/pysparkling/jupyter_notebook_config.py"
+ ],
+ "env": {
+  "JUPYTER_CONFIG_DIR": "/usr/local/share/jupyter/kernels/pysparkling",
+  "IPYTHONDIR": "/usr/local/share/jupyter/kernels/pysparkling",
+  "JUPYTERLAB_SETTINGS_DIR": "/usr/local/share/jupyter/kernels/pysparkling",
+  "JUPYTERLAB_WORKSPACES_DIR": "/usr/local/share/jupyter/kernels/pysparkling",
+  "HADOOP_CONF_DIR":"/usr/local/hadoop/etc/hadoop",
+  "PYSPARK_PYTHON":"python3",
+  "PYSPARK_DRIVER_PYTHON": "ipython",
+  "PYSPARK_DRIVER_PYTHON_OPTS": "notebook",
+  "SPARK_HOME": "/usr/local/spark",
+  "CAPTURE_STANDARD_OUT": "true",
+  "CAPTURE_STANDARD_ERR": "true",
+  "SEND_EMPTY_OUTPUT": "false",
+  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python:/home/admin/sparkling-water-3.30.0.1-1-2.4/py/build/dist/h2o_pysparkling_2.4-3.30.0.1-1-2.4.zip",
+  "PYTHONSTARTUP": "/usr/local/spark/python/pyspark/shell.py",
+  "MASTER": "spark://spark-master-svc:7077",
+  "PYSPARK_SUBMIT_ARGS": "--master spark://spark-master-svc:7077 --conf spark.ext.h2o.client.log.dir=/home/admin/ --conf spark.ext.h2o.client.verbose=true --conf spark.ext.h2o.client.log.level=ALL --conf spark.ext.h2o.node.log.level=ALL --conf spark.sql.catalogImplementation=in-memory --driver-memory=1g --executor-memory=1g --py-files /home/admin/sparkling-water-3.30.0.1-1-2.4/py/build/dist/h2o_pysparkling_2.4-3.30.0.1-1-2.4.zip pyspark-shell"
+ }
+}

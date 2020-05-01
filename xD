@@ -1,0 +1,205 @@
++ '[' '' ']'
++ '[' -e /opt/app/environment.yml ']'
++ echo 'no environment.yml'
++ '[' '' ']'
++ '[' '' ']'
++ export HADOOP_HOME=/usr/local/hadoop
++ HADOOP_HOME=/usr/local/hadoop
++ export MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
++ MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
++ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
++ JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
++ sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -mkdir -p hdfs://hdfs-namenode:8020/user/admin
+no environment.yml
++ sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -chmod -R 777 hdfs://hdfs-namenode:8020/
++ exec jupyterhub --debug --port=8000 -f /etc/jupyterhub/jupyterhub_config.py --ssl-key=/home/jovyan/jhub.key --ssl-cert=/home/jovyan/jhub.crt
+[D 2020-05-01 14:08:56.116 JupyterHub application:556] Looking for /etc/jupyterhub/jupyterhub_config in /home/admin
+[D 2020-05-01 14:08:56.117 JupyterHub application:578] Loaded config file: /etc/jupyterhub/jupyterhub_config.py
+[I 2020-05-01 14:08:56.144 JupyterHub app:2240] Running JupyterHub version 1.1.0
+[I 2020-05-01 14:08:56.144 JupyterHub app:2271] Using Authenticator: jupyterhub.auth.PAMAuthenticator-1.1.0
+[I 2020-05-01 14:08:56.144 JupyterHub app:2271] Using Spawner: jupyterhub.spawner.LocalProcessSpawner-1.1.0
+[I 2020-05-01 14:08:56.144 JupyterHub app:2271] Using Proxy: jupyterhub.proxy.ConfigurableHTTPProxy-1.1.0
+[D 2020-05-01 14:08:56.191 JupyterHub app:1389] Generating new cookie_secret
+[I 2020-05-01 14:08:56.191 JupyterHub app:1394] Writing cookie_secret to /home/admin/jupyterhub_cookie_secret
+[D 2020-05-01 14:08:56.191 JupyterHub app:1516] Connecting to db: sqlite:///jupyterhub.sqlite
+[D 2020-05-01 14:08:56.244 JupyterHub orm:718] Stamping empty database with alembic revision 4dc2d5a8c53c
+[I 2020-05-01 14:08:56.256 alembic.runtime.migration migration:154] Context impl SQLiteImpl.
+[I 2020-05-01 14:08:56.256 alembic.runtime.migration migration:161] Will assume non-transactional DDL.
+[I 2020-05-01 14:08:56.283 alembic.runtime.migration migration:513] Running stamp_revision  -> 4dc2d5a8c53c
+[D 2020-05-01 14:08:56.284 alembic.runtime.migration migration:723] new branch insert 4dc2d5a8c53c
+[I 2020-05-01 14:08:56.383 JupyterHub proxy:461] Generating new CONFIGPROXY_AUTH_TOKEN
+[I 2020-05-01 14:08:56.413 JupyterHub app:1655] Not using whitelist. Any authenticated user will be allowed.
+[D 2020-05-01 14:08:56.437 JupyterHub app:1914] Initializing spawners
+[D 2020-05-01 14:08:56.450 JupyterHub app:2011] Loading state for admin from db
+[D 2020-05-01 14:08:56.450 JupyterHub app:2038] Loaded users:
+       admin admin
+[I 2020-05-01 14:08:56.450 JupyterHub app:2311] Initialized 0 spawners in 0.013 seconds
+[I 2020-05-01 14:08:56.453 JupyterHub proxy:646] Starting proxy @ http://:8000
+[D 2020-05-01 14:08:56.453 JupyterHub proxy:647] Proxy cmd: ['configurable-http-proxy', '--ip', '', '--port', '8000', '--api-ip', '127.0.0.1', '--api-port', '8001', '--error-target', 'http://127.0.0.1:8081/hub/error', '--ssl-key', '/home/jovyan/jhub.key', '--ssl-cert', '/home/jovyan/jhub.crt']
+[D 2020-05-01 14:08:56.458 JupyterHub proxy:562] Writing proxy pid file: jupyterhub-proxy.pid
+14:08:57.098 [ConfigProxy] [32minfo[39m: Proxying https://*:8000 to (no default)
+14:08:57.110 [ConfigProxy] [32minfo[39m: Proxy API at http://127.0.0.1:8001/api/routes
+[D 2020-05-01 14:08:57.522 JupyterHub proxy:682] Proxy started and appears to be up
+[D 2020-05-01 14:08:57.523 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+14:08:57.539 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+[I 2020-05-01 14:08:57.540 JupyterHub app:2556] Hub API listening on http://127.0.0.1:8081/hub/
+[D 2020-05-01 14:08:57.540 JupyterHub proxy:315] Fetching routes to check
+[D 2020-05-01 14:08:57.540 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+[I 2020-05-01 14:08:57.541 JupyterHub proxy:320] Checking routes
+[I 2020-05-01 14:08:57.541 JupyterHub proxy:400] Adding default route for Hub: / => http://127.0.0.1:8081
+[D 2020-05-01 14:08:57.542 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/
+14:08:57.541 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+14:08:57.543 [ConfigProxy] [32minfo[39m: Adding route / -> http://127.0.0.1:8081
+14:08:57.543 [ConfigProxy] [32minfo[39m: Route added / -> http://127.0.0.1:8081
+[I 2020-05-01 14:08:57.544 JupyterHub app:2631] JupyterHub is now running at http://:8000
+[D 2020-05-01 14:08:57.544 JupyterHub app:2233] It took 1.432 seconds for the Hub to start
+14:08:57.545 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/ 
+[D 2020-05-01 14:13:57.545 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+14:13:57.547 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+[I 2020-05-01 14:13:57.547 JupyterHub proxy:320] Checking routes
+14:18:57.547 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+[D 2020-05-01 14:18:57.545 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+[I 2020-05-01 14:18:57.548 JupyterHub proxy:320] Checking routes
+[I 2020-05-01 14:19:14.895 JupyterHub log:174] 302 GET / -> /hub/ (@172.20.38.227) 1.10ms
+[I 2020-05-01 14:19:15.004 JupyterHub log:174] 302 GET /hub/ -> /hub/login (@172.20.38.227) 0.85ms
+[I 2020-05-01 14:19:15.184 JupyterHub log:174] 200 GET /hub/login (@172.20.38.227) 73.59ms
+[D 2020-05-01 14:19:15.355 JupyterHub log:174] 200 GET /hub/static/css/style.min.css?v=ab35cbd1a6857ec00620a56c43760477 (@172.20.38.227) 1.52ms
+[D 2020-05-01 14:19:15.357 JupyterHub log:174] 200 GET /hub/static/components/bootstrap/dist/js/bootstrap.min.js?v=2f34b630ffe30ba2ff2b91e3f3c322a1 (@172.20.38.227) 1.29ms
+[D 2020-05-01 14:19:15.360 JupyterHub log:174] 200 GET /hub/logo (@172.20.38.227) 2.13ms
+[D 2020-05-01 14:19:15.361 JupyterHub log:174] 200 GET /hub/static/components/requirejs/require.js?v=f0cc8bbb2fcef87fc194fecbb632fcfa (@172.20.38.227) 2.49ms
+[D 2020-05-01 14:19:15.361 JupyterHub log:174] 200 GET /hub/static/components/jquery/dist/jquery.min.js?v=220afd743d9e9643852e31a135a9f3ae (@172.20.38.227) 2.90ms
+[D 2020-05-01 14:19:15.966 JupyterHub log:174] 200 GET /favicon.ico (@172.20.38.227) 1.55ms
+[D 2020-05-01 14:19:19.463 JupyterHub base:522] Setting cookie jupyterhub-session-id: {'httponly': True, 'secure': True}
+[D 2020-05-01 14:19:19.464 JupyterHub base:526] Setting cookie for admin: jupyterhub-hub-login
+[D 2020-05-01 14:19:19.464 JupyterHub base:522] Setting cookie jupyterhub-hub-login: {'httponly': True, 'secure': True, 'path': '/hub/'}
+[I 2020-05-01 14:19:19.464 JupyterHub base:707] User logged in: admin
+[D 2020-05-01 14:19:19.464 JupyterHub user:242] Creating <class 'jupyterhub.spawner.LocalProcessSpawner'> for admin:
+[I 2020-05-01 14:19:19.468 JupyterHub log:174] 302 POST /hub/login?next= -> /hub/spawn (admin@172.20.38.227) 58.97ms
+[D 2020-05-01 14:19:19.575 JupyterHub base:285] Recording first activity for <User(admin 0/1 running)>
+[D 2020-05-01 14:19:19.582 JupyterHub pages:195] Triggering spawn with default options for admin
+[D 2020-05-01 14:19:19.582 JupyterHub base:825] Initiating spawn for admin
+[D 2020-05-01 14:19:19.582 JupyterHub base:832] 0/100 concurrent spawns
+[D 2020-05-01 14:19:19.582 JupyterHub base:837] 0 active servers
+[D 2020-05-01 14:19:19.616 JupyterHub user:556] Calling Spawner.start for admin
+[I 2020-05-01 14:19:19.618 JupyterHub spawner:1417] Spawning jupyterhub-singleuser --port=56797 '--notebook-dir=~/notebooks' --NotebookApp.default_url=/lab --debug
+[D 2020-05-01 14:19:19.632 JupyterHub spawner:1113] Polling subprocess every 30s
+[I 2020-05-01 14:19:20.583 JupyterHub log:174] 302 GET /hub/spawn -> /hub/spawn-pending/admin (admin@172.20.38.227) 1010.83ms
+[I 2020-05-01 14:19:20.846 JupyterHub pages:347] admin is pending spawn
+[I 2020-05-01 14:19:20.853 JupyterHub log:174] 200 GET /hub/spawn-pending/admin (admin@172.20.38.227) 16.59ms
+[D 2020-05-01 14:19:21.063 JupyterHub log:174] 200 GET /hub/static/components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 (@172.20.38.227) 2.81ms
+[D 2020-05-01 14:19:21.295 SingleUserNotebookApp application:179] Searching ['/home/admin', '/home/admin/.jupyter', '/opt/conda/etc/jupyter', '/usr/local/etc/jupyter', '/etc/jupyter'] for config files
+[D 2020-05-01 14:19:21.296 SingleUserNotebookApp application:556] Looking for jupyter_config in /etc/jupyter
+[D 2020-05-01 14:19:21.296 SingleUserNotebookApp application:556] Looking for jupyter_config in /usr/local/etc/jupyter
+[D 2020-05-01 14:19:21.297 SingleUserNotebookApp application:556] Looking for jupyter_config in /opt/conda/etc/jupyter
+[D 2020-05-01 14:19:21.297 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/admin/.jupyter
+[D 2020-05-01 14:19:21.297 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/admin
+[D 2020-05-01 14:19:21.298 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /etc/jupyter
+[D 2020-05-01 14:19:21.299 SingleUserNotebookApp application:578] Loaded config file: /etc/jupyter/jupyter_notebook_config.py
+[D 2020-05-01 14:19:21.299 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /usr/local/etc/jupyter
+[D 2020-05-01 14:19:21.300 SingleUserNotebookApp application:578] Loaded config file: /usr/local/etc/jupyter/jupyter_notebook_config.json
+[D 2020-05-01 14:19:21.300 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /opt/conda/etc/jupyter
+[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:578] Loaded config file: /opt/conda/etc/jupyter/jupyter_notebook_config.json
+[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/admin/.jupyter
+[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:578] Loaded config file: /home/admin/.jupyter/jupyter_notebook_config.py
+[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/admin
+[W 2020-05-01 14:19:21.305 SingleUserNotebookApp configurable:168] Config option `open_browser` not recognized by `SingleUserNotebookApp`.  Did you mean `browser`?
+[D 2020-05-01 14:19:21.311 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/etc/jupyter/jupyter_notebook_config.json
+[D 2020-05-01 14:19:21.312 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/usr/local/etc/jupyter/jupyter_notebook_config.json
+[D 2020-05-01 14:19:21.312 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/dask_labextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/ipyparallel-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-server-proxy-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_git.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_latex.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/nbdime.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.json
+[D 2020-05-01 14:19:21.317 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/home/admin/.jupyter/jupyter_notebook_config.json
+[I 2020-05-01 14:19:23.754 SingleUserNotebookApp handlers:78] Loading IPython parallel extension
+[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:228] [jupyter_nbextensions_configurator] Loading 0.4.1
+[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:233] [jupyter_nbextensions_configurator]   Editing templates path to add /opt/conda/lib/python3.6/site-packages/jupyter_nbextensions_configurator/templates
+[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:246] [jupyter_nbextensions_configurator]   Editing nbextensions path to add /opt/conda/lib/python3.6/site-packages/jupyter_nbextensions_configurator/static
+[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:251] [jupyter_nbextensions_configurator]   Adding new handlers
+[I 2020-05-01 14:19:23.760 SingleUserNotebookApp __init__:259] [jupyter_nbextensions_configurator] enabled 0.4.1
+[I 2020-05-01 14:19:24.231 SingleUserNotebookApp extension:158] JupyterLab extension loaded from /opt/conda/lib/python3.6/site-packages/jupyterlab
+[I 2020-05-01 14:19:24.231 SingleUserNotebookApp extension:159] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[D 2020-05-01 14:19:24.528 SingleUserNotebookApp commands:1792] Yarn configuration loaded.
+[I 2020-05-01 14:19:24.693 SingleUserNotebookApp __init__:9] Loading server extension jupyterlab_sql
+[D 2020-05-01 14:19:24.956 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-01 14:19:24.956 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-01 14:19:24.956 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-01 14:19:24.957 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-01 14:19:24.957 SingleUserNotebookApp loader:342] Using default logger
+[I 2020-05-01 14:19:24.971 SingleUserNotebookApp singleuser:561] Starting jupyterhub-singleuser server version 1.1.0
+[D 2020-05-01 14:19:24.978 JupyterHub utils:218] Server at http://127.0.0.1:56797/user/admin/ responded with 302
+[D 2020-05-01 14:19:24.979 JupyterHub _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
+[I 2020-05-01 14:19:24.979 JupyterHub base:855] User admin took 5.397 seconds to start
+[I 2020-05-01 14:19:24.979 JupyterHub proxy:262] Adding user admin to proxy /user/admin/ => http://127.0.0.1:56797
+[D 2020-05-01 14:19:24.980 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/user/admin
+[I 2020-05-01 14:19:24.981 JupyterHub log:174] 200 GET /hub/api (@127.0.0.1) 0.86ms
+14:19:24.983 [ConfigProxy] [32minfo[39m: Adding route /user/admin -> http://127.0.0.1:56797
+14:19:24.983 [ConfigProxy] [32minfo[39m: Route added /user/admin -> http://127.0.0.1:56797
+14:19:24.983 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/user/admin 
+[D 2020-05-01 14:19:24.982 SingleUserNotebookApp _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
+[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1924] Serving notebooks from local directory: /home/admin/notebooks
+[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1924] The Jupyter Notebook is running at:
+[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1924] http://notebook:56797/user/admin/
+[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1925] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 2020-05-01 14:19:24.984 JupyterHub users:609] Server admin is ready
+[I 2020-05-01 14:19:24.985 JupyterHub log:174] 200 GET /hub/api/users/admin/server/progress (admin@172.20.38.227) 3921.25ms
+[I 2020-05-01 14:19:24.990 SingleUserNotebookApp singleuser:542] Updating Hub with activity every 300 seconds
+[D 2020-05-01 14:19:24.991 SingleUserNotebookApp singleuser:503] Notifying Hub of activity 2020-05-01T14:19:21.325530Z
+[D 2020-05-01 14:19:24.997 JupyterHub base:285] Recording first activity for <APIToken('8975...', user='admin')>
+[D 2020-05-01 14:19:25.009 JupyterHub users:711] Activity for user admin: 2020-05-01T14:19:21.325530Z
+[D 2020-05-01 14:19:25.009 JupyterHub users:732] Activity on server admin/: 2020-05-01T14:19:21.325530Z
+[I 2020-05-01 14:19:25.015 JupyterHub log:174] 200 POST /hub/api/users/admin/activity (admin@127.0.0.1) 20.87ms
+[I 2020-05-01 14:19:25.101 JupyterHub log:174] 302 GET /hub/spawn-pending/admin -> /user/admin/ (admin@172.20.38.227) 3.61ms
+[D 2020-05-01 14:19:25.432 JupyterHub provider:414] Validating client id jupyterhub-user-admin
+[D 2020-05-01 14:19:25.433 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
+[D 2020-05-01 14:19:25.435 JupyterHub auth:247] Skipping oauth confirmation for <User(admin 1/1 running)> accessing Server at /user/admin/
+[D 2020-05-01 14:19:25.435 JupyterHub provider:414] Validating client id jupyterhub-user-admin
+[D 2020-05-01 14:19:25.436 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
+[D 2020-05-01 14:19:25.437 JupyterHub provider:241] Saving authorization code jupyterhub-user-admin, j8O..., (), {}
+[I 2020-05-01 14:19:25.445 JupyterHub log:174] 302 GET /hub/api/oauth2/authorize?client_id=jupyterhub-user-admin&redirect_uri=%2Fuser%2Fadmin%2Foauth_callback&response_type=code&state=[secret] -> /user/admin/oauth_callback?code=[secret]&state=[secret] (admin@172.20.38.227) 16.84ms
+[D 2020-05-01 14:19:25.565 JupyterHub provider:60] authenticate_client <oauthlib.Request url="/hub/api/oauth2/token", http_method="POST", headers="{'Host': '127.0.0.1:8081', 'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': '<SANITIZED>', 'Content-Length': '190'}", body="client_id=jupyterhub-user-admin&client_secret=8975f05120e3413988d9f2e8d6ae932f&grant_type=authorization_code&code=j8O6MSxtam897ugz45x8Ib4PFqp0rf&redirect_uri=%2Fuser%2Fadmin%2Foauth_callback">
+[D 2020-05-01 14:19:25.572 JupyterHub provider:119] confirm_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
+[D 2020-05-01 14:19:25.573 JupyterHub provider:339] Saving bearer token {'access_token': 'REDACTED', 'expires_in': 3600, 'token_type': 'Bearer', 'scope': 'identify', 'refresh_token': 'REDACTED'}
+[D 2020-05-01 14:19:25.581 JupyterHub provider:194] Deleting oauth code j8O... for jupyterhub-user-admin
+[I 2020-05-01 14:19:25.589 JupyterHub log:174] 200 POST /hub/api/oauth2/token (admin@127.0.0.1) 27.55ms
+[I 2020-05-01 14:19:25.606 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (admin@127.0.0.1) 14.32ms
+[D 2020-05-01 14:19:25.716 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-05-01 14:19:25.856 SingleUserNotebookApp handlers:828] Path main.fa21c790f563fb62a599.js served from /opt/conda/share/jupyter/lab/static/main.fa21c790f563fb62a599.js
+[D 2020-05-01 14:19:25.858 SingleUserNotebookApp handlers:828] Path vendors~main.382d57fe7dec8f27037f.js served from /opt/conda/share/jupyter/lab/static/vendors~main.382d57fe7dec8f27037f.js
+[I 2020-05-01 14:19:27.622 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (admin@127.0.0.1) 11.59ms
+[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[W 2020-05-01 14:19:27.706 SingleUserNotebookApp handlers:608] Failed parsing schema (jupyterlab-topbar-text:plugin): 'ascii' codec can't decode byte 0xf0 in position 287: ordinal not in range(128)
+[D 2020-05-01 14:19:27.709 SingleUserNotebookApp handlers:828] Path base/images/favicon.ico served from /opt/conda/lib/python3.6/site-packages/notebook/static/base/images/favicon.ico
+[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:28.180 SingleUserNotebookApp commands:1792] Yarn configuration loaded.
+[D 2020-05-01 14:19:28.235 SingleUserNotebookApp commands:1757] Node v13.9.0
+    
+[I 2020-05-01 14:19:28.288 SingleUserNotebookApp build_handler:49] Build is up to date
+[D 2020-05-01 14:19:32.867 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[W 2020-05-01 14:19:33.416 SingleUserNotebookApp handlers:608] Failed parsing schema (jupyterlab-topbar-text:plugin): 'ascii' codec can't decode byte 0xf0 in position 287: ordinal not in range(128)
+[D 2020-05-01 14:19:33.522 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-01 14:19:33.523 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:33.523 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:33.523 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-05-01 14:19:33.979 SingleUserNotebookApp commands:1792] Yarn configuration loaded.
+[D 2020-05-01 14:19:34.035 SingleUserNotebookApp commands:1757] Node v13.9.0
+    
+[I 2020-05-01 14:19:34.088 SingleUserNotebookApp build_handler:49] Build is up to date

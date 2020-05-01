@@ -1,0 +1,25 @@
+{
+    "Location": "https://route53.amazonaws.com/2013-04-01/hostedzone/Z0901995318DNS2B52GCA",
+    "HostedZone": {
+        "Id": "/hostedzone/Z0901995318DNS2B52GCA",
+        "Name": "dev.bayescluster.com.",
+        "CallerReference": "C710041F-C8DE-43DD-85C0-71D123509C2F",
+        "Config": {
+            "PrivateZone": false
+        },
+        "ResourceRecordSetCount": 2
+    },
+    "ChangeInfo": {
+        "Id": "/change/C067948321B3FOJH7EV1W",
+        "Status": "PENDING",
+        "SubmittedAt": "2020-04-13T07:21:40.972000+00:00"
+    },
+    "DelegationSet": {
+        "NameServers": [
+            "ns-431.awsdns-53.com",
+            "ns-1394.awsdns-46.org",
+            "ns-1708.awsdns-21.co.uk",
+            "ns-946.awsdns-54.net"
+        ]
+    }
+}

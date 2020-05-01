@@ -1,0 +1,184 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: notebook
+  name: notebook
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: notebook
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: notebook
+    spec:
+      containers:
+      - env:
+        - name: DASK_SCHEDULER_ADDRESS
+          value: '"tcp://scheduler:8786"'
+        image: delcacho/dask-notebook
+        imagePullPolicy: ""
+        name: notebook
+        ports:
+        - containerPort: 8888
+        - containerPort: 8000
+        - containerPort: 443
+        resources: {}
+      hostname: notebook
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: scheduler
+  name: scheduler
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: scheduler
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: scheduler
+    spec:
+      containers:
+      - args:
+        - dask-scheduler
+        image: delcacho/dask
+        imagePullPolicy: ""
+        name: scheduler
+        ports:
+        - containerPort: 8786
+        - containerPort: 8787
+        resources: {}
+      hostname: dask-scheduler
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: worker
+  name: worker
+  namespace: default
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      io.kompose.service: worker
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: worker
+    spec:
+      containers:
+      - args:
+        - dask-worker
+        - tcp://scheduler:8786
+        image: delcacho/dask
+        imagePullPolicy: ""
+        name: worker
+        resources: {}
+      hostname: dask-worker
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: notebook
+  name: notebook
+  namespace: default
+spec:
+  ports:
+  - name: "8888"
+    port: 8888
+    targetPort: 8888
+  - name: "8000"
+    port: 8000
+    targetPort: 8000
+  - name: "443"
+    port: 443
+    targetPort: 443
+  - name: "29413"
+    protocol: TCP
+    port: 29413
+  - name: "54321"
+    protocol: TCP
+    port: 54321
+  clusterIP: None
+  selector:
+    io.kompose.service: notebook
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: scheduler
+  name: scheduler
+  namespace: default
+spec:
+  ports:
+  - name: "8786"
+    port: 8786
+    targetPort: 8786
+  - name: "8787"
+    port: 8787
+    targetPort: 8787
+  selector:
+    io.kompose.service: scheduler
+status:
+  loadBalancer: {}
+

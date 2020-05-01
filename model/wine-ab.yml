@@ -1,0 +1,26 @@
+---
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: mlflow-ab-test
+spec:
+  name: mlflow-ab
+  predictors:
+    - graph:
+        children: []
+        implementation: MLFLOW_SERVER
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/600d698441fd4fe1b99974fbf2b17d66/artifacts/wine
+        name: wines-classifier
+        envSecretRefName: seldon-init-container-secret
+      name: a-mlflow-deployment-dag
+      replicas: 1
+      traffic: 80
+    - graph:
+        children: []
+        implementation: MLFLOW_SERVER
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/600d698441fd4fe1b99974fbf2b17d66/artifacts/wine
+        name: wines-classifier
+        envSecretRefName: seldon-init-container-secret
+      name: b-mlflow-deployment-dag
+      replicas: 1
+      traffic: 20

@@ -1,0 +1,7 @@
+## Postgresql values
+postgresqlUsername: "mlflow"
+postgresqlPassword: "pruebademlflow"
+postgresqlDatabase: "mlflowdb"
+service:
+   port: 5432
+pgHbaConfiguration: "host    all    all    0.0.0.0/0    trust"

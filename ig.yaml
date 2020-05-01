@@ -1,0 +1,18 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: null
+  name: nodes
+  labels:
+    kops.k8s.io/cluster: myfirstcluster.k8s.local
+spec:
+  image: delcacho/dask
+  machineType: t2.large
+  maxSize: 5
+  minSize: 5
+  maxPrice: "0.092"
+  nodeLabels:
+    kops.k8s.io/instancegroup: nodes
+  role: Node
+  subnets:
+  - us-east-1a

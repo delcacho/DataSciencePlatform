@@ -1,0 +1,9 @@
+{
+    "AccessKey": {
+        "UserName": "kops",
+        "AccessKeyId": "AKIAUMRLZOPXDQIC543W",
+        "Status": "Active",
+        "SecretAccessKey": "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",
+        "CreateDate": "2020-04-13T07:08:59+00:00"
+    }
+}

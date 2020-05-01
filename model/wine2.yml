@@ -1,0 +1,15 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: mlflow
+spec:
+  name: wines
+  predictors:
+    - graph:
+        children: []
+        implementation: MLFLOW_SERVER
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/600d698441fd4fe1b99974fbf2b17d66/artifacts/wine
+        name: classifier
+        envSecretRefName: seldon-init-container-secret
+      name: default
+      replicas: 1

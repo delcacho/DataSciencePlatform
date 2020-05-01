@@ -1,0 +1,24 @@
+{
+ "display_name": "PySpark (Spark 2.4.5)",
+ "language": "python",
+ "argv": [
+  "python3",
+  "-m",
+  "ipykernel",
+  "-f",
+  "{connection_file}",
+  "--config=/usr/local/share/jupyter/kernels/pyspark/jupyter_notebook_config.py"
+ ],
+ "env": {
+  "JUPYTER_CONFIG_DIR": "/usr/local/share/jupyter/kernels/pyspark",
+  "IPYTHONDIR": "/usr/local/share/jupyter/kernels/pyspark",
+  "JUPYTERLAB_SETTINGS_DIR": "/usr/local/share/jupyter/kernels/pyspark",
+  "JUPYTERLAB_WORKSPACES_DIR": "/usr/local/share/jupyter/kernels/pyspark",
+  "HADOOP_CONF_DIR":"/usr/local/hadoop/etc/hadoop",
+  "PYSPARK_PYTHON":"python3",
+  "SPARK_HOME": "/usr/local/spark",
+  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python",
+  "PYTHONSTARTUP": "/usr/local/spark/python/pyspark/shell.py",
+  "MASTER": "spark://spark-master-svc:7077"
+ }
+}

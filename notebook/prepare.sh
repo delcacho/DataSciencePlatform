@@ -26,5 +26,12 @@ if [ "$EXTRA_PIP_PACKAGES" ]; then
     /opt/conda/bin/pip install $EXTRA_PIP_PACKAGES
 fi
 
+
+export HADOOP_HOME=/usr/local/hadoop
+export MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -mkdir -p hdfs://hdfs-namenode:8020/user/admin
+sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -chmod -R 777 hdfs://hdfs-namenode:8020/
+
 # Run extra commands
 exec "$@"
