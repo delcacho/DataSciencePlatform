@@ -1,0 +1,43 @@
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: spark-ui-proxy-controller
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    component: spark-ui-proxy
+  template:
+    metadata:
+      labels:
+        component: spark-ui-proxy
+    spec:
+      containers:
+        - name: spark-ui-proxy
+          image: ursuad/spark-ui-proxy
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+          args:
+            - spark-master-svc:80
+          livenessProbe:
+              httpGet:
+                path: /
+                port: 80
+              initialDelaySeconds: 120
+              timeoutSeconds: 5
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-ui-proxy
+  namespace: default
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    component: spark-ui-proxy
+  type: LoadBalancer

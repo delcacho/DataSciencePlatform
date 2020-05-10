@@ -1,0 +1,13 @@
+conf
+conf.set('spark.driver.port','29413')
+
+from pyspark import *
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder.config(conf=conf).getOrCreate()
+
+# should spawn 4 jobs in a monitor below the cell
+spark.sparkContext.parallelize(range(0,100)).count()
+spark.sparkContext.parallelize(range(0,100)).count()
+spark.sparkContext.parallelize(range(0,100)).count()
+spark.sparkContext.parallelize(range(0,100)).count()

@@ -5,15 +5,26 @@ from datetime import datetime
 import socket
 import time
 
+def getKeysByValue(dictOfElements, valueToFind):
+    listOfKeys = list()
+    listOfItems = dictOfElements.items()
+    for item  in listOfItems:
+        if item[1] == valueToFind:
+            listOfKeys.append(item[0])
+    return  listOfKeys
+
 # Configs can be set in Configuration class directly or using helper utility
 config.load_kube_config()
 
 hostnames = {
-   "default/ambassador":"api.bayescluster.com",
-   "default/ingress-jupyter-nginx-ingress-controller":"ide.bayescluster.com",
-   "mlflow/ingress-mlflow-nginx-ingress-controller":"mlflow.bayescluster.com",
-   "default/ingress-seldon-nginx-ingress-controller":"grafana.bayescluster.com",
-   "default/ingress-superset-nginx-ingress-controller":"superset.bayescluster.com"
+   "api.bayescluster.com":"default/ambassador",
+   "ide.bayescluster.com":"default/ingress-https-nginx-ingress-controller",
+   "mlflow.bayescluster.com":"default/ingress-mlflow-nginx-ingress-controller",
+   "grafana.bayescluster.com":"default/ingress-seldon-nginx-ingress-controller",
+   "superset.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
+   "jenkins.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
+   "gocd.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
+   "spark.bayescluster.com":"default/spark-ui-proxy"
 }
 
 addresses = {}
@@ -33,10 +44,11 @@ for i in ret.items:
              print("Cannot resolve hostname. Retrying in 10 seconds")
              time.sleep(10)
              pass
-       print(key)
-       if key in hostnames:
-          addresses[hostnames[key]] = ip
-          print("Service",key,"has IP",ip)
+       if key in hostnames.values():
+          hosts = getKeysByValue(hostnames,key)
+          for host in hosts:
+             addresses[host] = ip
+             print("Service",key,"has IP",ip)
 
 datestr = '"Last update %s."' % datetime.utcnow().strftime('%Y-%m-%d %H:%M')
 

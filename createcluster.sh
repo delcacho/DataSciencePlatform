@@ -5,6 +5,8 @@ export NAME=k8s.dev.bayescluster.com
 
 export NUM_WORKERS=5
 
+kops create secret --name k8s.dev.bayescluster.com sshpublickey admin -i ~/.ssh/id_rsa.pub
+
 aws s3api create-bucket \
     --bucket delcachokops \
     --region us-east-1

@@ -18,7 +18,7 @@
   "PYSPARK_PYTHON":"python3",
   "SPARK_HOME": "/usr/local/spark",
   "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python",
-  "PYTHONSTARTUP": "/usr/local/spark/python/pyspark/shell.py",
-  "MASTER": "spark://spark-master-svc:7077"
+  "MASTER": "spark://spark-master-svc:7077",
+  "PYSPARK_SUBMIT_ARGS": " --conf spark.driver.extraClassPath=/usr/local/jupyterlab-sparkmonitor/sparkmonitor/listener.jar --conf spark.extraListeners=sparkmonitor.listener.JupyterSparkMonitorListener --conf spark.driver.port=29413 pyspark-shell"
  }
 }

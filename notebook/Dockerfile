@@ -1,11 +1,18 @@
-FROM jupyter/base-notebook:lab-1.2.5
+FROM jupyter/base-notebook:lab-2.0.1
 
 USER root
 RUN apt-get update \
-  && apt-get install -yq --no-install-recommends graphviz git r-base gcc g++ build-essential \
-  && sudo apt-get purge openjdk* \
+  && apt-get install -yq --no-install-recommends graphviz git build-essential \
+     build-essential texlive-latex-base texlive-fonts-recommended texlive-xetex \
+     texlive-fonts-extra texlive-latex-extra libgsl-dev libatlas-base-dev gfortran
+RUN sudo apt-get purge openjdk* \
   && apt-get install -yq openjdk-8-jdk-headless ca-certificates-java \
-  && apt-get -yqq install docker.io maven && apt-get clean \
+  && apt-get -yqq install docker.io maven curl libcurl4-openssl-dev software-properties-common \
+     libxml2-dev libssl-dev vim iputils-ping \
+  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
+RUN apt update && apt install -yq r-base r-base-core r-recommended r-base-dev \
+  && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 # Spark dependencies
@@ -21,35 +28,40 @@ RUN cd /tmp && \
     rm spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
 RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark
 
-# Spark and Mesos config
 ENV SPARK_HOME=/usr/local/spark
 ENV MASTER=spark://spark-master-svc:7077
 ENV PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip
 ENV SPARK_OPTS="--driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info"
 
-USER $NB_USER
+#USER $NB_USER
 RUN conda install python=3.6.9
-RUN pip install h2o_pysparkling_2.4  colorama ipykernel jupyter-tabnine \
-    causal_impact modin ipyparallel jupyterlab-git hyperopt psycopg2-binary \
-    nbconvert jupyter_contrib_nbextensions jupyterlab_latex jupyterlab_sql mlflow 
-RUN pip install nbresuse jupyter_helpers dvc seaborn spacy sqlalchemy flask
+RUN pip install h2o_pysparkling_2.4  colorama ipykernel portalocker \
+    causal_impact modin ipyparallel hyperopt psycopg2-binary \
+    nbconvert mlflow  ipywidgets jupyterlab_latex
+RUN pip install jupyter_helpers dvc seaborn spacy sqlalchemy flask
 RUN pip install tensorflow-cpu tensorflow-gpu
-RUN pip install jupyterlab==1.2.14
-RUN pip install matplotlib xgboost lightgbm keras
+RUN pip install --pre jupyter-lsp
+RUN pip install jupytext --upgrade
+RUN pip install jupyterlab==2.1.1
+RUN pip install --pre jupyterlab-git==0.20.0rc0
+RUN pip install python-language-server[all]
+RUN pip install matplotlib xgboost lightgbm keras psutil
 RUN pip install ml-versioning-tools dask-kubernetes sqlalchemy-redshift PyHive PyAthena pydruid impyla pinotdb sqlalchemy-clickhouse gsheetsdb gsheets \
  pybigquery pymssql snowflake-sqlalchemy kylinpy \
-    sqlalchemy-pytds snowflake-sqlalchemy jupyterlab-spark-ui-tab pyspark kubernetes
-
-#nb2kg ipykernel
+    sqlalchemy-pytds snowflake-sqlalchemy jupyter_contrib_nbextensions
+RUN pip install pyspark kubernetes jupyter-archive tensorboard jupyter-tensorboard
+RUN pip install jupyter-offlinenotebook nbresuse[resources]
+#RUN pip install jupyterlab-sparkmonitor
+COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
+RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
+WORKDIR /usr/local/jupyterlab-sparkmonitor
+RUN pip install -e .
 
 RUN conda install --yes \
     -c conda-forge \
     -c damianavila82 \
-    jupyter_contrib_nbextensions \
-    jupyter_nbextensions_configurator \
     jupyterhub \
     ipympl \
-    widgetsnbextension \
     python-blosc \
     cytoolz \
     dask==2.11.0 \
@@ -69,11 +81,8 @@ RUN conda install --yes \
     deap==1.3.1 \
     tqdm \
     jupyter-server-proxy==1.2.0 \ 
-    ipywidgets \
     dask-labextension \
     python-graphviz \
-    && npm install -g ijavascript \ 
-    && ijsinstall \
     && conda clean -tipsy \
     && jupyter lab clean \
     && jlpm cache clean \
@@ -87,9 +96,15 @@ RUN conda install --yes \
 #RUN conda install -n r_env r-irkernel
 
 #RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager dask-labextension@1.0.1 @jupyterlab/hub-extension jupyterlab-drawio @jupyterlab/latex
-RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix
+#RUN jupyter serverextension enable jupyterlab_sql --py --sys-prefix
 # @jupyterlab/dataregistry-extension
 
+RUN mkdir -p /home/jovyan/.local/share/jupyter/kernels
+RUN chown jovyan:users -R /home/jovyan/.local
+USER jovyan 
+
+RUN npm install -g ijavascript
+RUN ijsinstall
 USER root
 
 # Create the /opt/app directory, and assert that Jupyter's NB_UID/NB_GID values
@@ -109,54 +124,65 @@ RUN chmod 777 /usr/local/lib/R/site-library
 COPY --chown=1000:100 examples/ /home/$NB_USER/examples
 COPY prepare.sh /usr/bin/prepare.sh
 #COPY nbgrader_config.py /etc/jupyter/nbgrader_config.py
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
-#RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 WORKDIR /opt/conda/lib/python3.7/site-packages
-#RUN jupyter-nbextension install rise --py --sys-prefix
-#RUN jupyter-nbextension enable rise --py --sys-prefix
 RUN jupyter labextension install jupyterlab-topbar-extension
-RUN ipcluster nbextension enable
-#RUN jupyter labextension install jupyterlab_bokeh
-RUN jupyter nbextension enable --py jupyter_tabnine
-RUN jupyter serverextension enable --py jupyter_tabnine
-#RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
-#RUN jupyter labextension install jupyter-matplotlib
-#RUN jupyter labextension install @jupyterlab/dataregistry-extension
-#RUN jupyter labextension install jupyterlab-spreadsheet
-#RUN jupyter labextension install @jupyterlab/plotly-extension
-#RUN jupyter labextension install jupyterlab_toastify jupyterlab_conda
+RUN jupyter tensorboard enable
+RUN jupyter labextension install jupyterlab_tensorboard
+#RUN ipcluster nbextension enable
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+RUN jupyter labextension install jupyter-matplotlib
 RUN jupyter labextension install jupyterlab-system-monitor
-RUN jupyter labextension install jupyterlab-topbar-text
+#RUN jupyter labextension install jupyterlab-topbar-text
 RUN jupyter labextension install jupyterlab-logout
-#RUN jupyter labextension install jupyterlab-theme-toggle
+RUN jupyter labextension install jupyterlab-theme-toggle
 RUN jupyter labextension install @lckr/jupyterlab_variableinspector
 #RUN jupyter labextension install @mflevine/jupyterlab_html
-#RUN jupyter labextension install kubeflow-kale-launcher
 #RUN jupyter labextension install jupyterlab_rise
 #RUN jupyter nbextension install --sys-prefix --py nbgrader --overwrite
 #RUN jupyter nbextension enable --sys-prefix --py nbgrader
 #RUN jupyter serverextension enable --sys-prefix --py nbgrader
 RUN jupyter serverextension enable --py jupyterlab_git
-#RUN jupyter nbextension enable --py jupytext
+RUN jupyter nbextension enable --py jupytext
+RUN jupyter nbextension enable codefolding/main
+RUN jupyter labextension install jupyterlab_filetree
 RUN jupyter contrib nbextension install --user
-RUN jupyter-nbextension enable hinterland/hinterland --sys-prefix
+#RUN jupyter-nbextension enable hinterland/hinterland --sys-prefix
 RUN jupyter-nbextension enable skip-traceback/main --sys-prefix
 RUN jupyter-nbextension enable snippets_menu/main --sys-prefix
-RUN jupyter-nbextension enable toc2/main --sys-prefix
-#RUN jupyter serverextension enable --py nb2kg --sys-prefix
+#RUN jupyter-nbextension enable toc2/main --sys-prefix
+RUN jupyter labextension install @jupyterlab/latex 
+#RUN jupyter labextension install jupyterlab-plotly
+RUN jupyter labextension install @jupyterlab/codemirror
+RUN jupyter labextension install @krassowski/jupyterlab-lsp
+RUN jupyter labextension install @jupyterlab/toc
+RUN jupyter nbextension enable --py jupyter_offlinenotebook --sys-prefix
+RUN jupyter serverextension enable --py jupyter_offlinenotebook --sys-prefix
+RUN jupyter labextension install /usr/local/jupyterlab-sparkmonitor # install the jupyterlab extension
+RUN jupyter serverextension enable --py sparkmonitor
+RUN jupyter serverextension enable jupyter_tensorboard
+RUN jupyter nbextension enable jupyter_tensorboard/tree 
+#RUN jupyter labextension install nbgather 
 #RUN jupyter labextension install @liorbaber/jupyterlab-spark-ui-tab
 #RUN jupyter serverextension install --py spark-ui-tab
+#RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 COPY jupyter_notebook_config.py /etc/ipython/ipython_config.py
 COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
 COPY kernels/ /usr/local/share/jupyter/kernels/
 RUN mkdir -p /usr/local/share/jupyter/kernels/
 RUN jupyter lab build
+RUN jlpm cache clean
+RUN npm cache clean --force
 
 RUN useradd -ms /bin/bash admin
 RUN useradd -ms /bin/bash hdfs
 
 USER root
-RUN R -e 'install.packages("IRkernel")' && R -e 'IRkernel::installspec(user = FALSE)'
+RUN R -e 'install.packages("IRkernel")' && R -e 'IRkernel::installspec(user = FALSE, displayname="R 4.0.0")' && R -e 'install.packages("languageserver")' && R -e 'install.packages("caret",dependencies = T)'
+RUN R -e 'install.packages("randomForest")' && R -e 'install.packages("e1071")' && R -e 'install.packages("rpart")' && R -e 'install.packages("kernlab")' && R -e 'install.packages("nnet")' && R -e 'install.packages("dplyr")' &&  R -e 'install.packages("ggplot2")' && R -e 'install.packages("tidyr")'
+RUN R -e 'install.packages("tm")' && R -e 'install.packages("MICE")' && R -e 'install.packages("igraph")' && R -e 'install.packages("ROCR")' && R -e 'install.packages("DataExplorer")'
+RUN R -e 'install.packages("mlr")' && R -e 'install.packages("arules")' && R -e 'install.packages("mboost")' && R -e 'install.packages("party")' && R -e 'install.packages("mlflow")' 
+RUN R -e 'install.packages("ranger")' && R -e 'install.packages("SparkR")' && R -e 'install.packages("sparklyr")' && R -e 'install.packages("xgboost")' && R -e 'install.packages("esquisse")' && R -e 'install.packages("RCurl")' && R -e 'install.packages("glmnet")'
+
 ADD /sudoers.txt /etc/sudoers
 RUN chmod 440 /etc/sudoers
 USER admin
@@ -192,13 +218,14 @@ RUN chmod ugo+rw /home/admin/.jupyter
 RUN chmod ugo+rw /srv/nbgrader/exchange
 #USER $NB_USER
 
-#ENV JUPYTER_GATEWAY_URL=http://enterprise-gateway.enterprise-gateway.svc.cluster.local:8888
-#ENV KG_URL=http://enterprise-gateway.enterprise-gateway.svc.cluster.local:8888
-
 USER admin
 WORKDIR /home/admin
-RUN mkdir -p ~/.ipython
 RUN wget http://h2o-release.s3.amazonaws.com/sparkling-water/spark-2.4/3.30.0.1-1-2.4/sparkling-water-3.30.0.1-1-2.4.zip && unzip sparkling-water-3.30.0.1-1-2.4.zip && rm sparkling-water-3.30.0.1-1-2.4.zip
+USER root
+#RUN R -e 'remove.packages("h2o")'
+RUN R -e 'install.packages("h2o", type = "source", repos = "http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/1/R")'
+RUN R -e 'install.packages("/home/admin/sparkling-water-3.30.0.1-1-2.4/rsparkling_3.30.0.1-1-2.4.tar.gz", repos=NULL, type="source")'
+USER admin
 ENV MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV HADOOP_HOME=/usr/local/hadoop
@@ -212,9 +239,11 @@ ENV HADOOP_HOME=/usr/local/hadoop
 ENV PATH=$SPARK_HOME/bin:$PATH:$HADOOP_HOME/bin
 ENV PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
 ENV PYSPARK_DRIVER_PYTHON="jupyter"
-eNV PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+ENV PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 ENV PYSPARK_PYTHON=python3
 ENV PATH=$SPARK_HOME/bin:$PATH:~/.local/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
+ENV SPARKMONITOR_UI_HOST=spark-master-svc
+ENV SPARKMONITOR_UI_PORT=80
 
 ENTRYPOINT ["tini", "--", "/usr/bin/prepare.sh"]
 #CMD ["start.sh", "jupyter", "lab"]

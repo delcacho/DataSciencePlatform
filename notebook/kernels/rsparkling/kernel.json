@@ -1,0 +1,18 @@
+{
+ "display_name": "R + Sparkling Water",
+ "language": "R",
+ "argv": [
+  "R",
+  "--slave",
+  "-e",
+  "IRkernel::main()",
+  "--args",
+  "{connection_file}"
+ ],
+ "env": {
+  "HADOOP_CONF_DIR":"/usr/local/hadoop/etc/hadoop",
+  "SPARK_HOME": "/usr/local/spark",
+  "MASTER": "spark://spark-master-svc:7077",
+  "R_PROFILE_USER": "/usr/local/share/jupyter/kernels/rsparkling/.Rprofile"
+ }
+}

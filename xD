@@ -1,3 +1,4 @@
+no environment.yml
 + '[' '' ']'
 + '[' -e /opt/app/environment.yml ']'
 + echo 'no environment.yml'
@@ -10,196 +11,1880 @@
 + export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 + JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 + sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -mkdir -p hdfs://hdfs-namenode:8020/user/admin
-no environment.yml
 + sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -chmod -R 777 hdfs://hdfs-namenode:8020/
 + exec jupyterhub --debug --port=8000 -f /etc/jupyterhub/jupyterhub_config.py --ssl-key=/home/jovyan/jhub.key --ssl-cert=/home/jovyan/jhub.crt
-[D 2020-05-01 14:08:56.116 JupyterHub application:556] Looking for /etc/jupyterhub/jupyterhub_config in /home/admin
-[D 2020-05-01 14:08:56.117 JupyterHub application:578] Loaded config file: /etc/jupyterhub/jupyterhub_config.py
-[I 2020-05-01 14:08:56.144 JupyterHub app:2240] Running JupyterHub version 1.1.0
-[I 2020-05-01 14:08:56.144 JupyterHub app:2271] Using Authenticator: jupyterhub.auth.PAMAuthenticator-1.1.0
-[I 2020-05-01 14:08:56.144 JupyterHub app:2271] Using Spawner: jupyterhub.spawner.LocalProcessSpawner-1.1.0
-[I 2020-05-01 14:08:56.144 JupyterHub app:2271] Using Proxy: jupyterhub.proxy.ConfigurableHTTPProxy-1.1.0
-[D 2020-05-01 14:08:56.191 JupyterHub app:1389] Generating new cookie_secret
-[I 2020-05-01 14:08:56.191 JupyterHub app:1394] Writing cookie_secret to /home/admin/jupyterhub_cookie_secret
-[D 2020-05-01 14:08:56.191 JupyterHub app:1516] Connecting to db: sqlite:///jupyterhub.sqlite
-[D 2020-05-01 14:08:56.244 JupyterHub orm:718] Stamping empty database with alembic revision 4dc2d5a8c53c
-[I 2020-05-01 14:08:56.256 alembic.runtime.migration migration:154] Context impl SQLiteImpl.
-[I 2020-05-01 14:08:56.256 alembic.runtime.migration migration:161] Will assume non-transactional DDL.
-[I 2020-05-01 14:08:56.283 alembic.runtime.migration migration:513] Running stamp_revision  -> 4dc2d5a8c53c
-[D 2020-05-01 14:08:56.284 alembic.runtime.migration migration:723] new branch insert 4dc2d5a8c53c
-[I 2020-05-01 14:08:56.383 JupyterHub proxy:461] Generating new CONFIGPROXY_AUTH_TOKEN
-[I 2020-05-01 14:08:56.413 JupyterHub app:1655] Not using whitelist. Any authenticated user will be allowed.
-[D 2020-05-01 14:08:56.437 JupyterHub app:1914] Initializing spawners
-[D 2020-05-01 14:08:56.450 JupyterHub app:2011] Loading state for admin from db
-[D 2020-05-01 14:08:56.450 JupyterHub app:2038] Loaded users:
+[D 2020-05-09 15:55:37.826 JupyterHub application:556] Looking for /etc/jupyterhub/jupyterhub_config in /home/admin
+[D 2020-05-09 15:55:37.826 JupyterHub application:578] Loaded config file: /etc/jupyterhub/jupyterhub_config.py
+[I 2020-05-09 15:55:37.859 JupyterHub app:2240] Running JupyterHub version 1.1.0
+[I 2020-05-09 15:55:37.859 JupyterHub app:2271] Using Authenticator: jupyterhub.auth.PAMAuthenticator-1.1.0
+[I 2020-05-09 15:55:37.859 JupyterHub app:2271] Using Spawner: jupyterhub.spawner.LocalProcessSpawner-1.1.0
+[I 2020-05-09 15:55:37.859 JupyterHub app:2271] Using Proxy: jupyterhub.proxy.ConfigurableHTTPProxy-1.1.0
+[D 2020-05-09 15:55:37.901 JupyterHub app:1389] Generating new cookie_secret
+[I 2020-05-09 15:55:37.901 JupyterHub app:1394] Writing cookie_secret to /home/admin/jupyterhub_cookie_secret
+[D 2020-05-09 15:55:37.901 JupyterHub app:1516] Connecting to db: sqlite:///jupyterhub.sqlite
+[D 2020-05-09 15:55:37.973 JupyterHub orm:718] Stamping empty database with alembic revision 4dc2d5a8c53c
+[I 2020-05-09 15:55:37.986 alembic.runtime.migration migration:155] Context impl SQLiteImpl.
+[I 2020-05-09 15:55:37.986 alembic.runtime.migration migration:162] Will assume non-transactional DDL.
+[I 2020-05-09 15:55:38.007 alembic.runtime.migration migration:515] Running stamp_revision  -> 4dc2d5a8c53c
+[D 2020-05-09 15:55:38.008 alembic.runtime.migration migration:725] new branch insert 4dc2d5a8c53c
+[I 2020-05-09 15:55:38.099 JupyterHub proxy:461] Generating new CONFIGPROXY_AUTH_TOKEN
+[I 2020-05-09 15:55:38.125 JupyterHub app:1655] Not using whitelist. Any authenticated user will be allowed.
+[D 2020-05-09 15:55:38.149 JupyterHub app:1914] Initializing spawners
+[D 2020-05-09 15:55:38.161 JupyterHub app:2011] Loading state for admin from db
+[D 2020-05-09 15:55:38.161 JupyterHub app:2038] Loaded users:
        admin admin
-[I 2020-05-01 14:08:56.450 JupyterHub app:2311] Initialized 0 spawners in 0.013 seconds
-[I 2020-05-01 14:08:56.453 JupyterHub proxy:646] Starting proxy @ http://:8000
-[D 2020-05-01 14:08:56.453 JupyterHub proxy:647] Proxy cmd: ['configurable-http-proxy', '--ip', '', '--port', '8000', '--api-ip', '127.0.0.1', '--api-port', '8001', '--error-target', 'http://127.0.0.1:8081/hub/error', '--ssl-key', '/home/jovyan/jhub.key', '--ssl-cert', '/home/jovyan/jhub.crt']
-[D 2020-05-01 14:08:56.458 JupyterHub proxy:562] Writing proxy pid file: jupyterhub-proxy.pid
-14:08:57.098 [ConfigProxy] [32minfo[39m: Proxying https://*:8000 to (no default)
-14:08:57.110 [ConfigProxy] [32minfo[39m: Proxy API at http://127.0.0.1:8001/api/routes
-[D 2020-05-01 14:08:57.522 JupyterHub proxy:682] Proxy started and appears to be up
-[D 2020-05-01 14:08:57.523 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
-14:08:57.539 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
-[I 2020-05-01 14:08:57.540 JupyterHub app:2556] Hub API listening on http://127.0.0.1:8081/hub/
-[D 2020-05-01 14:08:57.540 JupyterHub proxy:315] Fetching routes to check
-[D 2020-05-01 14:08:57.540 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
-[I 2020-05-01 14:08:57.541 JupyterHub proxy:320] Checking routes
-[I 2020-05-01 14:08:57.541 JupyterHub proxy:400] Adding default route for Hub: / => http://127.0.0.1:8081
-[D 2020-05-01 14:08:57.542 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/
-14:08:57.541 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
-14:08:57.543 [ConfigProxy] [32minfo[39m: Adding route / -> http://127.0.0.1:8081
-14:08:57.543 [ConfigProxy] [32minfo[39m: Route added / -> http://127.0.0.1:8081
-[I 2020-05-01 14:08:57.544 JupyterHub app:2631] JupyterHub is now running at http://:8000
-[D 2020-05-01 14:08:57.544 JupyterHub app:2233] It took 1.432 seconds for the Hub to start
-14:08:57.545 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/ 
-[D 2020-05-01 14:13:57.545 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
-14:13:57.547 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
-[I 2020-05-01 14:13:57.547 JupyterHub proxy:320] Checking routes
-14:18:57.547 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
-[D 2020-05-01 14:18:57.545 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
-[I 2020-05-01 14:18:57.548 JupyterHub proxy:320] Checking routes
-[I 2020-05-01 14:19:14.895 JupyterHub log:174] 302 GET / -> /hub/ (@172.20.38.227) 1.10ms
-[I 2020-05-01 14:19:15.004 JupyterHub log:174] 302 GET /hub/ -> /hub/login (@172.20.38.227) 0.85ms
-[I 2020-05-01 14:19:15.184 JupyterHub log:174] 200 GET /hub/login (@172.20.38.227) 73.59ms
-[D 2020-05-01 14:19:15.355 JupyterHub log:174] 200 GET /hub/static/css/style.min.css?v=ab35cbd1a6857ec00620a56c43760477 (@172.20.38.227) 1.52ms
-[D 2020-05-01 14:19:15.357 JupyterHub log:174] 200 GET /hub/static/components/bootstrap/dist/js/bootstrap.min.js?v=2f34b630ffe30ba2ff2b91e3f3c322a1 (@172.20.38.227) 1.29ms
-[D 2020-05-01 14:19:15.360 JupyterHub log:174] 200 GET /hub/logo (@172.20.38.227) 2.13ms
-[D 2020-05-01 14:19:15.361 JupyterHub log:174] 200 GET /hub/static/components/requirejs/require.js?v=f0cc8bbb2fcef87fc194fecbb632fcfa (@172.20.38.227) 2.49ms
-[D 2020-05-01 14:19:15.361 JupyterHub log:174] 200 GET /hub/static/components/jquery/dist/jquery.min.js?v=220afd743d9e9643852e31a135a9f3ae (@172.20.38.227) 2.90ms
-[D 2020-05-01 14:19:15.966 JupyterHub log:174] 200 GET /favicon.ico (@172.20.38.227) 1.55ms
-[D 2020-05-01 14:19:19.463 JupyterHub base:522] Setting cookie jupyterhub-session-id: {'httponly': True, 'secure': True}
-[D 2020-05-01 14:19:19.464 JupyterHub base:526] Setting cookie for admin: jupyterhub-hub-login
-[D 2020-05-01 14:19:19.464 JupyterHub base:522] Setting cookie jupyterhub-hub-login: {'httponly': True, 'secure': True, 'path': '/hub/'}
-[I 2020-05-01 14:19:19.464 JupyterHub base:707] User logged in: admin
-[D 2020-05-01 14:19:19.464 JupyterHub user:242] Creating <class 'jupyterhub.spawner.LocalProcessSpawner'> for admin:
-[I 2020-05-01 14:19:19.468 JupyterHub log:174] 302 POST /hub/login?next= -> /hub/spawn (admin@172.20.38.227) 58.97ms
-[D 2020-05-01 14:19:19.575 JupyterHub base:285] Recording first activity for <User(admin 0/1 running)>
-[D 2020-05-01 14:19:19.582 JupyterHub pages:195] Triggering spawn with default options for admin
-[D 2020-05-01 14:19:19.582 JupyterHub base:825] Initiating spawn for admin
-[D 2020-05-01 14:19:19.582 JupyterHub base:832] 0/100 concurrent spawns
-[D 2020-05-01 14:19:19.582 JupyterHub base:837] 0 active servers
-[D 2020-05-01 14:19:19.616 JupyterHub user:556] Calling Spawner.start for admin
-[I 2020-05-01 14:19:19.618 JupyterHub spawner:1417] Spawning jupyterhub-singleuser --port=56797 '--notebook-dir=~/notebooks' --NotebookApp.default_url=/lab --debug
-[D 2020-05-01 14:19:19.632 JupyterHub spawner:1113] Polling subprocess every 30s
-[I 2020-05-01 14:19:20.583 JupyterHub log:174] 302 GET /hub/spawn -> /hub/spawn-pending/admin (admin@172.20.38.227) 1010.83ms
-[I 2020-05-01 14:19:20.846 JupyterHub pages:347] admin is pending spawn
-[I 2020-05-01 14:19:20.853 JupyterHub log:174] 200 GET /hub/spawn-pending/admin (admin@172.20.38.227) 16.59ms
-[D 2020-05-01 14:19:21.063 JupyterHub log:174] 200 GET /hub/static/components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 (@172.20.38.227) 2.81ms
-[D 2020-05-01 14:19:21.295 SingleUserNotebookApp application:179] Searching ['/home/admin', '/home/admin/.jupyter', '/opt/conda/etc/jupyter', '/usr/local/etc/jupyter', '/etc/jupyter'] for config files
-[D 2020-05-01 14:19:21.296 SingleUserNotebookApp application:556] Looking for jupyter_config in /etc/jupyter
-[D 2020-05-01 14:19:21.296 SingleUserNotebookApp application:556] Looking for jupyter_config in /usr/local/etc/jupyter
-[D 2020-05-01 14:19:21.297 SingleUserNotebookApp application:556] Looking for jupyter_config in /opt/conda/etc/jupyter
-[D 2020-05-01 14:19:21.297 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/admin/.jupyter
-[D 2020-05-01 14:19:21.297 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/admin
-[D 2020-05-01 14:19:21.298 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /etc/jupyter
-[D 2020-05-01 14:19:21.299 SingleUserNotebookApp application:578] Loaded config file: /etc/jupyter/jupyter_notebook_config.py
-[D 2020-05-01 14:19:21.299 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /usr/local/etc/jupyter
-[D 2020-05-01 14:19:21.300 SingleUserNotebookApp application:578] Loaded config file: /usr/local/etc/jupyter/jupyter_notebook_config.json
-[D 2020-05-01 14:19:21.300 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /opt/conda/etc/jupyter
-[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:578] Loaded config file: /opt/conda/etc/jupyter/jupyter_notebook_config.json
-[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/admin/.jupyter
-[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:578] Loaded config file: /home/admin/.jupyter/jupyter_notebook_config.py
-[D 2020-05-01 14:19:21.301 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/admin
-[W 2020-05-01 14:19:21.305 SingleUserNotebookApp configurable:168] Config option `open_browser` not recognized by `SingleUserNotebookApp`.  Did you mean `browser`?
-[D 2020-05-01 14:19:21.311 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+[I 2020-05-09 15:55:38.162 JupyterHub app:2311] Initialized 0 spawners in 0.013 seconds
+[I 2020-05-09 15:55:38.165 JupyterHub proxy:646] Starting proxy @ http://:8000
+[D 2020-05-09 15:55:38.165 JupyterHub proxy:647] Proxy cmd: ['configurable-http-proxy', '--ip', '', '--port', '8000', '--api-ip', '127.0.0.1', '--api-port', '8001', '--error-target', 'http://127.0.0.1:8081/hub/error', '--ssl-key', '/home/jovyan/jhub.key', '--ssl-cert', '/home/jovyan/jhub.crt']
+[D 2020-05-09 15:55:38.169 JupyterHub proxy:562] Writing proxy pid file: jupyterhub-proxy.pid
+15:55:38.962 [ConfigProxy] [32minfo[39m: Proxying https://*:8000 to (no default)
+15:55:38.974 [ConfigProxy] [32minfo[39m: Proxy API at http://127.0.0.1:8001/api/routes
+[D 2020-05-09 15:55:39.270 JupyterHub proxy:682] Proxy started and appears to be up
+[D 2020-05-09 15:55:39.271 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+15:55:39.288 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+15:55:39.291 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+15:55:39.292 [ConfigProxy] [32minfo[39m: Adding route / -> http://127.0.0.1:8081
+15:55:39.293 [ConfigProxy] [32minfo[39m: Route added / -> http://127.0.0.1:8081
+[I 2020-05-09 15:55:39.286 JupyterHub app:2556] Hub API listening on http://127.0.0.1:8081/hub/
+[D 2020-05-09 15:55:39.286 JupyterHub proxy:315] Fetching routes to check
+[D 2020-05-09 15:55:39.286 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+[I 2020-05-09 15:55:39.290 JupyterHub proxy:320] Checking routes
+[I 2020-05-09 15:55:39.290 JupyterHub proxy:400] Adding default route for Hub: / => http://127.0.0.1:8081
+[D 2020-05-09 15:55:39.290 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/
+[I 2020-05-09 15:55:39.294 JupyterHub app:2631] JupyterHub is now running at http://:8000
+15:55:39.296 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/ 
+[D 2020-05-09 15:55:39.295 JupyterHub app:2233] It took 1.472 seconds for the Hub to start
+[D 2020-05-09 16:00:39.294 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+16:00:39.297 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+[I 2020-05-09 16:00:39.298 JupyterHub proxy:320] Checking routes
+[I 2020-05-09 16:05:05.615 JupyterHub log:174] 302 GET / -> /hub/ (@172.20.41.169) 1.21ms
+[I 2020-05-09 16:05:05.722 JupyterHub log:174] 302 GET /hub/ -> /hub/login (@172.20.41.169) 2.94ms
+[I 2020-05-09 16:05:05.862 JupyterHub log:174] 200 GET /hub/login (@172.20.41.169) 38.42ms
+[D 2020-05-09 16:05:06.007 JupyterHub log:174] 200 GET /hub/static/components/requirejs/require.js?v=f0cc8bbb2fcef87fc194fecbb632fcfa (@172.20.41.169) 1.49ms
+[D 2020-05-09 16:05:06.009 JupyterHub log:174] 200 GET /hub/static/css/style.min.css?v=ab35cbd1a6857ec00620a56c43760477 (@172.20.41.169) 1.35ms
+[D 2020-05-09 16:05:06.011 JupyterHub log:174] 200 GET /hub/static/components/jquery/dist/jquery.min.js?v=220afd743d9e9643852e31a135a9f3ae (@172.20.41.169) 1.91ms
+[D 2020-05-09 16:05:06.012 JupyterHub log:174] 200 GET /hub/static/components/bootstrap/dist/js/bootstrap.min.js?v=2f34b630ffe30ba2ff2b91e3f3c322a1 (@172.20.41.169) 2.18ms
+[D 2020-05-09 16:05:06.301 JupyterHub log:174] 200 GET /hub/logo (@172.20.41.169) 1.77ms
+[D 2020-05-09 16:05:06.577 JupyterHub log:174] 200 GET /favicon.ico (@172.20.41.169) 1.60ms
+[D 2020-05-09 16:05:10.336 JupyterHub base:526] Setting cookie for admin: jupyterhub-hub-login
+[D 2020-05-09 16:05:10.336 JupyterHub base:522] Setting cookie jupyterhub-hub-login: {'httponly': True, 'secure': True, 'path': '/hub/'}
+[I 2020-05-09 16:05:10.336 JupyterHub base:707] User logged in: admin
+[D 2020-05-09 16:05:10.337 JupyterHub user:242] Creating <class 'jupyterhub.spawner.LocalProcessSpawner'> for admin:
+[I 2020-05-09 16:05:10.339 JupyterHub log:174] 302 POST /hub/login?next= -> /hub/spawn (admin@172.20.41.169) 39.11ms
+[D 2020-05-09 16:05:10.464 JupyterHub base:285] Recording first activity for <User(admin 0/1 running)>
+[D 2020-05-09 16:05:10.470 JupyterHub pages:195] Triggering spawn with default options for admin
+[D 2020-05-09 16:05:10.470 JupyterHub base:825] Initiating spawn for admin
+[D 2020-05-09 16:05:10.470 JupyterHub base:832] 0/100 concurrent spawns
+[D 2020-05-09 16:05:10.470 JupyterHub base:837] 0 active servers
+[D 2020-05-09 16:05:10.503 JupyterHub user:556] Calling Spawner.start for admin
+[I 2020-05-09 16:05:10.505 JupyterHub spawner:1417] Spawning jupyterhub-singleuser --port=33193 '--notebook-dir=~/notebooks' --NotebookApp.default_url=/lab --debug
+[D 2020-05-09 16:05:10.517 JupyterHub spawner:1113] Polling subprocess every 30s
+[I 2020-05-09 16:05:11.472 JupyterHub log:174] 302 GET /hub/spawn -> /hub/spawn-pending/admin (admin@172.20.41.169) 1010.46ms
+[D 2020-05-09 16:05:11.663 SingleUserNotebookApp application:179] Searching ['/home/admin', '/home/admin/.jupyter', '/opt/conda/etc/jupyter', '/usr/local/etc/jupyter', '/etc/jupyter'] for config files
+[D 2020-05-09 16:05:11.664 SingleUserNotebookApp application:556] Looking for jupyter_config in /etc/jupyter
+[D 2020-05-09 16:05:11.665 SingleUserNotebookApp application:556] Looking for jupyter_config in /usr/local/etc/jupyter
+[D 2020-05-09 16:05:11.665 SingleUserNotebookApp application:556] Looking for jupyter_config in /opt/conda/etc/jupyter
+[D 2020-05-09 16:05:11.665 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/admin/.jupyter
+[D 2020-05-09 16:05:11.666 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/admin
+[D 2020-05-09 16:05:11.667 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /etc/jupyter
+[D 2020-05-09 16:05:11.668 SingleUserNotebookApp application:578] Loaded config file: /etc/jupyter/jupyter_notebook_config.py
+[D 2020-05-09 16:05:11.668 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /usr/local/etc/jupyter
+[D 2020-05-09 16:05:11.669 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /opt/conda/etc/jupyter
+[D 2020-05-09 16:05:11.670 SingleUserNotebookApp application:578] Loaded config file: /opt/conda/etc/jupyter/jupyter_notebook_config.json
+[D 2020-05-09 16:05:11.670 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/admin/.jupyter
+[D 2020-05-09 16:05:11.670 SingleUserNotebookApp application:578] Loaded config file: /home/admin/.jupyter/jupyter_notebook_config.py
+[D 2020-05-09 16:05:11.670 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/admin
+[W 2020-05-09 16:05:11.675 SingleUserNotebookApp configurable:168] Config option `open_browser` not recognized by `SingleUserNotebookApp`.  Did you mean `browser`?
+[I 2020-05-09 16:05:11.791 JupyterHub pages:347] admin is pending spawn
+[I 2020-05-09 16:05:11.796 JupyterHub log:174] 200 GET /hub/spawn-pending/admin (admin@172.20.41.169) 8.42ms
+[D 2020-05-09 16:05:12.000 JupyterHub log:174] 200 GET /hub/static/components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 (@172.20.41.169) 2.91ms
+[D 2020-05-09 16:05:12.193 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
     	/etc/jupyter/jupyter_notebook_config.json
-[D 2020-05-01 14:19:21.312 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+[D 2020-05-09 16:05:12.194 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
     	/usr/local/etc/jupyter/jupyter_notebook_config.json
-[D 2020-05-01 14:19:21.312 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+[D 2020-05-09 16:05:12.194 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/dask_labextension.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/ipyparallel-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-lsp-serverextension.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-server-proxy-serverextension.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_git.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_latex.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupytext.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/nbdime.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/offlinenotebook_serverextension.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.d/serverextension.json
     	/opt/conda/etc/jupyter/jupyter_notebook_config.json
-[D 2020-05-01 14:19:21.317 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+[D 2020-05-09 16:05:12.202 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
     	/home/admin/.jupyter/jupyter_notebook_config.json
-[I 2020-05-01 14:19:23.754 SingleUserNotebookApp handlers:78] Loading IPython parallel extension
-[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:228] [jupyter_nbextensions_configurator] Loading 0.4.1
-[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:233] [jupyter_nbextensions_configurator]   Editing templates path to add /opt/conda/lib/python3.6/site-packages/jupyter_nbextensions_configurator/templates
-[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:246] [jupyter_nbextensions_configurator]   Editing nbextensions path to add /opt/conda/lib/python3.6/site-packages/jupyter_nbextensions_configurator/static
-[D 2020-05-01 14:19:23.759 SingleUserNotebookApp __init__:251] [jupyter_nbextensions_configurator]   Adding new handlers
-[I 2020-05-01 14:19:23.760 SingleUserNotebookApp __init__:259] [jupyter_nbextensions_configurator] enabled 0.4.1
-[I 2020-05-01 14:19:24.231 SingleUserNotebookApp extension:158] JupyterLab extension loaded from /opt/conda/lib/python3.6/site-packages/jupyterlab
-[I 2020-05-01 14:19:24.231 SingleUserNotebookApp extension:159] JupyterLab application directory is /opt/conda/share/jupyter/lab
-[D 2020-05-01 14:19:24.528 SingleUserNotebookApp commands:1792] Yarn configuration loaded.
-[I 2020-05-01 14:19:24.693 SingleUserNotebookApp __init__:9] Loading server extension jupyterlab_sql
-[D 2020-05-01 14:19:24.956 SingleUserNotebookApp loader:342] Using default logger
-[D 2020-05-01 14:19:24.956 SingleUserNotebookApp loader:342] Using default logger
-[D 2020-05-01 14:19:24.956 SingleUserNotebookApp loader:342] Using default logger
-[D 2020-05-01 14:19:24.957 SingleUserNotebookApp loader:342] Using default logger
-[D 2020-05-01 14:19:24.957 SingleUserNotebookApp loader:342] Using default logger
-[I 2020-05-01 14:19:24.971 SingleUserNotebookApp singleuser:561] Starting jupyterhub-singleuser server version 1.1.0
-[D 2020-05-01 14:19:24.978 JupyterHub utils:218] Server at http://127.0.0.1:56797/user/admin/ responded with 302
-[D 2020-05-01 14:19:24.979 JupyterHub _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
-[I 2020-05-01 14:19:24.979 JupyterHub base:855] User admin took 5.397 seconds to start
-[I 2020-05-01 14:19:24.979 JupyterHub proxy:262] Adding user admin to proxy /user/admin/ => http://127.0.0.1:56797
-[D 2020-05-01 14:19:24.980 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/user/admin
-[I 2020-05-01 14:19:24.981 JupyterHub log:174] 200 GET /hub/api (@127.0.0.1) 0.86ms
-14:19:24.983 [ConfigProxy] [32minfo[39m: Adding route /user/admin -> http://127.0.0.1:56797
-14:19:24.983 [ConfigProxy] [32minfo[39m: Route added /user/admin -> http://127.0.0.1:56797
-14:19:24.983 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/user/admin 
-[D 2020-05-01 14:19:24.982 SingleUserNotebookApp _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
-[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1924] Serving notebooks from local directory: /home/admin/notebooks
-[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1924] The Jupyter Notebook is running at:
-[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1924] http://notebook:56797/user/admin/
-[I 2020-05-01 14:19:24.984 SingleUserNotebookApp notebookapp:1925] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[I 2020-05-01 14:19:24.984 JupyterHub users:609] Server admin is ready
-[I 2020-05-01 14:19:24.985 JupyterHub log:174] 200 GET /hub/api/users/admin/server/progress (admin@172.20.38.227) 3921.25ms
-[I 2020-05-01 14:19:24.990 SingleUserNotebookApp singleuser:542] Updating Hub with activity every 300 seconds
-[D 2020-05-01 14:19:24.991 SingleUserNotebookApp singleuser:503] Notifying Hub of activity 2020-05-01T14:19:21.325530Z
-[D 2020-05-01 14:19:24.997 JupyterHub base:285] Recording first activity for <APIToken('8975...', user='admin')>
-[D 2020-05-01 14:19:25.009 JupyterHub users:711] Activity for user admin: 2020-05-01T14:19:21.325530Z
-[D 2020-05-01 14:19:25.009 JupyterHub users:732] Activity on server admin/: 2020-05-01T14:19:21.325530Z
-[I 2020-05-01 14:19:25.015 JupyterHub log:174] 200 POST /hub/api/users/admin/activity (admin@127.0.0.1) 20.87ms
-[I 2020-05-01 14:19:25.101 JupyterHub log:174] 302 GET /hub/spawn-pending/admin -> /user/admin/ (admin@172.20.38.227) 3.61ms
-[D 2020-05-01 14:19:25.432 JupyterHub provider:414] Validating client id jupyterhub-user-admin
-[D 2020-05-01 14:19:25.433 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
-[D 2020-05-01 14:19:25.435 JupyterHub auth:247] Skipping oauth confirmation for <User(admin 1/1 running)> accessing Server at /user/admin/
-[D 2020-05-01 14:19:25.435 JupyterHub provider:414] Validating client id jupyterhub-user-admin
-[D 2020-05-01 14:19:25.436 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
-[D 2020-05-01 14:19:25.437 JupyterHub provider:241] Saving authorization code jupyterhub-user-admin, j8O..., (), {}
-[I 2020-05-01 14:19:25.445 JupyterHub log:174] 302 GET /hub/api/oauth2/authorize?client_id=jupyterhub-user-admin&redirect_uri=%2Fuser%2Fadmin%2Foauth_callback&response_type=code&state=[secret] -> /user/admin/oauth_callback?code=[secret]&state=[secret] (admin@172.20.38.227) 16.84ms
-[D 2020-05-01 14:19:25.565 JupyterHub provider:60] authenticate_client <oauthlib.Request url="/hub/api/oauth2/token", http_method="POST", headers="{'Host': '127.0.0.1:8081', 'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': '<SANITIZED>', 'Content-Length': '190'}", body="client_id=jupyterhub-user-admin&client_secret=8975f05120e3413988d9f2e8d6ae932f&grant_type=authorization_code&code=j8O6MSxtam897ugz45x8Ib4PFqp0rf&redirect_uri=%2Fuser%2Fadmin%2Foauth_callback">
-[D 2020-05-01 14:19:25.572 JupyterHub provider:119] confirm_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
-[D 2020-05-01 14:19:25.573 JupyterHub provider:339] Saving bearer token {'access_token': 'REDACTED', 'expires_in': 3600, 'token_type': 'Bearer', 'scope': 'identify', 'refresh_token': 'REDACTED'}
-[D 2020-05-01 14:19:25.581 JupyterHub provider:194] Deleting oauth code j8O... for jupyterhub-user-admin
-[I 2020-05-01 14:19:25.589 JupyterHub log:174] 200 POST /hub/api/oauth2/token (admin@127.0.0.1) 27.55ms
-[I 2020-05-01 14:19:25.606 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (admin@127.0.0.1) 14.32ms
-[D 2020-05-01 14:19:25.716 SingleUserNotebookApp handlers:252] Using contents: services/contents
-[D 2020-05-01 14:19:25.856 SingleUserNotebookApp handlers:828] Path main.fa21c790f563fb62a599.js served from /opt/conda/share/jupyter/lab/static/main.fa21c790f563fb62a599.js
-[D 2020-05-01 14:19:25.858 SingleUserNotebookApp handlers:828] Path vendors~main.382d57fe7dec8f27037f.js served from /opt/conda/share/jupyter/lab/static/vendors~main.382d57fe7dec8f27037f.js
-[I 2020-05-01 14:19:27.622 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (admin@127.0.0.1) 11.59ms
-[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
-[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:27.628 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
-[W 2020-05-01 14:19:27.706 SingleUserNotebookApp handlers:608] Failed parsing schema (jupyterlab-topbar-text:plugin): 'ascii' codec can't decode byte 0xf0 in position 287: ordinal not in range(128)
-[D 2020-05-01 14:19:27.709 SingleUserNotebookApp handlers:828] Path base/images/favicon.ico served from /opt/conda/lib/python3.6/site-packages/notebook/static/base/images/favicon.ico
-[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
-[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:27.752 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:28.180 SingleUserNotebookApp commands:1792] Yarn configuration loaded.
-[D 2020-05-01 14:19:28.235 SingleUserNotebookApp commands:1757] Node v13.9.0
+[I 2020-05-09 16:05:14.168 SingleUserNotebookApp handlers:78] Loading IPython parallel extension
+[D 2020-05-09 16:05:14.287 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/bash-language-server/bin/main.js
+[D 2020-05-09 16:05:14.288 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/bash-language-server/bin/main.js
+[D 2020-05-09 16:05:14.288 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/bash-language-server/bin/main.js
+[D 2020-05-09 16:05:14.289 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/bash-language-server/bin/main.js
+[D 2020-05-09 16:05:14.289 SingleUserNotebookApp types:223] bash-language-server/bin/main.js not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.289 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-05-09 16:05:14.289 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-05-09 16:05:14.289 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-05-09 16:05:14.289 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-05-09 16:05:14.289 SingleUserNotebookApp types:223] dockerfile-language-server-nodejs/lib/server.js not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.290 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-05-09 16:05:14.290 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-05-09 16:05:14.290 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-05-09 16:05:14.290 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-05-09 16:05:14.290 SingleUserNotebookApp types:223] javascript-typescript-langserver/lib/language-server-stdio.js not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.292 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/unified-language-server/src/server.js
+[D 2020-05-09 16:05:14.292 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/unified-language-server/src/server.js
+[D 2020-05-09 16:05:14.292 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/unified-language-server/src/server.js
+[D 2020-05-09 16:05:14.292 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/unified-language-server/src/server.js
+[D 2020-05-09 16:05:14.292 SingleUserNotebookApp types:223] unified-language-server/src/server.js not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.293 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-05-09 16:05:14.293 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-05-09 16:05:14.293 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-05-09 16:05:14.293 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-05-09 16:05:14.293 SingleUserNotebookApp types:223] vscode-css-languageserver-bin/cssServerMain.js not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.293 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-05-09 16:05:14.293 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:223] vscode-html-languageserver-bin/htmlServerMain.js not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:223] vscode-json-languageserver-bin/jsonServerMain.js not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.294 SingleUserNotebookApp types:215] Checking for /home/admin/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-05-09 16:05:14.295 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-05-09 16:05:14.295 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-05-09 16:05:14.295 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-05-09 16:05:14.295 SingleUserNotebookApp types:223] yaml-language-server/bin/yaml-language-server not found in node_modules of [PosixPath('/home/admin'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-05-09 16:05:14.394 SingleUserNotebookApp serverextension:27] [lsp] rootUri will be file:///home/admin/notebooks
+[D 2020-05-09 16:05:14.395 SingleUserNotebookApp serverextension:31] [lsp] virtualDocumentsUri will be file:///home/admin/notebooks/.virtual_documents
+[D 2020-05-09 16:05:14.396 SingleUserNotebookApp serverextension:44] [lsp] The following Language Servers will be available: {
+      "pyls": {
+        "argv": [
+          "/opt/conda/bin/pyls"
+        ],
+        "config_schema": {
+          "properties": {
+            "pyls.configurationSources": {
+              "default": [
+                "pycodestyle"
+              ],
+              "description": "List of configuration sources to use.",
+              "items": {
+                "enum": [
+                  "pycodestyle",
+                  "pyflakes"
+                ],
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.executable": {
+              "default": "pyls",
+              "description": "Language server executable",
+              "type": "string"
+            },
+            "pyls.plugins.jedi_completion.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_completion.include_params": {
+              "default": true,
+              "description": "Auto-completes methods and classes with tabstops for each parameter.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_definition.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_definition.follow_builtin_imports": {
+              "default": true,
+              "description": "If follow_imports is True will decide if it follow builtin imports.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_definition.follow_imports": {
+              "default": true,
+              "description": "The goto call will follow imports.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_hover.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_references.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_signature_help.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_symbols.all_scopes": {
+              "default": true,
+              "description": "If True lists the names of all scopes instead of only the module namespace.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_symbols.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.mccabe.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.mccabe.threshold": {
+              "default": 15,
+              "description": "The minimum threshold that triggers warnings about cyclomatic complexity.",
+              "type": "number"
+            },
+            "pyls.plugins.preload.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.preload.modules": {
+              "default": null,
+              "description": "List of modules to import on startup",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pycodestyle.exclude": {
+              "default": null,
+              "description": "Exclude files or directories which match these patterns.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.filename": {
+              "default": null,
+              "description": "When parsing directories, only check filenames matching these patterns.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.hangClosing": {
+              "default": null,
+              "description": "Hang closing bracket instead of matching indentation of opening bracket's line.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pycodestyle.ignore": {
+              "default": null,
+              "description": "Ignore errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.maxLineLength": {
+              "default": null,
+              "description": "Set maximum allowed line length.",
+              "type": "number"
+            },
+            "pyls.plugins.pycodestyle.select": {
+              "default": null,
+              "description": "Select errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.addIgnore": {
+              "default": null,
+              "description": "Ignore errors and warnings in addition to the specified convention.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.addSelect": {
+              "default": null,
+              "description": "Select errors and warnings in addition to the specified convention.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.convention": {
+              "default": null,
+              "description": "Choose the basic list of checked errors by specifying an existing convention.",
+              "enum": [
+                "pep257",
+                "numpy"
+              ],
+              "type": "string"
+            },
+            "pyls.plugins.pydocstyle.enabled": {
+              "default": false,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pydocstyle.ignore": {
+              "default": null,
+              "description": "Ignore errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.match": {
+              "default": "(?!test_).*\\.py",
+              "description": "Check only files that exactly match the given regular expression; default is to match files that don't start with 'test_' but end with '.py'.",
+              "type": "string"
+            },
+            "pyls.plugins.pydocstyle.matchDir": {
+              "default": "[^\\.].*",
+              "description": "Search only dirs that exactly match the given regular expression; default is to match dirs which do not begin with a dot.",
+              "type": "string"
+            },
+            "pyls.plugins.pydocstyle.select": {
+              "default": null,
+              "description": "Select errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pyflakes.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pylint.args": {
+              "default": null,
+              "description": "Arguments to pass to pylint.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": false
+            },
+            "pyls.plugins.pylint.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.rope_completion.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.yapf.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.rope.extensionModules": {
+              "default": null,
+              "description": "Builtin and c-extension modules that are allowed to be imported and inspected by rope.",
+              "type": "string"
+            },
+            "pyls.rope.ropeFolder": {
+              "default": null,
+              "description": "The name of the folder in which rope stores project configurations and data.  Pass `null` for not using such a folder at all.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "title": "Python Language Server Configuration",
+          "type": "object"
+        },
+        "display_name": "pyls",
+        "env": {
+          "PYTHONUNBUFFERED": "1"
+        },
+        "extend": [
+          {
+            "display_name": "pyls-mypy",
+            "install": {
+              "pip": "pip install pyls-mypy"
+            }
+          },
+          {
+            "display_name": "pyls-black",
+            "install": {
+              "pip": "pip install pyls-black"
+            }
+          },
+          {
+            "display_name": "pyls-isort",
+            "install": {
+              "pip": "pip install pyls-isort"
+            }
+          }
+        ],
+        "install": {
+          "conda": "conda install -c conda-forge python-language-server",
+          "pip": "pip install python-language-server[all]"
+        },
+        "languages": [
+          "python"
+        ],
+        "mime_types": [
+          "text/python",
+          "text/x-ipython"
+        ],
+        "urls": {
+          "home": "https://github.com/palantir/python-language-server",
+          "issues": "https://github.com/palantir/python-language-server/issues"
+        },
+        "version": 2
+      },
+      "r-languageserver": {
+        "argv": [
+          "/usr/bin/Rscript",
+          "--slave",
+          "/opt/conda/lib/python3.6/site-packages/jupyter_lsp/specs/helpers/languageserver.R"
+        ],
+        "display_name": "r-languageserver",
+        "install": {
+          "conda": "conda install -c conda-forge r-languageserver",
+          "cran": "install.packages(\"languageserver\")"
+        },
+        "languages": [
+          "r"
+        ],
+        "mime_types": [
+          "text/x-rsrc"
+        ],
+        "urls": {
+          "home": "https://github.com/REditorSupport/languageserver",
+          "issues": "https://github.com/REditorSupport/languageserver/issues"
+        },
+        "version": 2
+      }
+    }
+[I 2020-05-09 16:05:14.914 SingleUserNotebookApp extension:158] JupyterLab extension loaded from /opt/conda/lib/python3.6/site-packages/jupyterlab
+[I 2020-05-09 16:05:14.914 SingleUserNotebookApp extension:159] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[I 2020-05-09 16:05:14.936 SingleUserNotebookApp __init__:22] [Jupytext Server Extension] NotebookApp.contents_manager_class is (a subclass of) jupytext.TextFileContentsManager already - OK
+[D 2020-05-09 16:05:15.299 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-09 16:05:15.299 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-09 16:05:15.299 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-09 16:05:15.299 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-05-09 16:05:15.299 SingleUserNotebookApp loader:342] Using default logger
+[I 2020-05-09 16:05:15.309 SingleUserNotebookApp singleuser:561] Starting jupyterhub-singleuser server version 1.1.0
+[D 2020-05-09 16:05:15.313 JupyterHub utils:218] Server at http://127.0.0.1:33193/user/admin/ responded with 302
+[D 2020-05-09 16:05:15.313 JupyterHub _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
+[I 2020-05-09 16:05:15.314 JupyterHub base:855] User admin took 4.844 seconds to start
+[I 2020-05-09 16:05:15.314 JupyterHub proxy:262] Adding user admin to proxy /user/admin/ => http://127.0.0.1:33193
+[D 2020-05-09 16:05:15.314 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/user/admin
+[I 2020-05-09 16:05:15.316 JupyterHub log:174] 200 GET /hub/api (@127.0.0.1) 1.04ms
+16:05:15.317 [ConfigProxy] [32minfo[39m: Adding route /user/admin -> http://127.0.0.1:33193
+16:05:15.317 [ConfigProxy] [32minfo[39m: Route added /user/admin -> http://127.0.0.1:33193
+[D 2020-05-09 16:05:15.317 SingleUserNotebookApp _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
+[I 2020-05-09 16:05:15.317 SingleUserNotebookApp notebookapp:1924] Serving notebooks from local directory: /home/admin/notebooks
+[I 2020-05-09 16:05:15.317 SingleUserNotebookApp notebookapp:1924] The Jupyter Notebook is running at:
+[I 2020-05-09 16:05:15.317 SingleUserNotebookApp notebookapp:1924] http://notebook:33193/user/admin/
+[I 2020-05-09 16:05:15.318 SingleUserNotebookApp notebookapp:1925] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+16:05:15.318 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/user/admin 
+[I 2020-05-09 16:05:15.319 JupyterHub users:609] Server admin is ready
+[I 2020-05-09 16:05:15.320 JupyterHub log:174] 200 GET /hub/api/users/admin/server/progress (admin@172.20.41.169) 3317.12ms
+[I 2020-05-09 16:05:15.323 SingleUserNotebookApp singleuser:542] Updating Hub with activity every 300 seconds
+[D 2020-05-09 16:05:15.325 SingleUserNotebookApp singleuser:503] Notifying Hub of activity 2020-05-09T16:05:12.212236Z
+[D 2020-05-09 16:05:15.329 JupyterHub base:285] Recording first activity for <APIToken('a2a3...', user='admin')>
+[D 2020-05-09 16:05:15.339 JupyterHub users:711] Activity for user admin: 2020-05-09T16:05:12.212236Z
+[D 2020-05-09 16:05:15.339 JupyterHub users:732] Activity on server admin/: 2020-05-09T16:05:12.212236Z
+[I 2020-05-09 16:05:15.345 JupyterHub log:174] 200 POST /hub/api/users/admin/activity (admin@127.0.0.1) 18.03ms
+[I 2020-05-09 16:05:15.484 JupyterHub log:174] 302 GET /hub/spawn-pending/admin -> /user/admin/ (admin@172.20.41.169) 3.28ms
+[D 2020-05-09 16:05:15.801 JupyterHub provider:414] Validating client id jupyterhub-user-admin
+[D 2020-05-09 16:05:15.802 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
+[D 2020-05-09 16:05:15.804 JupyterHub auth:247] Skipping oauth confirmation for <User(admin 1/1 running)> accessing Server at /user/admin/
+[D 2020-05-09 16:05:15.804 JupyterHub provider:414] Validating client id jupyterhub-user-admin
+[D 2020-05-09 16:05:15.805 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
+[D 2020-05-09 16:05:15.806 JupyterHub provider:241] Saving authorization code jupyterhub-user-admin, mrS..., (), {}
+[I 2020-05-09 16:05:15.814 JupyterHub log:174] 302 GET /hub/api/oauth2/authorize?client_id=jupyterhub-user-admin&redirect_uri=%2Fuser%2Fadmin%2Foauth_callback&response_type=code&state=[secret] -> /user/admin/oauth_callback?code=[secret]&state=[secret] (admin@172.20.41.169) 16.15ms
+[D 2020-05-09 16:05:15.926 JupyterHub provider:60] authenticate_client <oauthlib.Request url="/hub/api/oauth2/token", http_method="POST", headers="{'Host': '127.0.0.1:8081', 'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': '<SANITIZED>', 'Content-Length': '190'}", body="client_id=jupyterhub-user-admin&client_secret=a2a3f2d98986431b9d3eeb5819bbe46f&grant_type=authorization_code&code=mrSYzZON07D0Y1DkXzg1gFpL7j6NPT&redirect_uri=%2Fuser%2Fadmin%2Foauth_callback">
+[D 2020-05-09 16:05:15.933 JupyterHub provider:119] confirm_redirect_uri: client_id=jupyterhub-user-admin, redirect_uri=/user/admin/oauth_callback
+[D 2020-05-09 16:05:15.934 JupyterHub provider:339] Saving bearer token {'access_token': 'REDACTED', 'expires_in': 3600, 'token_type': 'Bearer', 'scope': 'identify', 'refresh_token': 'REDACTED'}
+[D 2020-05-09 16:05:15.942 JupyterHub provider:194] Deleting oauth code mrS... for jupyterhub-user-admin
+[I 2020-05-09 16:05:15.950 JupyterHub log:174] 200 POST /hub/api/oauth2/token (admin@127.0.0.1) 27.18ms
+[I 2020-05-09 16:05:15.966 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (admin@127.0.0.1) 13.56ms
+[D 2020-05-09 16:05:16.071 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-05-09 16:05:16.208 SingleUserNotebookApp handlers:828] Path main.558738bea208dd73479e.js served from /opt/conda/share/jupyter/lab/static/main.558738bea208dd73479e.js
+[D 2020-05-09 16:05:16.212 SingleUserNotebookApp handlers:828] Path vendors~main.2cca23ef24182f2af8e3.js served from /opt/conda/share/jupyter/lab/static/vendors~main.2cca23ef24182f2af8e3.js
+[I 2020-05-09 16:05:20.887 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (admin@127.0.0.1) 11.35ms
+[D 2020-05-09 16:05:20.889 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-09 16:05:20.890 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:20.890 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:20.890 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:20.890 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:20.890 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:21.008 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-09 16:05:21.008 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:21.008 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:21.008 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:21.008 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:21.008 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:21.223 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-05-09 16:05:21.255 SingleUserNotebookApp handlers:828] Path base/images/favicon.ico served from /opt/conda/lib/python3.6/site-packages/notebook/static/base/images/favicon.ico
+[D 2020-05-09 16:05:21.257 SingleUserNotebookApp handlers:828] Path components/jquery-ui/themes/smoothness/jquery-ui.min.css served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/jquery-ui/themes/smoothness/jquery-ui.min.css
+[D 2020-05-09 16:05:21.258 SingleUserNotebookApp handlers:828] Path components/jquery-typeahead/dist/jquery.typeahead.min.css served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/jquery-typeahead/dist/jquery.typeahead.min.css
+[D 2020-05-09 16:05:21.259 SingleUserNotebookApp handlers:828] Path style/style.min.css served from /opt/conda/lib/python3.6/site-packages/notebook/static/style/style.min.css
+[D 2020-05-09 16:05:21.263 SingleUserNotebookApp handlers:828] Path components/es6-promise/promise.min.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/es6-promise/promise.min.js
+[D 2020-05-09 16:05:21.264 SingleUserNotebookApp handlers:828] Path components/react/react.production.min.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/react/react.production.min.js
+[D 2020-05-09 16:05:21.264 SingleUserNotebookApp handlers:828] Path components/react/react-dom.production.min.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/react/react-dom.production.min.js
+[D 2020-05-09 16:05:21.266 SingleUserNotebookApp handlers:828] Path components/create-react-class/index.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/create-react-class/index.js
+[D 2020-05-09 16:05:21.267 SingleUserNotebookApp handlers:828] Path components/requirejs/require.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/requirejs/require.js
+[D 2020-05-09 16:05:21.303 SingleUserNotebookApp commands:1761] Node v13.13.0
     
-[I 2020-05-01 14:19:28.288 SingleUserNotebookApp build_handler:49] Build is up to date
-[D 2020-05-01 14:19:32.867 SingleUserNotebookApp handlers:252] Using contents: services/contents
-[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
-[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:33.385 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
-[W 2020-05-01 14:19:33.416 SingleUserNotebookApp handlers:608] Failed parsing schema (jupyterlab-topbar-text:plugin): 'ascii' codec can't decode byte 0xf0 in position 287: ordinal not in range(128)
-[D 2020-05-01 14:19:33.522 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
-[D 2020-05-01 14:19:33.523 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:33.523 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:33.523 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
-[D 2020-05-01 14:19:33.979 SingleUserNotebookApp commands:1792] Yarn configuration loaded.
-[D 2020-05-01 14:19:34.035 SingleUserNotebookApp commands:1757] Node v13.9.0
+[D 2020-05-09 16:05:21.802 SingleUserNotebookApp commands:1796] Yarn configuration loaded.
+[D 2020-05-09 16:05:21.833 SingleUserNotebookApp commands:81] > /opt/conda/bin/npm pack /usr/local/jupyterlab-sparkmonitor
+[D 2020-05-09 16:05:22.114 SingleUserNotebookApp handlers:828] Path @jupyterlab/theme-light-extension/index.css served from /opt/conda/share/jupyter/lab/themes/@jupyterlab/theme-light-extension/index.css
+[D 2020-05-09 16:05:22.888 SingleUserNotebookApp commands:1796] Yarn configuration loaded.
+[D 2020-05-09 16:05:23.275 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-jupytext
+[D 2020-05-09 16:05:23.398 SingleUserNotebookApp commands:111] 
+[D 2020-05-09 16:05:23.428 SingleUserNotebookApp handlers:18] Serving kernel resource from: /opt/conda/share/jupyter/kernels/python3
+[D 2020-05-09 16:05:23.434 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/pyspark
+[D 2020-05-09 16:05:23.437 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/pysparkling
+[D 2020-05-09 16:05:23.439 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/rsparkling
+[D 2020-05-09 16:05:23.441 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/ir
+[D 2020-05-09 16:05:23.443 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/sparkly
+[I 2020-05-09 16:05:23.449 SingleUserNotebookApp build_handler:47] Build is up to date
+[D 2020-05-09 16:05:23.465 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab_sparkmonitor
+[D 2020-05-09 16:05:23.504 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Ftoc
+[D 2020-05-09 16:05:23.558 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@krassowski%2Fjupyterlab-lsp
+[D 2020-05-09 16:05:23.621 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Fcodemirror
+[D 2020-05-09 16:05:23.725 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Flatex
+[D 2020-05-09 16:05:23.791 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab_filetree
+[D 2020-05-09 16:05:23.827 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@lckr%2Fjupyterlab_variableinspector
+[D 2020-05-09 16:05:23.971 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-theme-toggle
+[D 2020-05-09 16:05:24.005 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-logout
+[D 2020-05-09 16:05:24.037 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-system-monitor
+[D 2020-05-09 16:05:24.377 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyter-matplotlib
+[D 2020-05-09 16:05:24.414 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyter-widgets%2Fjupyterlab-manager
+[D 2020-05-09 16:05:24.466 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab_tensorboard
+[D 2020-05-09 16:05:24.702 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-topbar-extension
+[D 2020-05-09 16:05:24.737 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Fgit
+[D 2020-05-09 16:05:25.164 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/nbdime-jupyterlab
+[D 2020-05-09 16:05:25.207 SingleUserNotebookApp commands:81] > /opt/conda/bin/npm pack jupyterlab-jupytext@1.2.1 jupyterlab_sparkmonitor@1.1.0 @jupyterlab/toc@3.0.0 @krassowski/jupyterlab-lsp@1.0.0 @jupyterlab/codemirror@2.1.1 @jupyterlab/latex@2.0.0 jupyterlab_filetree@0.2.2 @lckr/jupyterlab_variableinspector@0.5.0 jupyterlab-theme-toggle@0.5.0 jupyterlab-logout@0.5.0 jupyterlab-system-monitor@0.6.0 jupyter-matplotlib@0.7.2 @jupyter-widgets/jupyterlab-manager@2.0.0 jupyterlab_tensorboard@0.2.0 jupyterlab-topbar-extension@0.5.0 @jupyterlab/git@0.20.0 nbdime-jupyterlab@2.0.0
+[I 2020-05-09 16:05:27.644 SingleUserNotebookApp handlers:153] Creating new notebook in /
+[I 2020-05-09 16:05:27.646 SingleUserNotebookApp contentsmanager:256] Saving Untitled.ipynb
+[D 2020-05-09 16:05:27.646 SingleUserNotebookApp filemanager:459] Saving /home/admin/notebooks/Untitled.ipynb
+[I 2020-05-09 16:05:27.661 SingleUserNotebookApp sign:396] Writing notebook-signing key to /home/admin/.local/share/jupyter/notebook_secret
+[D 2020-05-09 16:05:27.849 SingleUserNotebookApp commands:111] npm notice 
+    npm notice package: jupyterlab-jupytext@1.2.1
+    npm notice === Tarball Contents === 
+    npm notice 1.1kB  LICENSE       
+    npm notice 12.4kB lib/index.js  
+    npm notice 1.2kB  package.json  
+    npm notice 1.3kB  CHANGELOG.md  
+    npm notice 3.0kB  README.md     
+    npm notice 221B   lib/index.d.ts
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab-jupytext                     
+    npm notice version:       1.2.1                                   
+    npm notice filename:      jupyterlab-jupytext-1.2.1.tgz           
+    npm notice package size:  5.2 kB                                  
+    npm notice unpacked size: 19.3 kB                                 
+    npm notice shasum:        ff130ce0abc34219e562f35af53ed7a11e7a77f1
+    npm notice integrity:     sha512-1P9LD2KoLCrWL[...]ttyWgJshcFCbA==
+    npm notice total files:   6                                       
+    npm notice 
+    npm notice 
+    npm notice package: jupyterlab_sparkmonitor@1.1.0
+    npm notice === Tarball Contents === 
+    npm notice 11.4kB  LICENSE                                  
+    npm notice 3.0kB   js/jobtable.css                          
+    npm notice 6.2kB   js/styles.css                            
+    npm notice 2.6kB   js/taskdetails.css                       
+    npm notice 2.3kB   js/timeline.css                          
+    npm notice 34.1kB  lib/CellMonitor.js.flow                  
+    npm notice 2.3kB   lib/index.js.flow                        
+    npm notice 1.3kB   lib/NotebookListener.js.flow             
+    npm notice 12.7kB  lib/SparkMonitor.js.flow                 
+    npm notice 9.1kB   lib/TaskChart.js.flow                    
+    npm notice 9.8kB   lib/taskdetails.js.flow                  
+    npm notice 21.2kB  lib/Timeline.js.flow                     
+    npm notice 8.9kB   js/images/spinner.gif                    
+    npm notice 185.2kB dist/jupyterlab-sparkmonitor-1.0.5.tar.gz
+    npm notice 34.1kB  js/CellMonitor.js                        
+    npm notice 32.3kB  lib/CellMonitor.js                       
+    npm notice 1.6MB   dist/index.js                            
+    npm notice 2.3kB   js/index.js                              
+    npm notice 2.3kB   lib/index.js                             
+    npm notice 1.3kB   js/NotebookListener.js                   
+    npm notice 1.3kB   lib/NotebookListener.js                  
+    npm notice 12.7kB  js/SparkMonitor.js                       
+    npm notice 12.6kB  lib/SparkMonitor.js                      
+    npm notice 909.5kB dist/taskchart.js                        
+    npm notice 9.1kB   js/TaskChart.js                          
+    npm notice 8.9kB   lib/TaskChart.js                         
+    npm notice 9.8kB   js/taskdetails.js                        
+    npm notice 9.5kB   lib/taskdetails.js                       
+    npm notice 631.5kB dist/timeline.js                         
+    npm notice 21.2kB  js/Timeline.js                           
+    npm notice 20.3kB  lib/Timeline.js                          
+    npm notice 2.3kB   package.json                             
+    npm notice 6.3MB   dist/index.js.map                        
+    npm notice 3.9MB   dist/taskchart.js.map                    
+    npm notice 2.2MB   dist/timeline.js.map                     
+    npm notice 6.4kB   README.md                                
+    npm notice 7.0kB   dist/3580b1faf02c1cd7994c28c5cc1374a1.png
+    npm notice 4.5kB   dist/bb549ea947a7a69e5c0c5883552a695d.png
+    npm notice 7.0kB   dist/c58c5719d8be44d69fc22224e172576f.png
+    npm notice 6.3kB   dist/df59c902592bb5f10f8b62c3dbf7b698.png
+    npm notice 4.5kB   dist/e73f5131bb90fcc736a626d8983a195b.png
+    npm notice 7.0kB   dist/f0ad30c87d846b34a0a660f72d0566c2.png
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab_sparkmonitor                 
+    npm notice version:       1.1.0                                   
+    npm notice filename:      jupyterlab_sparkmonitor-1.1.0.tgz       
+    npm notice package size:  4.5 MB                                  
+    npm notice unpacked size: 16.0 MB                                 
+    npm notice shasum:        ddeb9a2664bfaaea76b3624e4591417af0ac456c
+    npm notice integrity:     sha512-Gj19PckahEKC3[...]YbyKSfWGHJVig==
+    npm notice total files:   42                                      
+    npm notice 
+    npm notice 
+    npm notice package: @jupyterlab/toc@3.0.0
+    npm notice === Tarball Contents === 
+    npm notice 1.5kB LICENSE                                                
+    npm notice 9.3kB style/index.css                                        
+    npm notice 2.6kB lib/generators/notebook/append_collapsible_heading.js  
+    npm notice 1.4kB lib/generators/notebook/append_heading.js              
+    npm notice 1.4kB lib/generators/notebook/append_markdown_heading.js     
+    npm notice 1.3kB lib/generators/notebook/codemirror.js                  
+    npm notice 4.0kB lib/extension.js                                       
+    npm notice 1.4kB lib/utils/generate_numbering.js                        
+    npm notice 1.2kB lib/generators/notebook/get_code_cell_heading.js       
+    npm notice 1.6kB lib/generators/markdown/get_headings.js                
+    npm notice 663B  lib/generators/notebook/get_last_heading_level.js      
+    npm notice 1.3kB lib/generators/notebook/get_markdown_heading.js        
+    npm notice 2.3kB lib/generators/markdown/get_rendered_headings.js       
+    npm notice 2.3kB lib/generators/notebook/get_rendered_html_heading.js   
+    npm notice 180B  lib/utils/headings.js                                  
+    npm notice 443B  lib/generators/index.js                                
+    npm notice 2.9kB lib/generators/latex/index.js                          
+    npm notice 4.1kB lib/generators/markdown/index.js                       
+    npm notice 6.7kB lib/generators/notebook/index.js                       
+    npm notice 4.9kB lib/generators/notebook/tagstool/index.js              
+    npm notice 2.5kB lib/generators/python/index.js                         
+    npm notice 377B  lib/index.js                                           
+    npm notice 675B  lib/utils/is_dom.js                                    
+    npm notice 1.0kB lib/generators/notebook/is_heading_filtered.js         
+    npm notice 764B  lib/utils/is_markdown.js                               
+    npm notice 180B  lib/utils/numbering_dictionary.js                      
+    npm notice 1.3kB lib/generators/markdown/options_manager.js             
+    npm notice 4.1kB lib/generators/notebook/options_manager.js             
+    npm notice 2.2kB lib/utils/parse_heading.js                             
+    npm notice 1.9kB lib/registry.js                                        
+    npm notice 1.1kB lib/generators/markdown/render.js                      
+    npm notice 4.4kB lib/generators/notebook/render.js                      
+    npm notice 561B  lib/generators/python/render.js                        
+    npm notice 1.1kB lib/utils/sanitizer_options.js                         
+    npm notice 6.7kB lib/generators/notebook/set_collapsed_state.js         
+    npm notice 2.3kB lib/generators/notebook/tagstool/tag_list.js           
+    npm notice 870B  lib/generators/notebook/tagstool/tag.js                
+    npm notice 903B  lib/toc_item.js                                        
+    npm notice 1.1kB lib/toc_tree.js                                        
+    npm notice 4.2kB lib/toc.js                                             
+    npm notice 2.1kB lib/generators/markdown/toolbar_generator.js           
+    npm notice 7.9kB lib/generators/notebook/toolbar_generator.js           
+    npm notice 1.3kB lib/generators/notebook/twist_button.js                
+    npm notice 2.1kB package.json                                           
+    npm notice 1.5kB README.md                                              
+    npm notice 559B  style/img/autonumbering_darktheme.svg                  
+    npm notice 343B  style/img/autonumbering.svg                            
+    npm notice 264B  style/img/check.svg                                    
+    npm notice 320B  style/img/code_darktheme.svg                           
+    npm notice 305B  style/img/code.svg                                     
+    npm notice 669B  style/img/eyeball_hidden.svg                           
+    npm notice 619B  style/img/eyeball_hover.svg                            
+    npm notice 617B  style/img/eyeball_view.svg                             
+    npm notice 625B  style/list-dark.svg                                    
+    npm notice 625B  style/list-light.svg                                   
+    npm notice 357B  style/img/markdown_darktheme.svg                       
+    npm notice 363B  style/img/markdown.svg                                 
+    npm notice 264B  style/img/menu_arrow.svg                               
+    npm notice 523B  style/img/numbering.svg                                
+    npm notice 762B  style/img/tag_darktheme.svg                            
+    npm notice 1.2kB style/img/tag.svg                                      
+    npm notice 202B  style/img/toggle_down_darktheme.svg                    
+    npm notice 181B  style/img/toggle_down.svg                              
+    npm notice 189B  style/img/toggle_right_darktheme.svg                   
+    npm notice 187B  style/img/toggle_right.svg                             
+    npm notice 732B  lib/generators/notebook/append_collapsible_heading.d.ts
+    npm notice 598B  lib/generators/notebook/append_heading.d.ts            
+    npm notice 836B  lib/generators/notebook/append_markdown_heading.d.ts   
+    npm notice 1.2kB lib/generators/notebook/codemirror.d.ts                
+    npm notice 338B  lib/extension.d.ts                                     
+    npm notice 425B  lib/utils/generate_numbering.d.ts                      
+    npm notice 794B  lib/generators/notebook/get_code_cell_heading.d.ts     
+    npm notice 700B  lib/generators/markdown/get_headings.d.ts              
+    npm notice 316B  lib/generators/notebook/get_last_heading_level.d.ts    
+    npm notice 771B  lib/generators/notebook/get_markdown_heading.d.ts      
+    npm notice 698B  lib/generators/markdown/get_rendered_headings.d.ts     
+    npm notice 1.0kB lib/generators/notebook/get_rendered_html_heading.d.ts 
+    npm notice 1.4kB lib/utils/headings.d.ts                                
+    npm notice 107B  lib/generators/index.d.ts                              
+    npm notice 529B  lib/generators/latex/index.d.ts                        
+    npm notice 1.3kB lib/generators/markdown/index.d.ts                     
+    npm notice 685B  lib/generators/notebook/index.d.ts                     
+    npm notice 2.2kB lib/generators/notebook/tagstool/index.d.ts            
+    npm notice 533B  lib/generators/python/index.d.ts                       
+    npm notice 51B   lib/index.d.ts                                         
+    npm notice 460B  lib/utils/is_dom.d.ts                                  
+    npm notice 430B  lib/generators/notebook/is_heading_filtered.d.ts       
+    npm notice 466B  lib/utils/is_markdown.d.ts                             
+    npm notice 228B  lib/utils/numbering_dictionary.d.ts                    
+    npm notice 1.3kB lib/generators/markdown/options_manager.d.ts           
+    npm notice 3.1kB lib/generators/notebook/options_manager.d.ts           
+    npm notice 1.4kB lib/utils/parse_heading.d.ts                           
+    npm notice 3.3kB lib/registry.d.ts                                      
+    npm notice 402B  lib/generators/markdown/render.d.ts                    
+    npm notice 530B  lib/generators/notebook/render.d.ts                    
+    npm notice 269B  lib/generators/python/render.d.ts                      
+    npm notice 469B  lib/utils/sanitizer_options.d.ts                       
+    npm notice 572B  lib/generators/notebook/set_collapsed_state.d.ts       
+    npm notice 1.5kB lib/generators/notebook/tagstool/tag_list.d.ts         
+    npm notice 913B  lib/generators/notebook/tagstool/tag.d.ts              
+    npm notice 834B  lib/toc_item.d.ts                                      
+    npm notice 1.1kB lib/toc_tree.d.ts                                      
+    npm notice 2.1kB lib/toc.d.ts                                           
+    npm notice 2.4kB lib/generators/markdown/toolbar_generator.d.ts         
+    npm notice 3.5kB lib/generators/notebook/toolbar_generator.d.ts         
+    npm notice 572B  lib/generators/notebook/twist_button.d.ts              
+    npm notice === Tarball Details === 
+    npm notice name:          @jupyterlab/toc                         
+    npm notice version:       3.0.0                                   
+    npm notice filename:      jupyterlab-toc-3.0.0.tgz                
+    npm notice package size:  32.7 kB                                 
+    npm notice unpacked size: 154.9 kB                                
+    npm notice shasum:        6457bc1a073addea470ca415f45528685ec22a68
+    npm notice integrity:     sha512-v2Gs8VSaEdMht[...]xVdZvvQHwvgCg==
+    npm notice total files:   106                                     
+    npm notice 
+    npm notice 
+    npm notice package: @krassowski/jupyterlab-lsp@1.0.0
+    npm notice === Tarball Contents === 
+    npm notice 3.5kB  package.json                                               
+    npm notice 1.5kB  LICENSE                                                    
+    npm notice 886B   lib/adapters/codemirror/cm_adapter.d.ts                    
+    npm notice 2.6kB  lib/adapters/codemirror/cm_adapter.js                      
+    npm notice 2.4kB  lib/adapters/codemirror/cm_adapter.js.map                  
+    npm notice 11B    lib/adapters/codemirror/cm_adapter.spec.d.ts               
+    npm notice 2.1kB  lib/adapters/codemirror/cm_adapter.spec.js                 
+    npm notice 1.9kB  lib/adapters/codemirror/cm_adapter.spec.js.map             
+    npm notice 5.0kB  lib/adapters/codemirror/feature.d.ts                       
+    npm notice 14.1kB lib/adapters/codemirror/feature.js                         
+    npm notice 11.1kB lib/adapters/codemirror/feature.js.map                     
+    npm notice 11B    lib/adapters/codemirror/feature.spec.d.ts                  
+    npm notice 10.4kB lib/adapters/codemirror/feature.spec.js                    
+    npm notice 8.0kB  lib/adapters/codemirror/feature.spec.js.map                
+    npm notice 309B   lib/adapters/codemirror/features/completion.d.ts           
+    npm notice 1.3kB  lib/adapters/codemirror/features/completion.js             
+    npm notice 903B   lib/adapters/codemirror/features/completion.js.map         
+    npm notice 2.6kB  lib/adapters/codemirror/features/diagnostics_listing.d.ts  
+    npm notice 9.4kB  lib/adapters/codemirror/features/diagnostics_listing.js    
+    npm notice 9.2kB  lib/adapters/codemirror/features/diagnostics_listing.js.map
+    npm notice 1.8kB  lib/adapters/codemirror/features/diagnostics.d.ts          
+    npm notice 14.9kB lib/adapters/codemirror/features/diagnostics.js            
+    npm notice 10.4kB lib/adapters/codemirror/features/diagnostics.js.map        
+    npm notice 11B    lib/adapters/codemirror/features/diagnostics.spec.d.ts     
+    npm notice 10.3kB lib/adapters/codemirror/features/diagnostics.spec.js       
+    npm notice 8.7kB  lib/adapters/codemirror/features/diagnostics.spec.js.map   
+    npm notice 591B   lib/adapters/codemirror/features/highlights.d.ts           
+    npm notice 3.6kB  lib/adapters/codemirror/features/highlights.js             
+    npm notice 2.9kB  lib/adapters/codemirror/features/highlights.js.map         
+    npm notice 1.3kB  lib/adapters/codemirror/features/hover.d.ts                
+    npm notice 7.9kB  lib/adapters/codemirror/features/hover.js                  
+    npm notice 5.8kB  lib/adapters/codemirror/features/hover.js.map              
+    npm notice 599B   lib/adapters/codemirror/features/jump_to.d.ts              
+    npm notice 4.9kB  lib/adapters/codemirror/features/jump_to.js                
+    npm notice 3.5kB  lib/adapters/codemirror/features/jump_to.js.map            
+    npm notice 350B   lib/adapters/codemirror/features/rename.d.ts               
+    npm notice 4.3kB  lib/adapters/codemirror/features/rename.js                 
+    npm notice 3.4kB  lib/adapters/codemirror/features/rename.js.map             
+    npm notice 11B    lib/adapters/codemirror/features/rename.spec.d.ts          
+    npm notice 1.5kB  lib/adapters/codemirror/features/rename.spec.js            
+    npm notice 1.6kB  lib/adapters/codemirror/features/rename.spec.js.map        
+    npm notice 934B   lib/adapters/codemirror/features/signature.d.ts            
+    npm notice 4.4kB  lib/adapters/codemirror/features/signature.js              
+    npm notice 3.4kB  lib/adapters/codemirror/features/signature.js.map          
+    npm notice 3.4kB  lib/adapters/codemirror/testutils.d.ts                     
+    npm notice 6.2kB  lib/adapters/codemirror/testutils.js                       
+    npm notice 5.6kB  lib/adapters/codemirror/testutils.js.map                   
+    npm notice 2.6kB  lib/adapters/jupyterlab/components/completion.d.ts         
+    npm notice 12.2kB lib/adapters/jupyterlab/components/completion.js           
+    npm notice 8.6kB  lib/adapters/jupyterlab/components/completion.js.map       
+    npm notice 785B   lib/adapters/jupyterlab/components/free_tooltip.d.ts       
+    npm notice 2.1kB  lib/adapters/jupyterlab/components/free_tooltip.js         
+    npm notice 1.8kB  lib/adapters/jupyterlab/components/free_tooltip.js.map     
+    npm notice 2.8kB  lib/adapters/jupyterlab/components/statusbar.d.ts          
+    npm notice 16.6kB lib/adapters/jupyterlab/components/statusbar.js            
+    npm notice 12.4kB lib/adapters/jupyterlab/components/statusbar.js.map        
+    npm notice 1.6kB  lib/adapters/jupyterlab/file_editor.d.ts                   
+    npm notice 2.2kB  lib/adapters/jupyterlab/file_editor.js                     
+    npm notice 2.0kB  lib/adapters/jupyterlab/file_editor.js.map                 
+    npm notice 6.5kB  lib/adapters/jupyterlab/jl_adapter.d.ts                    
+    npm notice 16.7kB lib/adapters/jupyterlab/jl_adapter.js                      
+    npm notice 11.3kB lib/adapters/jupyterlab/jl_adapter.js.map                  
+    npm notice 2.2kB  lib/adapters/jupyterlab/notebook.d.ts                      
+    npm notice 5.6kB  lib/adapters/jupyterlab/notebook.js                        
+    npm notice 4.8kB  lib/adapters/jupyterlab/notebook.js.map                    
+    npm notice 3.6kB  lib/command_manager.d.ts                                   
+    npm notice 6.7kB  lib/command_manager.js                                     
+    npm notice 5.5kB  lib/command_manager.js.map                                 
+    npm notice 11B    lib/command_manager.spec.d.ts                              
+    npm notice 1.8kB  lib/command_manager.spec.js                                
+    npm notice 1.9kB  lib/command_manager.spec.js.map                            
+    npm notice 3.4kB  lib/connection_manager.d.ts                                
+    npm notice 10.5kB lib/connection_manager.js                                  
+    npm notice 7.9kB  lib/connection_manager.js.map                              
+    npm notice 962B   lib/connection.d.ts                                        
+    npm notice 2.8kB  lib/connection.js                                          
+    npm notice 2.6kB  lib/connection.js.map                                      
+    npm notice 497B   lib/converter.d.ts                                         
+    npm notice 480B   lib/converter.js                                           
+    npm notice 629B   lib/converter.js.map                                       
+    npm notice 134B   lib/extractors/defaults.d.ts                               
+    npm notice 4.2kB  lib/extractors/defaults.js                                 
+    npm notice 2.9kB  lib/extractors/defaults.js.map                             
+    npm notice 11B    lib/extractors/defaults.spec.d.ts                          
+    npm notice 4.0kB  lib/extractors/defaults.spec.js                            
+    npm notice 3.8kB  lib/extractors/defaults.spec.js.map                        
+    npm notice 2.6kB  lib/extractors/regexp.d.ts                                 
+    npm notice 3.4kB  lib/extractors/regexp.js                                   
+    npm notice 2.8kB  lib/extractors/regexp.js.map                               
+    npm notice 11B    lib/extractors/regexp.spec.d.ts                            
+    npm notice 7.6kB  lib/extractors/regexp.spec.js                              
+    npm notice 7.0kB  lib/extractors/regexp.spec.js.map                          
+    npm notice 2.3kB  lib/extractors/types.d.ts                                  
+    npm notice 33B    lib/extractors/types.js                                    
+    npm notice 116B   lib/extractors/types.js.map                                
+    npm notice 257B   lib/index.d.ts                                             
+    npm notice 8.5kB  lib/index.js                                               
+    npm notice 6.1kB  lib/index.js.map                                           
+    npm notice 1.7kB  lib/lsp.d.ts                                               
+    npm notice 2.8kB  lib/lsp.js                                                 
+    npm notice 1.8kB  lib/lsp.js.map                                             
+    npm notice 581B   lib/magics/defaults.d.ts                                   
+    npm notice 5.1kB  lib/magics/defaults.js                                     
+    npm notice 3.2kB  lib/magics/defaults.js.map                                 
+    npm notice 11B    lib/magics/defaults.spec.d.ts                              
+    npm notice 4.2kB  lib/magics/defaults.spec.js                                
+    npm notice 3.4kB  lib/magics/defaults.spec.js.map                            
+    npm notice 1.1kB  lib/magics/maps.d.ts                                       
+    npm notice 1.7kB  lib/magics/maps.js                                         
+    npm notice 1.8kB  lib/magics/maps.js.map                                     
+    npm notice 532B   lib/magics/overrides.d.ts                                  
+    npm notice 37B    lib/magics/overrides.js                                    
+    npm notice 120B   lib/magics/overrides.js.map                                
+    npm notice 707B   lib/magics/rpy2.d.ts                                       
+    npm notice 2.7kB  lib/magics/rpy2.js                                         
+    npm notice 2.9kB  lib/magics/rpy2.js.map                                     
+    npm notice 11B    lib/magics/rpy2.spec.d.ts                                  
+    npm notice 3.9kB  lib/magics/rpy2.spec.js                                    
+    npm notice 3.4kB  lib/magics/rpy2.spec.js.map                                
+    npm notice 642B   lib/manager.d.ts                                           
+    npm notice 2.1kB  lib/manager.js                                             
+    npm notice 2.2kB  lib/manager.js.map                                         
+    npm notice 856B   lib/positioning.d.ts                                       
+    npm notice 1.1kB  lib/positioning.js                                         
+    npm notice 1.1kB  lib/positioning.js.map                                     
+    npm notice 11B    lib/positioning.spec.d.ts                                  
+    npm notice 2.8kB  lib/positioning.spec.js                                    
+    npm notice 3.8kB  lib/positioning.spec.js.map                                
+    npm notice 879B   lib/tokens.d.ts                                            
+    npm notice 210B   lib/tokens.js                                              
+    npm notice 220B   lib/tokens.js.map                                          
+    npm notice 1.3kB  lib/utils.d.ts                                             
+    npm notice 3.4kB  lib/utils.js                                               
+    npm notice 2.8kB  lib/utils.js.map                                           
+    npm notice 734B   lib/virtual/console.d.ts                                   
+    npm notice 1.4kB  lib/virtual/console.js                                     
+    npm notice 1.7kB  lib/virtual/console.js.map                                 
+    npm notice 8.0kB  lib/virtual/document.d.ts                                  
+    npm notice 21.2kB lib/virtual/document.js                                    
+    npm notice 15.9kB lib/virtual/document.js.map                                
+    npm notice 11B    lib/virtual/document.spec.d.ts                             
+    npm notice 8.1kB  lib/virtual/document.spec.js                               
+    npm notice 6.4kB  lib/virtual/document.spec.js.map                           
+    npm notice 4.4kB  lib/virtual/editor.d.ts                                    
+    npm notice 6.7kB  lib/virtual/editor.js                                      
+    npm notice 4.6kB  lib/virtual/editor.js.map                                  
+    npm notice 11B    lib/virtual/editor.spec.d.ts                               
+    npm notice 5.6kB  lib/virtual/editor.spec.js                                 
+    npm notice 4.9kB  lib/virtual/editor.spec.js.map                             
+    npm notice 946B   lib/virtual/editors/file_editor.d.ts                       
+    npm notice 1.7kB  lib/virtual/editors/file_editor.js                         
+    npm notice 1.5kB  lib/virtual/editors/file_editor.js.map                     
+    npm notice 3.7kB  lib/virtual/editors/notebook.d.ts                          
+    npm notice 9.3kB  lib/virtual/editors/notebook.js                            
+    npm notice 8.2kB  lib/virtual/editors/notebook.js.map                        
+    npm notice 678B   schema/plugin.json                                         
+    npm notice 7.0kB  src/_schema.d.ts                                           
+    npm notice 2.3kB  src/adapters/codemirror/cm_adapter.spec.ts                 
+    npm notice 2.8kB  src/adapters/codemirror/cm_adapter.ts                      
+    npm notice 9.6kB  src/adapters/codemirror/feature.spec.ts                    
+    npm notice 16.4kB src/adapters/codemirror/feature.ts                         
+    npm notice 1.3kB  src/adapters/codemirror/features/completion.ts             
+    npm notice 10.0kB src/adapters/codemirror/features/diagnostics_listing.tsx   
+    npm notice 9.0kB  src/adapters/codemirror/features/diagnostics.spec.ts       
+    npm notice 14.8kB src/adapters/codemirror/features/diagnostics.ts            
+    npm notice 3.4kB  src/adapters/codemirror/features/highlights.ts             
+    npm notice 8.1kB  src/adapters/codemirror/features/hover.ts                  
+    npm notice 4.6kB  src/adapters/codemirror/features/jump_to.ts                
+    npm notice 1.4kB  src/adapters/codemirror/features/rename.spec.ts            
+    npm notice 4.4kB  src/adapters/codemirror/features/rename.ts                 
+    npm notice 4.4kB  src/adapters/codemirror/features/signature.ts              
+    npm notice 7.4kB  src/adapters/codemirror/testutils.ts                       
+    npm notice 13.6kB src/adapters/jupyterlab/components/completion.ts           
+    npm notice 2.4kB  src/adapters/jupyterlab/components/free_tooltip.ts         
+    npm notice 16.2kB src/adapters/jupyterlab/components/statusbar.tsx           
+    npm notice 3.1kB  src/adapters/jupyterlab/file_editor.ts                     
+    npm notice 18.6kB src/adapters/jupyterlab/jl_adapter.ts                      
+    npm notice 6.6kB  src/adapters/jupyterlab/notebook.ts                        
+    npm notice 68B    src/babel.config.js                                        
+    npm notice 1.9kB  src/command_manager.spec.ts                                
+    npm notice 7.7kB  src/command_manager.ts                                     
+    npm notice 11.9kB src/connection_manager.ts                                  
+    npm notice 3.5kB  src/connection.ts                                          
+    npm notice 743B   src/converter.ts                                           
+    npm notice 3.9kB  src/extractors/defaults.spec.ts                            
+    npm notice 3.8kB  src/extractors/defaults.ts                                 
+    npm notice 6.8kB  src/extractors/regexp.spec.ts                              
+    npm notice 5.5kB  src/extractors/regexp.ts                                   
+    npm notice 2.3kB  src/extractors/types.ts                                    
+    npm notice 8.6kB  src/index.ts                                               
+    npm notice 2.2kB  src/lsp.ts                                                 
+    npm notice 4.0kB  src/magics/defaults.spec.ts                                
+    npm notice 4.5kB  src/magics/defaults.ts                                     
+    npm notice 2.1kB  src/magics/maps.ts                                         
+    npm notice 516B   src/magics/overrides.ts                                    
+    npm notice 3.6kB  src/magics/rpy2.spec.ts                                    
+    npm notice 2.5kB  src/magics/rpy2.ts                                         
+    npm notice 2.2kB  src/manager.ts                                             
+    npm notice 2.6kB  src/positioning.spec.ts                                    
+    npm notice 1.6kB  src/positioning.ts                                         
+    npm notice 845B   src/tokens.ts                                              
+    npm notice 166B   src/typings.d.ts                                           
+    npm notice 3.3kB  src/utils.ts                                               
+    npm notice 1.7kB  src/virtual/console.ts                                     
+    npm notice 8.0kB  src/virtual/document.spec.ts                               
+    npm notice 24.3kB src/virtual/document.ts                                    
+    npm notice 6.0kB  src/virtual/editor.spec.ts                                 
+    npm notice 8.4kB  src/virtual/editor.ts                                      
+    npm notice 2.2kB  src/virtual/editors/file_editor.ts                         
+    npm notice 11.2kB src/virtual/editors/notebook.ts                            
+    npm notice 423B   style/console.css                                          
+    npm notice 1.7kB  style/diagnostics_listing.css                              
+    npm notice 1.1kB  style/index.css                                            
+    npm notice 1.9kB  style/statusbar.css                                        
+    npm notice === Tarball Details === 
+    npm notice name:          @krassowski/jupyterlab-lsp              
+    npm notice version:       1.0.0                                   
+    npm notice filename:      krassowski-jupyterlab-lsp-1.0.0.tgz     
+    npm notice package size:  207.0 kB                                
+    npm notice unpacked size: 919.2 kB                                
+    npm notice shasum:        299d41ee2fd4a0d19138e88338de6e500e25b374
+    npm notice integrity:     sha512-mk7JN8Vn33s7s[...]JJ/t8DersTnJQ==
+    npm notice total files:   214                                     
+    npm notice 
+    npm notice 
+    npm notice package: @jupyterlab/codemirror@2.1.1
+    npm notice === Tarball Contents === 
+    npm notice 1.7kB  LICENSE                         
+    npm notice 6.5kB  style/base.css                  
+    npm notice 1.3kB  style/index.css                 
+    npm notice 1.0kB  lib/codemirror-ipython.js       
+    npm notice 1.7kB  lib/codemirror-ipythongfm.js    
+    npm notice 38.7kB lib/editor.js                   
+    npm notice 2.0kB  lib/factory.js                  
+    npm notice 561B   lib/index.js                    
+    npm notice 1.3kB  lib/mimetype.js                 
+    npm notice 4.8kB  lib/mode.js                     
+    npm notice 4.5kB  lib/syntaxstatus.js             
+    npm notice 2.2kB  package.json                    
+    npm notice 918B   lib/codemirror-ipython.js.map   
+    npm notice 1.2kB  lib/codemirror-ipythongfm.js.map
+    npm notice 29.5kB lib/editor.js.map               
+    npm notice 1.2kB  lib/factory.js.map              
+    npm notice 439B   lib/index.js.map                
+    npm notice 936B   lib/mimetype.js.map             
+    npm notice 3.5kB  lib/mode.js.map                 
+    npm notice 3.4kB  lib/syntaxstatus.js.map         
+    npm notice 202B   README.md                       
+    npm notice 71B    lib/codemirror-ipython.d.ts     
+    npm notice 112B   lib/codemirror-ipythongfm.d.ts  
+    npm notice 16.3kB lib/editor.d.ts                 
+    npm notice 805B   lib/factory.d.ts                
+    npm notice 289B   lib/index.d.ts                  
+    npm notice 752B   lib/mimetype.d.ts               
+    npm notice 2.4kB  lib/mode.d.ts                   
+    npm notice 1.8kB  lib/syntaxstatus.d.ts           
+    npm notice === Tarball Details === 
+    npm notice name:          @jupyterlab/codemirror                  
+    npm notice version:       2.1.1                                   
+    npm notice filename:      jupyterlab-codemirror-2.1.1.tgz         
+    npm notice package size:  32.1 kB                                 
+    npm notice unpacked size: 130.2 kB                                
+    npm notice shasum:        156b489438a2d5fd840b9797b464b4c3514cec75
+    npm notice integrity:     sha512-f4cvsM5d7GI5s[...]uXVzV5581eTGQ==
+    npm notice total files:   29                                      
+    npm notice 
+    npm notice 
+    npm notice package: @jupyterlab/latex@2.0.0
+    npm notice === Tarball Contents === 
+    npm notice 2.2kB  package.json            
+    npm notice 1.5kB  LICENSE                 
+    npm notice 3.0kB  README.md               
+    npm notice 746B   lib/error.d.ts          
+    npm notice 1.2kB  lib/error.js            
+    npm notice 637B   lib/index.d.ts          
+    npm notice 18.7kB lib/index.js            
+    npm notice 1.1kB  lib/pagenumber.d.ts     
+    npm notice 4.2kB  lib/pagenumber.js       
+    npm notice 3.8kB  lib/pdf.d.ts            
+    npm notice 17.3kB lib/pdf.js              
+    npm notice 401B   schema/plugin.json      
+    npm notice 600B   style/fit_dark.svg      
+    npm notice 600B   style/fit_light.svg     
+    npm notice 2.6kB  style/index.css         
+    npm notice 213B   style/next_dark.svg     
+    npm notice 213B   style/next_light.svg    
+    npm notice 210B   style/previous_dark.svg 
+    npm notice 210B   style/previous_light.svg
+    npm notice 450B   style/zoom_in_dark.svg  
+    npm notice 450B   style/zoom_in_light.svg 
+    npm notice 411B   style/zoom_out_dark.svg 
+    npm notice 411B   style/zoom_out_light.svg
+    npm notice === Tarball Details === 
+    npm notice name:          @jupyterlab/latex                       
+    npm notice version:       2.0.0                                   
+    npm notice filename:      jupyterlab-latex-2.0.0.tgz              
+    npm notice package size:  15.4 kB                                 
+    npm notice unpacked size: 61.3 kB                                 
+    npm notice shasum:        28ae0f04a4d1f9da4f9a8120e0aa308ee5e29efa
+    npm notice integrity:     sha512-uPjv+QY+TXOux[...]sGZsoPJ6aknQA==
+    npm notice total files:   23                                      
+    npm notice 
+    npm notice 
+    npm notice package: jupyterlab_filetree@0.2.2
+    npm notice === Tarball Contents === 
+    npm notice 11.4kB LICENSE                                          
+    npm notice 654B   style/.ipynb_checkpoints/index-checkpoint.css    
+    npm notice 2.6kB  style/index.css                                  
+    npm notice 28.2kB lib/filetree.js                                  
+    npm notice 915B   lib/index.js                                     
+    npm notice 9.3kB  lib/upload.js                                    
+    npm notice 4.1kB  lib/utils.js                                     
+    npm notice 1.4kB  package.json                                     
+    npm notice 690B   README.md                                        
+    npm notice 417B   style/.ipynb_checkpoints/file-tree-checkpoint.svg
+    npm notice 417B   style/file-tree-dark.svg                         
+    npm notice 417B   style/file-tree-light.svg                        
+    npm notice 1.5kB  lib/filetree.d.ts                                
+    npm notice 174B   lib/index.d.ts                                   
+    npm notice 1.3kB  lib/upload.d.ts                                  
+    npm notice 955B   lib/utils.d.ts                                   
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab_filetree                     
+    npm notice version:       0.2.2                                   
+    npm notice filename:      jupyterlab_filetree-0.2.2.tgz           
+    npm notice package size:  15.9 kB                                 
+    npm notice unpacked size: 64.4 kB                                 
+    npm notice shasum:        a706dd22b64f09a7119cc3167c0954307b39b690
+    npm notice integrity:     sha512-hTECdCzgPfZUA[...]aYnX6UlWMto6A==
+    npm notice total files:   16                                      
+    npm notice 
+    npm notice 
+    npm notice package: @lckr/jupyterlab_variableinspector@0.5.0
+    npm notice === Tarball Contents === 
+    npm notice 1.4kB  package.json              
+    npm notice 1.1kB  LICENSE                   
+    npm notice 2.5kB  README.md                 
+    npm notice 3.4kB  lib/handler.d.ts          
+    npm notice 9.2kB  lib/handler.js            
+    npm notice 184B   lib/index.d.ts            
+    npm notice 10.6kB lib/index.js              
+    npm notice 556B   lib/inspectorscripts.d.ts 
+    npm notice 11.8kB lib/inspectorscripts.js   
+    npm notice 1.6kB  lib/kernelconnector.d.ts  
+    npm notice 2.0kB  lib/kernelconnector.js    
+    npm notice 1.3kB  lib/manager.d.ts          
+    npm notice 1.8kB  lib/manager.js            
+    npm notice 2.2kB  lib/variableinspector.d.ts
+    npm notice 6.0kB  lib/variableinspector.js  
+    npm notice 1.3kB  style/index.css           
+    npm notice === Tarball Details === 
+    npm notice name:          @lckr/jupyterlab_variableinspector         
+    npm notice version:       0.5.0                                      
+    npm notice filename:      lckr-jupyterlab_variableinspector-0.5.0.tgz
+    npm notice package size:  13.0 kB                                    
+    npm notice unpacked size: 56.9 kB                                    
+    npm notice shasum:        8fe5e97bf63011b551b6beddc6b577d4c1ad8fbe   
+    npm notice integrity:     sha512-Llz98Lbw09pZR[...]B5cPVjUm0K9/Q==   
+    npm notice total files:   16                                         
+    npm notice 
+    npm notice 
+    npm notice package: jupyterlab-theme-toggle@0.5.0
+    npm notice === Tarball Contents === 
+    npm notice 1.5kB LICENSE           
+    npm notice 146B  style/index.css   
+    npm notice 3.0kB lib/index.js      
+    npm notice 1.3kB package.json      
+    npm notice 406B  schema/plugin.json
+    npm notice 1.4kB README.md         
+    npm notice 248B  lib/index.d.ts    
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab-theme-toggle                 
+    npm notice version:       0.5.0                                   
+    npm notice filename:      jupyterlab-theme-toggle-0.5.0.tgz       
+    npm notice package size:  3.5 kB                                  
+    npm notice unpacked size: 8.0 kB                                  
+    npm notice shasum:        567cb6fc41d60758a31fcf5781d0e75601f4beed
+    npm notice integrity:     sha512-QZhs1yEIb3TH/[...]8XPq0hJlhxL2w==
+    npm notice total files:   7                                       
+    npm notice 
+    npm notice 
+    npm notice package: jupyterlab-logout@0.5.0
+    npm notice === Tarball Contents === 
+    npm notice 0     style/index.css
+    npm notice 793B  lib/index.js   
+    npm notice 1.1kB package.json   
+    npm notice 1.1kB README.md      
+    npm notice 226B  lib/index.d.ts 
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab-logout                       
+    npm notice version:       0.5.0                                   
+    npm notice filename:      jupyterlab-logout-0.5.0.tgz             
+    npm notice package size:  1.5 kB                                  
+    npm notice unpacked size: 3.2 kB                                  
+    npm notice shasum:        b1c0d8e2288deb24ed72b45e77967c5e0104cc8e
+    npm notice integrity:     sha512-tvy8ekY6il44i[...]CnQIe39NvqMqw==
+    npm notice total files:   5                                       
+    npm notice 
+    npm notice 
+    npm notice package: jupyterlab-system-monitor@0.6.0
+    npm notice === Tarball Contents === 
+    npm notice 63B   style/index.css   
+    npm notice 1.7kB lib/index.js      
+    npm notice 1.6kB package.json      
+    npm notice 789B  schema/plugin.json
+    npm notice 307B  lib/index.d.ts    
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab-system-monitor               
+    npm notice version:       0.6.0                                   
+    npm notice filename:      jupyterlab-system-monitor-0.6.0.tgz     
+    npm notice package size:  1.7 kB                                  
+    npm notice unpacked size: 4.4 kB                                  
+    npm notice shasum:        949a4abb12c2c8403566001aa3555a6308cdd047
+    npm notice integrity:     sha512-MA9XAWdSOFTDW[...]DR85XpOdi2JgQ==
+    npm notice total files:   5                                       
+    npm notice 
+    npm notice 
+    npm notice package: jupyter-matplotlib@0.7.2
+    npm notice === Tarball Contents === 
+    npm notice 603B   src/mpl_widget.css   
+    npm notice 24.1kB dist/index.js        
+    npm notice 184B   src/index.js         
+    npm notice 434B   src/lab_extension.js 
+    npm notice 20.3kB src/mpl_widget.js    
+    npm notice 309B   src/nb_extension.js  
+    npm notice 520B   src/nb_index.js      
+    npm notice 5.4kB  src/toolbar_widget.js
+    npm notice 638B   src/utils.js         
+    npm notice 2.5kB  webpack.config.js    
+    npm notice 904B   package.json         
+    npm notice 76.9kB dist/index.js.map    
+    npm notice 161B   README.md            
+    npm notice === Tarball Details === 
+    npm notice name:          jupyter-matplotlib                      
+    npm notice version:       0.7.2                                   
+    npm notice filename:      jupyter-matplotlib-0.7.2.tgz            
+    npm notice package size:  37.0 kB                                 
+    npm notice unpacked size: 133.0 kB                                
+    npm notice shasum:        0a1f6631b1d511799b07d174c0f9c47211afa1d9
+    npm notice integrity:     sha512-rh7O2YagLYjAo[...]7k6rrvAjDtqTw==
+    npm notice total files:   13                                      
+    npm notice 
+    npm notice 
+    npm notice package: @jupyter-widgets/jupyterlab-manager@2.0.0
+    npm notice === Tarball Contents === 
+    npm notice 1.5kB  LICENSE             
+    npm notice 380B   lib/index.js        
+    npm notice 15.3kB lib/manager.js      
+    npm notice 5.3kB  lib/output.js       
+    npm notice 7.8kB  lib/plugin.js       
+    npm notice 3.3kB  lib/renderer.js     
+    npm notice 862B   lib/semvercache.js  
+    npm notice 2.3kB  package.json        
+    npm notice 375B   schema/plugin.json  
+    npm notice 2.1kB  README.md           
+    npm notice 277B   lib/index.d.ts      
+    npm notice 6.0kB  lib/manager.d.ts    
+    npm notice 1.9kB  lib/output.d.ts     
+    npm notice 828B   lib/plugin.d.ts     
+    npm notice 960B   lib/renderer.d.ts   
+    npm notice 216B   lib/semvercache.d.ts
+    npm notice === Tarball Details === 
+    npm notice name:          @jupyter-widgets/jupyterlab-manager         
+    npm notice version:       2.0.0                                       
+    npm notice filename:      jupyter-widgets-jupyterlab-manager-2.0.0.tgz
+    npm notice package size:  13.3 kB                                     
+    npm notice unpacked size: 49.4 kB                                     
+    npm notice shasum:        05ab402833df07aac1ec2c549a1d748b3c303185    
+    npm notice integrity:     sha512-i+qtbEe//W9Ru[...]Fu0KbkxM9aQXQ==    
+    npm notice total files:   16                                          
+    npm notice 
+    npm notice 
+    npm notice package: jupyterlab_tensorboard@0.2.0
+    npm notice === Tarball Contents === 
+    npm notice 1.1kB LICENSE              
+    npm notice 5.9kB style/index.css      
+    npm notice 5.7kB lib/index.js         
+    npm notice 6.1kB lib/manager.js       
+    npm notice 9.4kB lib/panel.js         
+    npm notice 2.3kB lib/tab.js           
+    npm notice 9.7kB lib/tensorboard.js   
+    npm notice 1.6kB package.json         
+    npm notice 1.6kB README.md            
+    npm notice 2.0kB style/tensorboard.svg
+    npm notice 920B  lib/index.d.ts       
+    npm notice 2.9kB lib/manager.d.ts     
+    npm notice 4.3kB lib/panel.d.ts       
+    npm notice 1.2kB lib/tab.d.ts         
+    npm notice 6.1kB lib/tensorboard.d.ts 
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab_tensorboard                  
+    npm notice version:       0.2.0                                   
+    npm notice filename:      jupyterlab_tensorboard-0.2.0.tgz        
+    npm notice package size:  14.3 kB                                 
+    npm notice unpacked size: 60.8 kB                                 
+    npm notice shasum:        bda788ce68ac394550f6898259c8111e13053482
+    npm notice integrity:     sha512-057S0no4gquDI[...]n3GaP64l0Q5LQ==
+    npm notice total files:   15                                      
+    npm notice 
+    npm notice 
+    npm notice package: jupyterlab-topbar-extension@0.5.0
+    npm notice === Tarball Contents === 
+    npm notice 0     style/index.css   
+    npm notice 2.5kB lib/index.js      
+    npm notice 1.3kB package.json      
+    npm notice 581B  schema/plugin.json
+    npm notice 136B  README.md         
+    npm notice 290B  lib/index.d.ts    
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab-topbar-extension             
+    npm notice version:       0.5.0                                   
+    npm notice filename:      jupyterlab-topbar-extension-0.5.0.tgz   
+    npm notice package size:  1.8 kB                                  
+    npm notice unpacked size: 4.8 kB                                  
+    npm notice shasum:        812c30e13021b5db8b8b9d365218894b18626542
+    npm notice integrity:     sha512-dnV0KX/k2Y5CW[...]DTQIqMOwHrMMA==
+    npm notice total files:   6                                       
+    npm notice 
+    npm notice 
+    npm notice package: @jupyterlab/git@0.20.0
+    npm notice === Tarball Contents === 
+    npm notice 1.5kB   LICENSE                                   
+    npm notice 3.1kB   style/diff-common.css                     
+    npm notice 10.2kB  style/diff-nb.css                         
+    npm notice 1.4kB   style/diff-text.css                       
+    npm notice 362B    style/index.css                           
+    npm notice 1.2kB   style/variables.css                       
+    npm notice 596B    lib/components/ActionButton.js            
+    npm notice 788B    lib/style/ActionButtonStyle.js            
+    npm notice 1.0kB   lib/widgets/AuthorBox.js                  
+    npm notice 7.4kB   lib/components/BranchMenu.js              
+    npm notice 2.7kB   lib/style/BranchMenu.js                   
+    npm notice 166B    lib/style/CloneButton.js                  
+    npm notice 3.3kB   lib/components/CommitBox.js               
+    npm notice 2.6kB   lib/style/CommitBox.js                    
+    npm notice 648B    lib/style/common.js                       
+    npm notice 1.5kB   lib/widgets/CredentialsBox.js             
+    npm notice 1.5kB   lib/components/diff/Diff.js               
+    npm notice 2.3kB   lib/components/diff/DiffWidget.js         
+    npm notice 3.6kB   lib/components/FileItem.js                
+    npm notice 1.6kB   lib/style/FileItemStyle.js                
+    npm notice 16.0kB  lib/components/FileList.js                
+    npm notice 2.2kB   lib/style/FileListStyle.js                
+    npm notice 948B    lib/components/FilePath.js                
+    npm notice 636B    lib/style/FilePathStyle.js                
+    npm notice 859B    lib/git.js                                
+    npm notice 4.4kB   lib/widgets/gitClone.js                   
+    npm notice 4.9kB   lib/gitMenuCommands.js                    
+    npm notice 10.6kB  lib/components/GitPanel.js                
+    npm notice 1.3kB   lib/style/GitPanel.js                     
+    npm notice 3.7kB   lib/widgets/gitPushPull.js                
+    npm notice 1.3kB   lib/components/GitStage.js                
+    npm notice 1.6kB   lib/style/GitStageStyle.js                
+    npm notice 751B    lib/widgets/GitWidget.js                  
+    npm notice 314B    lib/style/GitWidgetStyle.js               
+    npm notice 621B    lib/components/HistorySideBar.js          
+    npm notice 293B    lib/style/HistorySideBarStyle.js          
+    npm notice 1.3kB   lib/style/icons.js                        
+    npm notice 4.5kB   lib/index.js                              
+    npm notice 49.1kB  lib/components/diff/mergeview.js          
+    npm notice 252B    lib/components/diff/model.js              
+    npm notice 31.1kB  lib/model.js                              
+    npm notice 6.2kB   lib/components/diff/NbDiff.js             
+    npm notice 1.3kB   lib/components/diff/NBDiffHeader.js       
+    npm notice 10.7kB  lib/components/NewBranchDialog.js         
+    npm notice 5.3kB   lib/style/NewBranchDialog.js              
+    npm notice 3.5kB   lib/components/PastCommitNode.js          
+    npm notice 2.0kB   lib/style/PastCommitNode.js               
+    npm notice 4.1kB   lib/components/diff/PlainTextDiff.js      
+    npm notice 6.7kB   lib/components/ResetRevertDialog.js       
+    npm notice 4.0kB   lib/style/ResetRevertDialog.js            
+    npm notice 8.0kB   lib/components/SinglePastCommitInfo.js    
+    npm notice 2.1kB   lib/style/SinglePastCommitInfo.js         
+    npm notice 192B    lib/tokens.js                             
+    npm notice 8.8kB   lib/components/Toolbar.js                 
+    npm notice 3.9kB   lib/style/Toolbar.js                      
+    npm notice 3.6kB   lib/utils.js                              
+    npm notice 4.0kB   package.json                              
+    npm notice 1.4kB   schema/plugin.json                        
+    npm notice 1.7kB   lib/components/ActionButton.js.map        
+    npm notice 1.7kB   lib/style/ActionButtonStyle.js.map        
+    npm notice 2.3kB   lib/widgets/AuthorBox.js.map              
+    npm notice 13.0kB  lib/components/BranchMenu.js.map          
+    npm notice 4.9kB   lib/style/BranchMenu.js.map               
+    npm notice 409B    lib/style/CloneButton.js.map              
+    npm notice 6.0kB   lib/components/CommitBox.js.map           
+    npm notice 4.3kB   lib/style/CommitBox.js.map                
+    npm notice 1.2kB   lib/style/common.js.map                   
+    npm notice 3.1kB   lib/widgets/CredentialsBox.js.map         
+    npm notice 3.1kB   lib/components/diff/Diff.js.map           
+    npm notice 4.2kB   lib/components/diff/DiffWidget.js.map     
+    npm notice 7.8kB   lib/components/FileItem.js.map            
+    npm notice 2.9kB   lib/style/FileItemStyle.js.map            
+    npm notice 31.0kB  lib/components/FileList.js.map            
+    npm notice 4.2kB   lib/style/FileListStyle.js.map            
+    npm notice 2.2kB   lib/components/FilePath.js.map            
+    npm notice 1.3kB   lib/style/FilePathStyle.js.map            
+    npm notice 1.7kB   lib/git.js.map                            
+    npm notice 8.3kB   lib/widgets/gitClone.js.map               
+    npm notice 8.7kB   lib/gitMenuCommands.js.map                
+    npm notice 19.1kB  lib/components/GitPanel.js.map            
+    npm notice 2.4kB   lib/style/GitPanel.js.map                 
+    npm notice 6.7kB   lib/widgets/gitPushPull.js.map            
+    npm notice 2.9kB   lib/components/GitStage.js.map            
+    npm notice 3.1kB   lib/style/GitStageStyle.js.map            
+    npm notice 2.0kB   lib/widgets/GitWidget.js.map              
+    npm notice 661B    lib/style/GitWidgetStyle.js.map           
+    npm notice 1.9kB   lib/components/HistorySideBar.js.map      
+    npm notice 668B    lib/style/HistorySideBarStyle.js.map      
+    npm notice 2.6kB   lib/style/icons.js.map                    
+    npm notice 8.5kB   lib/index.js.map                          
+    npm notice 106.2kB lib/components/diff/mergeview.js.map      
+    npm notice 1.2kB   lib/components/diff/model.js.map          
+    npm notice 53.9kB  lib/model.js.map                          
+    npm notice 11.3kB  lib/components/diff/NbDiff.js.map         
+    npm notice 2.2kB   lib/components/diff/NBDiffHeader.js.map   
+    npm notice 18.5kB  lib/components/NewBranchDialog.js.map     
+    npm notice 9.4kB   lib/style/NewBranchDialog.js.map          
+    npm notice 7.1kB   lib/components/PastCommitNode.js.map      
+    npm notice 3.9kB   lib/style/PastCommitNode.js.map           
+    npm notice 6.7kB   lib/components/diff/PlainTextDiff.js.map  
+    npm notice 12.3kB  lib/components/ResetRevertDialog.js.map   
+    npm notice 6.8kB   lib/style/ResetRevertDialog.js.map        
+    npm notice 14.4kB  lib/components/SinglePastCommitInfo.js.map
+    npm notice 4.0kB   lib/style/SinglePastCommitInfo.js.map     
+    npm notice 13.2kB  lib/tokens.js.map                         
+    npm notice 15.9kB  lib/components/Toolbar.js.map             
+    npm notice 7.0kB   lib/style/Toolbar.js.map                  
+    npm notice 6.5kB   lib/utils.js.map                          
+    npm notice 13.7kB  README.md                                 
+    npm notice 401B    style/images/arrow-down-white.svg         
+    npm notice 386B    style/images/arrow-down.svg               
+    npm notice 266B    style/images/clear-white.svg              
+    npm notice 296B    style/images/deletions-made-icon.svg      
+    npm notice 302B    style/images/desktop-white.svg            
+    npm notice 302B    style/images/desktop.svg                  
+    npm notice 501B    style/images/diff-hover-dk.svg            
+    npm notice 506B    style/images/diff-hover.svg               
+    npm notice 644B    style/images/discard.svg                  
+    npm notice 1.4kB   style/images/git-branch-white.svg         
+    npm notice 1.4kB   style/images/git-branch.svg               
+    npm notice 1.3kB   style/images/git-clone-icon.svg           
+    npm notice 2.7kB   style/images/git-icon.svg                 
+    npm notice 654B    style/images/git-pull-white.svg           
+    npm notice 656B    style/images/git-pull.svg                 
+    npm notice 647B    style/images/git-push-white.svg           
+    npm notice 649B    style/images/git-push.svg                 
+    npm notice 315B    style/images/insertions-made-icon.svg     
+    npm notice 281B    style/images/move-file-down.svg           
+    npm notice 301B    style/images/move-file-up.svg             
+    npm notice 200B    style/images/plus-white.svg               
+    npm notice 185B    style/images/plus.svg                     
+    npm notice 341B    style/images/rewind.svg                   
+    npm notice 607B    lib/components/ActionButton.d.ts          
+    npm notice 216B    lib/style/ActionButtonStyle.d.ts          
+    npm notice 427B    lib/widgets/AuthorBox.d.ts                
+    npm notice 2.7kB   lib/components/BranchMenu.d.ts            
+    npm notice 468B    lib/style/BranchMenu.d.ts                 
+    npm notice 47B     lib/style/CloneButton.d.ts                
+    npm notice 2.1kB   lib/components/CommitBox.d.ts             
+    npm notice 196B    lib/style/CommitBox.d.ts                  
+    npm notice 49B     lib/style/common.d.ts                     
+    npm notice 470B    lib/widgets/CredentialsBox.d.ts           
+    npm notice 1.1kB   lib/components/diff/Diff.d.ts             
+    npm notice 750B    lib/components/diff/DiffWidget.d.ts       
+    npm notice 1.2kB   lib/components/FileItem.d.ts              
+    npm notice 454B    lib/style/FileItemStyle.d.ts              
+    npm notice 2.8kB   lib/components/FileList.d.ts              
+    npm notice 1.1kB   lib/style/FileListStyle.d.ts              
+    npm notice 328B    lib/components/FilePath.d.ts              
+    npm notice 136B    lib/style/FilePathStyle.d.ts              
+    npm notice 287B    lib/git.d.ts                              
+    npm notice 454B    lib/widgets/gitClone.d.ts                 
+    npm notice 808B    lib/gitMenuCommands.d.ts                  
+    npm notice 3.2kB   lib/components/GitPanel.d.ts              
+    npm notice 318B    lib/style/GitPanel.d.ts                   
+    npm notice 1.1kB   lib/widgets/gitPushPull.d.ts              
+    npm notice 598B    lib/components/GitStage.d.ts              
+    npm notice 364B    lib/style/GitStageStyle.d.ts              
+    npm notice 634B    lib/widgets/GitWidget.d.ts                
+    npm notice 45B     lib/style/GitWidgetStyle.d.ts             
+    npm notice 793B    lib/components/HistorySideBar.d.ts        
+    npm notice 50B     lib/style/HistorySideBarStyle.d.ts        
+    npm notice 397B    lib/style/icons.d.ts                      
+    npm notice 329B    lib/index.d.ts                            
+    npm notice 4.4kB   lib/components/diff/mergeview.d.ts        
+    npm notice 782B    lib/components/diff/model.d.ts            
+    npm notice 9.3kB   lib/model.d.ts                            
+    npm notice 1.6kB   lib/components/diff/NbDiff.d.ts           
+    npm notice 433B    lib/components/diff/NBDiffHeader.d.ts     
+    npm notice 3.1kB   lib/components/NewBranchDialog.d.ts       
+    npm notice 1.0kB   lib/style/NewBranchDialog.d.ts            
+    npm notice 1.7kB   lib/components/PastCommitNode.d.ts        
+    npm notice 632B    lib/style/PastCommitNode.d.ts             
+    npm notice 1.0kB   lib/components/diff/PlainTextDiff.d.ts    
+    npm notice 2.8kB   lib/components/ResetRevertDialog.d.ts     
+    npm notice 575B    lib/style/ResetRevertDialog.d.ts          
+    npm notice 3.2kB   lib/components/SinglePastCommitInfo.d.ts  
+    npm notice 576B    lib/style/SinglePastCommitInfo.d.ts       
+    npm notice 13.1kB  lib/tokens.d.ts                           
+    npm notice 3.0kB   lib/components/Toolbar.d.ts               
+    npm notice 874B    lib/style/Toolbar.d.ts                    
+    npm notice 649B    lib/utils.d.ts                            
+    npm notice === Tarball Details === 
+    npm notice name:          @jupyterlab/git                         
+    npm notice version:       0.20.0                                  
+    npm notice filename:      jupyterlab-git-0.20.0.tgz               
+    npm notice package size:  174.8 kB                                
+    npm notice unpacked size: 827.2 kB                                
+    npm notice shasum:        7b279b1b97e3de3649fc71a75e75e505e7901722
+    npm notice integrity:     sha512-i4n98RDF2pXJI[...]fSEAPYjnagt/A==
+    npm notice total files:   182                                     
+    npm notice 
+    npm notice 
+    npm notice package: nbdime-jupyterlab@2.0.0
+    npm notice === Tarball Contents === 
+    npm notice 3.6kB style/index.css   
+    npm notice 2.4kB lib/actions.js    
+    npm notice 635B  lib/index.js      
+    npm notice 9.2kB lib/plugin.js     
+    npm notice 278B  lib/utils.js      
+    npm notice 7.6kB lib/widget.js     
+    npm notice 2.1kB package.json      
+    npm notice 494B  schema/plugin.json
+    npm notice 2.1kB lib/actions.js.map
+    npm notice 268B  lib/index.js.map  
+    npm notice 5.8kB lib/plugin.js.map 
+    npm notice 298B  lib/utils.js.map  
+    npm notice 5.6kB lib/widget.js.map 
+    npm notice 772B  lib/actions.d.ts  
+    npm notice 433B  lib/index.d.ts    
+    npm notice 1.1kB lib/plugin.d.ts   
+    npm notice 95B   lib/utils.d.ts    
+    npm notice 2.0kB lib/widget.d.ts   
+    npm notice === Tarball Details === 
+    npm notice name:          nbdime-jupyterlab                       
+    npm notice version:       2.0.0                                   
+    npm notice filename:      nbdime-jupyterlab-2.0.0.tgz             
+    npm notice package size:  11.8 kB                                 
+    npm notice unpacked size: 44.7 kB                                 
+    npm notice shasum:        74b992aefe12a2a9a2524a10ee6d29fec7e42f97
+    npm notice integrity:     sha512-8NIUj7GsyuTyK[...]9wdol4WwvOHDA==
+    npm notice total files:   18                                      
+    npm notice 
+    jupyterlab-jupytext-1.2.1.tgz
+    jupyterlab_sparkmonitor-1.1.0.tgz
+    jupyterlab-toc-3.0.0.tgz
+    krassowski-jupyterlab-lsp-1.0.0.tgz
+    jupyterlab-codemirror-2.1.1.tgz
+    jupyterlab-latex-2.0.0.tgz
+    jupyterlab_filetree-0.2.2.tgz
+    lckr-jupyterlab_variableinspector-0.5.0.tgz
+    jupyterlab-theme-toggle-0.5.0.tgz
+    jupyterlab-logout-0.5.0.tgz
+    jupyterlab-system-monitor-0.6.0.tgz
+    jupyter-matplotlib-0.7.2.tgz
+    jupyter-widgets-jupyterlab-manager-2.0.0.tgz
+    jupyterlab_tensorboard-0.2.0.tgz
+    jupyterlab-topbar-extension-0.5.0.tgz
+    jupyterlab-git-0.20.0.tgz
+    nbdime-jupyterlab-2.0.0.tgz
     
-[I 2020-05-01 14:19:34.088 SingleUserNotebookApp build_handler:49] Build is up to date
+[D 2020-05-09 16:05:28.195 SingleUserNotebookApp handlers:828] Path c20b5b7362d8d7bb7eddf94344ace33e.woff2 served from /opt/conda/share/jupyter/lab/static/c20b5b7362d8d7bb7eddf94344ace33e.woff2
+[D 2020-05-09 16:05:28.200 SingleUserNotebookApp handlers:828] Path a06da7f0950f9dd366fc9db9d56d618a.woff2 served from /opt/conda/share/jupyter/lab/static/a06da7f0950f9dd366fc9db9d56d618a.woff2
+[D 2020-05-09 16:05:28.205 SingleUserNotebookApp handlers:828] Path components/MathJax/MathJax.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/MathJax/MathJax.js
+[D 2020-05-09 16:05:28.408 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:05:28.416 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+[D 2020-05-09 16:05:28.418 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:42063
+[I 2020-05-09 16:05:28.419 SingleUserNotebookApp kernelmanager:172] Kernel started: 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:05:28.420 SingleUserNotebookApp kernelmanager:173] Kernel args: {'kernel_name': 'rsparkling', 'cwd': '/home/admin/notebooks'}
+[I 2020-05-09 16:05:28.420 SingleUserNotebookApp kernelmanager:438] Culling kernels with idle durations > 600 seconds at 300 second intervals ...
+[D 2020-05-09 16:05:28.422 SingleUserNotebookApp handlers:828] Path components/MathJax/config/TeX-AMS-MML_HTMLorMML-full.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/MathJax/config/TeX-AMS-MML_HTMLorMML-full.js
+[D 2020-05-09 16:05:28.562 SingleUserNotebookApp handlers:828] Path components/MathJax/config/Safe.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/MathJax/config/Safe.js
+[D 2020-05-09 16:05:28.640 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-09 16:05:28.641 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:28.641 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:28.641 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:28.641 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:28.641 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:05:28.688 SingleUserNotebookApp handlers:828] Path components/MathJax/extensions/Safe.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/MathJax/extensions/Safe.js
+[D 2020-05-09 16:05:28.799 SingleUserNotebookApp handlers:828] Path components/MathJax/jax/output/HTML-CSS/fonts/STIX-Web/fontdata.js served from /opt/conda/lib/python3.6/site-packages/notebook/static/components/MathJax/jax/output/HTML-CSS/fonts/STIX-Web/fontdata.js
+[D 2020-05-09 16:05:29.286 SingleUserNotebookApp zmqhandlers:296] Initializing websocket connection /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:05:29.288 SingleUserNotebookApp handlers:139] Requesting kernel info from 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:05:29.289 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:55439
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:05:31.225 SingleUserNotebookApp handlers:252] Using contents: services/contents
+Error in h2o_context(sc) : could not find function "h2o_context"
+Execution halted
+[D 2020-05-09 16:05:39.295 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+-\|/-\|/-\|/-\|-\|/-\|/-\|/-\|/-\|/-\|/-\|16:05:39.297 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+[I 2020-05-09 16:05:39.320 JupyterHub proxy:320] Checking routes
+[I 2020-05-09 16:05:40.417 SingleUserNotebookApp restarter:110] KernelRestarter: restarting kernel (1/5), keep random ports
+[D 2020-05-09 16:05:40.417 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:05:40.422 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+[D 2020-05-09 16:05:41.226 SingleUserNotebookApp handlers:252] Using contents: services/contents
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:05:43.423 SingleUserNotebookApp restarter:119] KernelRestarter: restart apparently succeeded
+Error in h2o_context(sc) : could not find function "h2o_context"
+Execution halted
+[I 2020-05-09 16:05:49.423 SingleUserNotebookApp restarter:110] KernelRestarter: restarting kernel (1/5), keep random ports
+[D 2020-05-09 16:05:49.424 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:05:49.429 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:05:51.226 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-05-09 16:05:52.430 SingleUserNotebookApp restarter:119] KernelRestarter: restart apparently succeeded
+Error in h2o_context(sc) : could not find function "h2o_context"
+Execution halted
+[I 2020-05-09 16:05:58.429 SingleUserNotebookApp restarter:110] KernelRestarter: restarting kernel (1/5), keep random ports
+[D 2020-05-09 16:05:58.430 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:05:58.434 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:06:01.228 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-05-09 16:06:01.434 SingleUserNotebookApp restarter:119] KernelRestarter: restart apparently succeeded
+Error in h2o_context(sc) : could not find function "h2o_context"
+Execution halted
+[I 2020-05-09 16:06:07.434 SingleUserNotebookApp restarter:110] KernelRestarter: restarting kernel (1/5), keep random ports
+[D 2020-05-09 16:06:07.435 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:06:07.440 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:06:10.440 SingleUserNotebookApp restarter:119] KernelRestarter: restart apparently succeeded
+[D 2020-05-09 16:06:11.228 SingleUserNotebookApp handlers:252] Using contents: services/contents
+Error in h2o_context(sc) : could not find function "h2o_context"
+Execution halted
+[I 2020-05-09 16:06:16.441 SingleUserNotebookApp restarter:110] KernelRestarter: restarting kernel (1/5), keep random ports
+[D 2020-05-09 16:06:16.442 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:06:16.446 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:06:19.447 SingleUserNotebookApp restarter:119] KernelRestarter: restart apparently succeeded
+[D 2020-05-09 16:06:21.227 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-05-09 16:06:22.420 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-05-09 16:06:22.426 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:06:22.427 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:06:22.427 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:06:22.427 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-05-09 16:06:22.427 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+Error in h2o_context(sc) : could not find function "h2o_context"
+Execution halted
+[I 2020-05-09 16:06:25.446 SingleUserNotebookApp restarter:110] KernelRestarter: restarting kernel (1/5), keep random ports
+[D 2020-05-09 16:06:25.447 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:06:25.452 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:06:28.453 SingleUserNotebookApp restarter:119] KernelRestarter: restart apparently succeeded
+[W 2020-05-09 16:06:29.290 SingleUserNotebookApp handlers:229] Timeout waiting for kernel_info reply from 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:06:29.294 SingleUserNotebookApp zmqhandlers:157] Opening websocket /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:06:29.295 SingleUserNotebookApp kernelmanager:248] Getting buffer for 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:06:29.295 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:55439
+[D 2020-05-09 16:06:29.296 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+[D 2020-05-09 16:06:29.296 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:42063
+[D 2020-05-09 16:06:29.296 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:46757
+[D 2020-05-09 16:06:29.297 SingleUserNotebookApp handlers:429] Websocket closed 64f825f3-6962-4971-aa42-ecbfe41a4d72:14ba35b9-5127-4817-805b-af46c951d0fc
+[I 2020-05-09 16:06:29.298 SingleUserNotebookApp kernelmanager:217] Starting buffering for 64f825f3-6962-4971-aa42-ecbfe41a4d72:14ba35b9-5127-4817-805b-af46c951d0fc
+[D 2020-05-09 16:06:29.298 SingleUserNotebookApp kernelmanager:269] Clearing buffer for 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:06:29.529 SingleUserNotebookApp zmqhandlers:296] Initializing websocket connection /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:06:29.534 SingleUserNotebookApp zmqhandlers:157] Opening websocket /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:06:29.534 SingleUserNotebookApp kernelmanager:248] Getting buffer for 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:06:29.534 SingleUserNotebookApp kernelmanager:269] Clearing buffer for 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:06:29.534 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:55439
+[D 2020-05-09 16:06:29.535 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+[D 2020-05-09 16:06:29.536 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:42063
+[D 2020-05-09 16:06:29.536 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:46757
+[D 2020-05-09 16:06:30.139 SingleUserNotebookApp zmqhandlers:296] Initializing websocket connection /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:06:30.142 SingleUserNotebookApp zmqhandlers:157] Opening websocket /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:06:30.143 SingleUserNotebookApp kernelmanager:248] Getting buffer for 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:06:30.143 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:55439
+[D 2020-05-09 16:06:30.144 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+[D 2020-05-09 16:06:30.144 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:42063
+[D 2020-05-09 16:06:30.145 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:46757
+[D 2020-05-09 16:06:30.647 SingleUserNotebookApp zmqhandlers:296] Initializing websocket connection /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:06:30.650 SingleUserNotebookApp zmqhandlers:157] Opening websocket /user/admin/api/kernels/64f825f3-6962-4971-aa42-ecbfe41a4d72/channels
+[D 2020-05-09 16:06:30.650 SingleUserNotebookApp kernelmanager:248] Getting buffer for 64f825f3-6962-4971-aa42-ecbfe41a4d72
+[D 2020-05-09 16:06:30.651 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:55439
+[D 2020-05-09 16:06:30.651 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+[D 2020-05-09 16:06:30.651 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:42063
+[D 2020-05-09 16:06:30.652 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:46757
+[D 2020-05-09 16:06:31.228 SingleUserNotebookApp handlers:252] Using contents: services/contents
+Error in h2o_context(sc) : could not find function "h2o_context"
+Execution halted
+[I 2020-05-09 16:06:34.452 SingleUserNotebookApp restarter:110] KernelRestarter: restarting kernel (1/5), keep random ports
+kernel 64f825f3-6962-4971-aa42-ecbfe41a4d72 restarted
+kernel 64f825f3-6962-4971-aa42-ecbfe41a4d72 restarted
+kernel 64f825f3-6962-4971-aa42-ecbfe41a4d72 restarted
+[D 2020-05-09 16:06:34.454 SingleUserNotebookApp manager:304] Starting kernel: ['R', '--slave', '-e', 'IRkernel::main()', '--args', '/home/admin/.local/share/jupyter/runtime/kernel-64f825f3-6962-4971-aa42-ecbfe41a4d72.json']
+[D 2020-05-09 16:06:34.459 SingleUserNotebookApp connect:544] Connecting to: tcp://127.0.0.1:53399
+Loading required package: stats
+
+----------------------------------------------------------------------
+
+Your next step is to start H2O:
+    > h2o.init()
+
+For H2O package documentation, ask for help:
+    > ??h2o
+
+After starting H2O, you can use the Web UI at http://localhost:54321
+For more information visit http://docs.h2o.ai
+
+----------------------------------------------------------------------
+
+
+Attaching package: 'h2o'
+
+The following objects are masked from 'package:stats':
+
+    cor, sd, var
+
+The following objects are masked from 'package:base':
+
+    %*%, %in%, &&, apply, as.factor, as.numeric, colnames, colnames<-,
+    ifelse, is.character, is.factor, is.numeric, log, log10, log1p,
+    log2, round, signif, trunc, ||
+
+[D 2020-05-09 16:06:37.460 SingleUserNotebookApp restarter:119] KernelRestarter: restart apparently succeeded

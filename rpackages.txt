@@ -1,0 +1,9 @@
+Warning messages:
+1: In install.packages("languageserver") :
+  installation of package ‘openssl’ had non-zero exit status
+2: In install.packages("languageserver") :
+  installation of package ‘httr’ had non-zero exit status
+3: In install.packages("languageserver") :
+  installation of package ‘lintr’ had non-zero exit status
+4: In install.packages("languageserver") :
+  installation of package ‘languageserver’ had non-zero exit status

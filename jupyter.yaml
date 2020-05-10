@@ -149,6 +149,36 @@ spec:
   - name: "29413"
     protocol: TCP
     port: 29413
+  - name: "29414"
+    protocol: TCP
+    port: 29414
+  - name: "29415"
+    protocol: TCP
+    port: 29415
+  - name: "29416"
+    protocol: TCP
+    port: 29416
+  - name: "29417"
+    protocol: TCP
+    port: 29417
+  - name: "29418"
+    protocol: TCP
+    port: 29418
+  - name: "29419"
+    protocol: TCP
+    port: 29419
+  - name: "29420"
+    protocol: TCP
+    port: 29420
+  - name: "29421"
+    protocol: TCP
+    port: 29421
+  - name: "29422"
+    protocol: TCP
+    port: 29422
+  - name: "29423"
+    protocol: TCP
+    port: 29423
   - name: "54321"
     protocol: TCP
     port: 54321

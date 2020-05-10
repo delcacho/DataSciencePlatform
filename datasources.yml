@@ -1,0 +1,10 @@
+databases:
+- database_name: examples
+  sqlalchemy_uri: sqlite:////var/lib/superset/superset.db
+  tables: []
+- database_name: PostgreSQL K8s - MlFlow
+  extra: "{\r\n    \"metadata_params\": {},\r\n    \"engine_params\": {},\r\n    \"\
+    metadata_cache_timeout\": {},\r\n    \"schemas_allowed_for_csv_upload\": []\r\n\
+    }"
+  sqlalchemy_uri: postgresql://mlflow:pruebademlflow@postgres-postgresql-headless.default.svc.cluster.local:5432/mlflowdb
+  tables: []

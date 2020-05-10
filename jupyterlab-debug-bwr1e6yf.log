@@ -1,0 +1,375 @@
+Node v13.13.0
+
+Yarn configuration loaded.
+> /opt/conda/bin/npm pack @krassowski/jupyterlab-lsp
+npm notice 
+npm notice 📦  @krassowski/jupyterlab-lsp@1.0.0
+npm notice === Tarball Contents === 
+npm notice 3.5kB  package.json                                               
+npm notice 1.5kB  LICENSE                                                    
+npm notice 886B   lib/adapters/codemirror/cm_adapter.d.ts                    
+npm notice 2.6kB  lib/adapters/codemirror/cm_adapter.js                      
+npm notice 2.4kB  lib/adapters/codemirror/cm_adapter.js.map                  
+npm notice 11B    lib/adapters/codemirror/cm_adapter.spec.d.ts               
+npm notice 2.1kB  lib/adapters/codemirror/cm_adapter.spec.js                 
+npm notice 1.9kB  lib/adapters/codemirror/cm_adapter.spec.js.map             
+npm notice 5.0kB  lib/adapters/codemirror/feature.d.ts                       
+npm notice 14.1kB lib/adapters/codemirror/feature.js                         
+npm notice 11.1kB lib/adapters/codemirror/feature.js.map                     
+npm notice 11B    lib/adapters/codemirror/feature.spec.d.ts                  
+npm notice 10.4kB lib/adapters/codemirror/feature.spec.js                    
+npm notice 8.0kB  lib/adapters/codemirror/feature.spec.js.map                
+npm notice 309B   lib/adapters/codemirror/features/completion.d.ts           
+npm notice 1.3kB  lib/adapters/codemirror/features/completion.js             
+npm notice 903B   lib/adapters/codemirror/features/completion.js.map         
+npm notice 2.6kB  lib/adapters/codemirror/features/diagnostics_listing.d.ts  
+npm notice 9.4kB  lib/adapters/codemirror/features/diagnostics_listing.js    
+npm notice 9.2kB  lib/adapters/codemirror/features/diagnostics_listing.js.map
+npm notice 1.8kB  lib/adapters/codemirror/features/diagnostics.d.ts          
+npm notice 14.9kB lib/adapters/codemirror/features/diagnostics.js            
+npm notice 10.4kB lib/adapters/codemirror/features/diagnostics.js.map        
+npm notice 11B    lib/adapters/codemirror/features/diagnostics.spec.d.ts     
+npm notice 10.3kB lib/adapters/codemirror/features/diagnostics.spec.js       
+npm notice 8.7kB  lib/adapters/codemirror/features/diagnostics.spec.js.map   
+npm notice 591B   lib/adapters/codemirror/features/highlights.d.ts           
+npm notice 3.6kB  lib/adapters/codemirror/features/highlights.js             
+npm notice 2.9kB  lib/adapters/codemirror/features/highlights.js.map         
+npm notice 1.3kB  lib/adapters/codemirror/features/hover.d.ts                
+npm notice 7.9kB  lib/adapters/codemirror/features/hover.js                  
+npm notice 5.8kB  lib/adapters/codemirror/features/hover.js.map              
+npm notice 599B   lib/adapters/codemirror/features/jump_to.d.ts              
+npm notice 4.9kB  lib/adapters/codemirror/features/jump_to.js                
+npm notice 3.5kB  lib/adapters/codemirror/features/jump_to.js.map            
+npm notice 350B   lib/adapters/codemirror/features/rename.d.ts               
+npm notice 4.3kB  lib/adapters/codemirror/features/rename.js                 
+npm notice 3.4kB  lib/adapters/codemirror/features/rename.js.map             
+npm notice 11B    lib/adapters/codemirror/features/rename.spec.d.ts          
+npm notice 1.5kB  lib/adapters/codemirror/features/rename.spec.js            
+npm notice 1.6kB  lib/adapters/codemirror/features/rename.spec.js.map        
+npm notice 934B   lib/adapters/codemirror/features/signature.d.ts            
+npm notice 4.4kB  lib/adapters/codemirror/features/signature.js              
+npm notice 3.4kB  lib/adapters/codemirror/features/signature.js.map          
+npm notice 3.4kB  lib/adapters/codemirror/testutils.d.ts                     
+npm notice 6.2kB  lib/adapters/codemirror/testutils.js                       
+npm notice 5.6kB  lib/adapters/codemirror/testutils.js.map                   
+npm notice 2.6kB  lib/adapters/jupyterlab/components/completion.d.ts         
+npm notice 12.2kB lib/adapters/jupyterlab/components/completion.js           
+npm notice 8.6kB  lib/adapters/jupyterlab/components/completion.js.map       
+npm notice 785B   lib/adapters/jupyterlab/components/free_tooltip.d.ts       
+npm notice 2.1kB  lib/adapters/jupyterlab/components/free_tooltip.js         
+npm notice 1.8kB  lib/adapters/jupyterlab/components/free_tooltip.js.map     
+npm notice 2.8kB  lib/adapters/jupyterlab/components/statusbar.d.ts          
+npm notice 16.6kB lib/adapters/jupyterlab/components/statusbar.js            
+npm notice 12.4kB lib/adapters/jupyterlab/components/statusbar.js.map        
+npm notice 1.6kB  lib/adapters/jupyterlab/file_editor.d.ts                   
+npm notice 2.2kB  lib/adapters/jupyterlab/file_editor.js                     
+npm notice 2.0kB  lib/adapters/jupyterlab/file_editor.js.map                 
+npm notice 6.5kB  lib/adapters/jupyterlab/jl_adapter.d.ts                    
+npm notice 16.7kB lib/adapters/jupyterlab/jl_adapter.js                      
+npm notice 11.3kB lib/adapters/jupyterlab/jl_adapter.js.map                  
+npm notice 2.2kB  lib/adapters/jupyterlab/notebook.d.ts                      
+npm notice 5.6kB  lib/adapters/jupyterlab/notebook.js                        
+npm notice 4.8kB  lib/adapters/jupyterlab/notebook.js.map                    
+npm notice 3.6kB  lib/command_manager.d.ts                                   
+npm notice 6.7kB  lib/command_manager.js                                     
+npm notice 5.5kB  lib/command_manager.js.map                                 
+npm notice 11B    lib/command_manager.spec.d.ts                              
+npm notice 1.8kB  lib/command_manager.spec.js                                
+npm notice 1.9kB  lib/command_manager.spec.js.map                            
+npm notice 3.4kB  lib/connection_manager.d.ts                                
+npm notice 10.5kB lib/connection_manager.js                                  
+npm notice 7.9kB  lib/connection_manager.js.map                              
+npm notice 962B   lib/connection.d.ts                                        
+npm notice 2.8kB  lib/connection.js                                          
+npm notice 2.6kB  lib/connection.js.map                                      
+npm notice 497B   lib/converter.d.ts                                         
+npm notice 480B   lib/converter.js                                           
+npm notice 629B   lib/converter.js.map                                       
+npm notice 134B   lib/extractors/defaults.d.ts                               
+npm notice 4.2kB  lib/extractors/defaults.js                                 
+npm notice 2.9kB  lib/extractors/defaults.js.map                             
+npm notice 11B    lib/extractors/defaults.spec.d.ts                          
+npm notice 4.0kB  lib/extractors/defaults.spec.js                            
+npm notice 3.8kB  lib/extractors/defaults.spec.js.map                        
+npm notice 2.6kB  lib/extractors/regexp.d.ts                                 
+npm notice 3.4kB  lib/extractors/regexp.js                                   
+npm notice 2.8kB  lib/extractors/regexp.js.map                               
+npm notice 11B    lib/extractors/regexp.spec.d.ts                            
+npm notice 7.6kB  lib/extractors/regexp.spec.js                              
+npm notice 7.0kB  lib/extractors/regexp.spec.js.map                          
+npm notice 2.3kB  lib/extractors/types.d.ts                                  
+npm notice 33B    lib/extractors/types.js                                    
+npm notice 116B   lib/extractors/types.js.map                                
+npm notice 257B   lib/index.d.ts                                             
+npm notice 8.5kB  lib/index.js                                               
+npm notice 6.1kB  lib/index.js.map                                           
+npm notice 1.7kB  lib/lsp.d.ts                                               
+npm notice 2.8kB  lib/lsp.js                                                 
+npm notice 1.8kB  lib/lsp.js.map                                             
+npm notice 581B   lib/magics/defaults.d.ts                                   
+npm notice 5.1kB  lib/magics/defaults.js                                     
+npm notice 3.2kB  lib/magics/defaults.js.map                                 
+npm notice 11B    lib/magics/defaults.spec.d.ts                              
+npm notice 4.2kB  lib/magics/defaults.spec.js                                
+npm notice 3.4kB  lib/magics/defaults.spec.js.map                            
+npm notice 1.1kB  lib/magics/maps.d.ts                                       
+npm notice 1.7kB  lib/magics/maps.js                                         
+npm notice 1.8kB  lib/magics/maps.js.map                                     
+npm notice 532B   lib/magics/overrides.d.ts                                  
+npm notice 37B    lib/magics/overrides.js                                    
+npm notice 120B   lib/magics/overrides.js.map                                
+npm notice 707B   lib/magics/rpy2.d.ts                                       
+npm notice 2.7kB  lib/magics/rpy2.js                                         
+npm notice 2.9kB  lib/magics/rpy2.js.map                                     
+npm notice 11B    lib/magics/rpy2.spec.d.ts                                  
+npm notice 3.9kB  lib/magics/rpy2.spec.js                                    
+npm notice 3.4kB  lib/magics/rpy2.spec.js.map                                
+npm notice 642B   lib/manager.d.ts                                           
+npm notice 2.1kB  lib/manager.js                                             
+npm notice 2.2kB  lib/manager.js.map                                         
+npm notice 856B   lib/positioning.d.ts                                       
+npm notice 1.1kB  lib/positioning.js                                         
+npm notice 1.1kB  lib/positioning.js.map                                     
+npm notice 11B    lib/positioning.spec.d.ts                                  
+npm notice 2.8kB  lib/positioning.spec.js                                    
+npm notice 3.8kB  lib/positioning.spec.js.map                                
+npm notice 879B   lib/tokens.d.ts                                            
+npm notice 210B   lib/tokens.js                                              
+npm notice 220B   lib/tokens.js.map                                          
+npm notice 1.3kB  lib/utils.d.ts                                             
+npm notice 3.4kB  lib/utils.js                                               
+npm notice 2.8kB  lib/utils.js.map                                           
+npm notice 734B   lib/virtual/console.d.ts                                   
+npm notice 1.4kB  lib/virtual/console.js                                     
+npm notice 1.7kB  lib/virtual/console.js.map                                 
+npm notice 8.0kB  lib/virtual/document.d.ts                                  
+npm notice 21.2kB lib/virtual/document.js                                    
+npm notice 15.9kB lib/virtual/document.js.map                                
+npm notice 11B    lib/virtual/document.spec.d.ts                             
+npm notice 8.1kB  lib/virtual/document.spec.js                               
+npm notice 6.4kB  lib/virtual/document.spec.js.map                           
+npm notice 4.4kB  lib/virtual/editor.d.ts                                    
+npm notice 6.7kB  lib/virtual/editor.js                                      
+npm notice 4.6kB  lib/virtual/editor.js.map                                  
+npm notice 11B    lib/virtual/editor.spec.d.ts                               
+npm notice 5.6kB  lib/virtual/editor.spec.js                                 
+npm notice 4.9kB  lib/virtual/editor.spec.js.map                             
+npm notice 946B   lib/virtual/editors/file_editor.d.ts                       
+npm notice 1.7kB  lib/virtual/editors/file_editor.js                         
+npm notice 1.5kB  lib/virtual/editors/file_editor.js.map                     
+npm notice 3.7kB  lib/virtual/editors/notebook.d.ts                          
+npm notice 9.3kB  lib/virtual/editors/notebook.js                            
+npm notice 8.2kB  lib/virtual/editors/notebook.js.map                        
+npm notice 678B   schema/plugin.json                                         
+npm notice 7.0kB  src/_schema.d.ts                                           
+npm notice 2.3kB  src/adapters/codemirror/cm_adapter.spec.ts                 
+npm notice 2.8kB  src/adapters/codemirror/cm_adapter.ts                      
+npm notice 9.6kB  src/adapters/codemirror/feature.spec.ts                    
+npm notice 16.4kB src/adapters/codemirror/feature.ts                         
+npm notice 1.3kB  src/adapters/codemirror/features/completion.ts             
+npm notice 10.0kB src/adapters/codemirror/features/diagnostics_listing.tsx   
+npm notice 9.0kB  src/adapters/codemirror/features/diagnostics.spec.ts       
+npm notice 14.8kB src/adapters/codemirror/features/diagnostics.ts            
+npm notice 3.4kB  src/adapters/codemirror/features/highlights.ts             
+npm notice 8.1kB  src/adapters/codemirror/features/hover.ts                  
+npm notice 4.6kB  src/adapters/codemirror/features/jump_to.ts                
+npm notice 1.4kB  src/adapters/codemirror/features/rename.spec.ts            
+npm notice 4.4kB  src/adapters/codemirror/features/rename.ts                 
+npm notice 4.4kB  src/adapters/codemirror/features/signature.ts              
+npm notice 7.4kB  src/adapters/codemirror/testutils.ts                       
+npm notice 13.6kB src/adapters/jupyterlab/components/completion.ts           
+npm notice 2.4kB  src/adapters/jupyterlab/components/free_tooltip.ts         
+npm notice 16.2kB src/adapters/jupyterlab/components/statusbar.tsx           
+npm notice 3.1kB  src/adapters/jupyterlab/file_editor.ts                     
+npm notice 18.6kB src/adapters/jupyterlab/jl_adapter.ts                      
+npm notice 6.6kB  src/adapters/jupyterlab/notebook.ts                        
+npm notice 68B    src/babel.config.js                                        
+npm notice 1.9kB  src/command_manager.spec.ts                                
+npm notice 7.7kB  src/command_manager.ts                                     
+npm notice 11.9kB src/connection_manager.ts                                  
+npm notice 3.5kB  src/connection.ts                                          
+npm notice 743B   src/converter.ts                                           
+npm notice 3.9kB  src/extractors/defaults.spec.ts                            
+npm notice 3.8kB  src/extractors/defaults.ts                                 
+npm notice 6.8kB  src/extractors/regexp.spec.ts                              
+npm notice 5.5kB  src/extractors/regexp.ts                                   
+npm notice 2.3kB  src/extractors/types.ts                                    
+npm notice 8.6kB  src/index.ts                                               
+npm notice 2.2kB  src/lsp.ts                                                 
+npm notice 4.0kB  src/magics/defaults.spec.ts                                
+npm notice 4.5kB  src/magics/defaults.ts                                     
+npm notice 2.1kB  src/magics/maps.ts                                         
+npm notice 516B   src/magics/overrides.ts                                    
+npm notice 3.6kB  src/magics/rpy2.spec.ts                                    
+npm notice 2.5kB  src/magics/rpy2.ts                                         
+npm notice 2.2kB  src/manager.ts                                             
+npm notice 2.6kB  src/positioning.spec.ts                                    
+npm notice 1.6kB  src/positioning.ts                                         
+npm notice 845B   src/tokens.ts                                              
+npm notice 166B   src/typings.d.ts                                           
+npm notice 3.3kB  src/utils.ts                                               
+npm notice 1.7kB  src/virtual/console.ts                                     
+npm notice 8.0kB  src/virtual/document.spec.ts                               
+npm notice 24.3kB src/virtual/document.ts                                    
+npm notice 6.0kB  src/virtual/editor.spec.ts                                 
+npm notice 8.4kB  src/virtual/editor.ts                                      
+npm notice 2.2kB  src/virtual/editors/file_editor.ts                         
+npm notice 11.2kB src/virtual/editors/notebook.ts                            
+npm notice 423B   style/console.css                                          
+npm notice 1.7kB  style/diagnostics_listing.css                              
+npm notice 1.1kB  style/index.css                                            
+npm notice 1.9kB  style/statusbar.css                                        
+npm notice === Tarball Details === 
+npm notice name:          @krassowski/jupyterlab-lsp              
+npm notice version:       1.0.0                                   
+npm notice filename:      krassowski-jupyterlab-lsp-1.0.0.tgz     
+npm notice package size:  207.0 kB                                
+npm notice unpacked size: 919.2 kB                                
+npm notice shasum:        299d41ee2fd4a0d19138e88338de6e500e25b374
+npm notice integrity:     sha512-mk7JN8Vn33s7s[...]JJ/t8DersTnJQ==
+npm notice total files:   214                                     
+npm notice 
+krassowski-jupyterlab-lsp-1.0.0.tgz
+
+Node v13.13.0
+
+Yarn configuration loaded.
+Building jupyterlab assets (build:prod:minimize)
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js install --non-interactive
+yarn install v1.21.1
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+warning @blueprintjs/core@3.24.0: Invalid bin entry for "upgrade-blueprint-2.0.0-rename" (in "@blueprintjs/core").
+warning @blueprintjs/core@3.24.0: Invalid bin entry for "upgrade-blueprint-3.0.0-rename" (in "@blueprintjs/core").
+warning sha.js@2.4.11: Invalid bin entry for "sha.js" (in "sha.js").
+warning vscode-languageclient@5.2.1: The engine "vscode" appears to be invalid.
+info fsevents@1.2.11: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.11" is an optional dependency and failed compatibility check. Excluding it from installation.
+[4/5] Linking dependencies...
+warning " > @krassowski/jupyterlab-lsp@1.0.0" has unmet peer dependency "codemirror@*".
+warning "@krassowski/jupyterlab-lsp > @krassowski/jupyterlab_go_to_definition@1.0.0" has unmet peer dependency "codemirror@*".
+[5/5] Building fresh packages...
+success Saved lockfile.
+Done in 55.48s.
+
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js yarn-deduplicate -s fewer --fail
+yarn run v1.21.1
+$ /opt/conda/share/jupyter/lab/staging/node_modules/.bin/yarn-deduplicate -s fewer --fail
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js
+yarn install v1.21.1
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+warning vscode-languageclient@5.2.1: The engine "vscode" appears to be invalid.
+info fsevents@1.2.11: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.11" is an optional dependency and failed compatibility check. Excluding it from installation.
+[4/5] Linking dependencies...
+warning " > @krassowski/jupyterlab-lsp@1.0.0" has unmet peer dependency "codemirror@*".
+warning "@krassowski/jupyterlab-lsp > @krassowski/jupyterlab_go_to_definition@1.0.0" has unmet peer dependency "codemirror@*".
+[5/5] Building fresh packages...
+success Saved lockfile.
+Done in 5.82s.
+
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js run build:prod:minimize
+yarn run v1.21.1
+$ webpack --config webpack.prod.minimize.config.js
+Hash: f067f0d049c570c939e4e6d7562bdd59091b0242227f2253731b695df9ca
+Version: webpack 4.42.0
+Child
+    Hash: f067f0d049c570c939e4
+    Time: 140846ms
+    Built at: 05/02/2020 2:54:34 PM
+     33 assets
+    Entrypoint main = vendors~main.e63035977d2cea987f5e.js vendors~main.e63035977d2cea987f5e.js.map main.c763f198929ac33e3d46.js main.c763f198929ac33e3d46.js.map
+    [0] multi whatwg-fetch ./build/index.out.js 40 bytes {0} [built]
+    [/KN4] ./node_modules/@jupyterlab/filebrowser-extension/lib/index.js + 6 modules 134 KiB {2} [optional] [built]
+        |    7 modules
+    [31N0] ./node_modules/@jupyterlab/csvviewer-extension/lib/index.js + 5 modules 66.7 KiB {2} [optional] [built]
+        |    6 modules
+    [5pV8] ./node_modules/@jupyterlab/mathjax2-extension/lib/index.js + 1 modules 4.15 KiB {2} [optional] [built]
+        |    2 modules
+    [8943] ./node_modules/@jupyterlab/mainmenu-extension/lib/index.js + 10 modules 37.8 KiB {2} [optional] [built]
+        |    11 modules
+    [93mg] ./node_modules/@jupyterlab/celltags-extension/lib/index.js + 3 modules 15.7 KiB {2} [optional] [built]
+        |    4 modules
+    [9fgM] ./build/imports.css 463 bytes {0} [built]
+    [ANye] ./build/index.out.js 28.7 KiB {0} [built]
+    [LYgx] ./node_modules/@jupyterlab/docmanager-extension/lib/index.js + 6 modules 92.4 KiB {2} [optional] [built]
+        |    7 modules
+    [NHPb] ./node_modules/@jupyterlab/console-extension/lib/index.js + 6 modules 70 KiB {2} [optional] [built]
+        |    7 modules
+    [QP8U] ./node_modules/@jupyterlab/fileeditor-extension/lib/index.js + 2 modules 36.7 KiB {2} [optional] [built]
+        |    3 modules
+    [RMrj] ./node_modules/@jupyterlab/inspector-extension/lib/index.js + 1 modules 8.68 KiB {2} [optional] [built]
+        |    2 modules
+    [U33M] ./node_modules/@jupyterlab/logconsole-extension/lib/index.js + 6 modules 46 KiB {2} [optional] [built]
+        |    7 modules
+    [VYmV] ./node_modules/@jupyterlab/completer-extension/lib/index.js + 3 modules 56.3 KiB {2} [optional] [built]
+        |    4 modules
+    [ZPDT] ./node_modules/@jupyterlab/extensionmanager-extension/lib/index.js + 6 modules 43.8 KiB {2} [optional] [built]
+        |    7 modules
+        + 1812 hidden modules
+    
+    ERROR in vendors~main.e63035977d2cea987f5e.js from Terser
+    Error: Call retries were exceeded
+        at ChildProcessWorker.initialize (/opt/conda/share/jupyter/lab/staging/node_modules/jest-worker/build/workers/ChildProcessWorker.js:230:21)
+        at ChildProcessWorker._onExit (/opt/conda/share/jupyter/lab/staging/node_modules/jest-worker/build/workers/ChildProcessWorker.js:307:12)
+        at ChildProcess.emit (events.js:315:20)
+        at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12)
+    Child html-webpack-plugin for "index.html":
+         1 asset
+        Entrypoint undefined = index.html
+        [KTNU] ./node_modules/html-loader!./templates/partial.html 703 bytes {0} [built]
+        [YuTi] (webpack)/buildin/module.js 497 bytes {0} [built]
+        [aS2v] ./node_modules/html-webpack-plugin/lib/loader.js!./templates/template.html 1.27 KiB {0} [built]
+        [yLpj] (webpack)/buildin/global.js 472 bytes {0} [built]
+            + 1 hidden module
+Child
+    Hash: e6d7562bdd59091b0242
+    Time: 4217ms
+    Built at: 05/02/2020 2:52:17 PM
+        Asset       Size  Chunks             Chunk Names
+    index.css   15.7 KiB       0  [emitted]  index
+     index.js  932 bytes       0  [emitted]  index
+    Entrypoint index = index.css index.js
+       3 modules
+    Child mini-css-extract-plugin node_modules/css-loader/dist/cjs.js!node_modules/@jupyterlab/theme-dark-extension/style/index.css:
+        Entrypoint mini-css-extract-plugin = *
+           3 modules
+Child
+    Hash: 227f2253731b695df9ca
+    Time: 4213ms
+    Built at: 05/02/2020 2:52:17 PM
+        Asset       Size  Chunks             Chunk Names
+    index.css   14.7 KiB       0  [emitted]  index
+     index.js  932 bytes       0  [emitted]  index
+    Entrypoint index = index.css index.js
+       3 modules
+    Child mini-css-extract-plugin node_modules/css-loader/dist/cjs.js!node_modules/@jupyterlab/theme-light-extension/style/index.css:
+        Entrypoint mini-css-extract-plugin = *
+           3 modules
+error Command failed with exit code 2.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+JupyterLab failed to build
+Traceback (most recent call last):
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/debuglog.py", line 47, in debug_logging
+    yield
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/labextensions.py", line 105, in start
+    command=command, app_options=app_options)
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/commands.py", line 460, in build
+    command=command, clean_staging=clean_staging)
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/commands.py", line 661, in build
+    raise RuntimeError(msg)
+
+RuntimeError: JupyterLab failed to build
+
+Exiting application: jupyter

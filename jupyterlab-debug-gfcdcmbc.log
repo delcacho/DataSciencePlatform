@@ -1,0 +1,180 @@
+Node v13.13.0
+
+Yarn configuration loaded.
+> /opt/conda/bin/npm pack @jupyterlab/codemirror
+npm notice 
+npm notice 📦  @jupyterlab/codemirror@2.1.0
+npm notice === Tarball Contents === 
+npm notice 1.7kB  LICENSE                         
+npm notice 6.5kB  style/base.css                  
+npm notice 1.3kB  style/index.css                 
+npm notice 1.0kB  lib/codemirror-ipython.js       
+npm notice 1.7kB  lib/codemirror-ipythongfm.js    
+npm notice 38.7kB lib/editor.js                   
+npm notice 2.0kB  lib/factory.js                  
+npm notice 561B   lib/index.js                    
+npm notice 1.3kB  lib/mimetype.js                 
+npm notice 4.8kB  lib/mode.js                     
+npm notice 4.5kB  lib/syntaxstatus.js             
+npm notice 2.2kB  package.json                    
+npm notice 918B   lib/codemirror-ipython.js.map   
+npm notice 1.2kB  lib/codemirror-ipythongfm.js.map
+npm notice 29.5kB lib/editor.js.map               
+npm notice 1.2kB  lib/factory.js.map              
+npm notice 439B   lib/index.js.map                
+npm notice 936B   lib/mimetype.js.map             
+npm notice 3.5kB  lib/mode.js.map                 
+npm notice 3.4kB  lib/syntaxstatus.js.map         
+npm notice 202B   README.md                       
+npm notice 71B    lib/codemirror-ipython.d.ts     
+npm notice 112B   lib/codemirror-ipythongfm.d.ts  
+npm notice 16.3kB lib/editor.d.ts                 
+npm notice 805B   lib/factory.d.ts                
+npm notice 289B   lib/index.d.ts                  
+npm notice 752B   lib/mimetype.d.ts               
+npm notice 2.4kB  lib/mode.d.ts                   
+npm notice 1.8kB  lib/syntaxstatus.d.ts           
+npm notice === Tarball Details === 
+npm notice name:          @jupyterlab/codemirror                  
+npm notice version:       2.1.0                                   
+npm notice filename:      jupyterlab-codemirror-2.1.0.tgz         
+npm notice package size:  32.1 kB                                 
+npm notice unpacked size: 130.2 kB                                
+npm notice shasum:        a6fd32d703ace089f3b668a35c4b7504c4f14825
+npm notice integrity:     sha512-nFbQzwjPesQP7[...]bvsXi0NFfzayw==
+npm notice total files:   29                                      
+npm notice 
+jupyterlab-codemirror-2.1.0.tgz
+
+Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Fcodemirror
+> /opt/conda/bin/npm pack @jupyterlab/codemirror@2.1.0
+npm notice 
+npm notice 📦  @jupyterlab/codemirror@2.1.0
+npm notice === Tarball Contents === 
+npm notice 1.7kB  LICENSE                         
+npm notice 6.5kB  style/base.css                  
+npm notice 1.3kB  style/index.css                 
+npm notice 1.0kB  lib/codemirror-ipython.js       
+npm notice 1.7kB  lib/codemirror-ipythongfm.js    
+npm notice 38.7kB lib/editor.js                   
+npm notice 2.0kB  lib/factory.js                  
+npm notice 561B   lib/index.js                    
+npm notice 1.3kB  lib/mimetype.js                 
+npm notice 4.8kB  lib/mode.js                     
+npm notice 4.5kB  lib/syntaxstatus.js             
+npm notice 2.2kB  package.json                    
+npm notice 918B   lib/codemirror-ipython.js.map   
+npm notice 1.2kB  lib/codemirror-ipythongfm.js.map
+npm notice 29.5kB lib/editor.js.map               
+npm notice 1.2kB  lib/factory.js.map              
+npm notice 439B   lib/index.js.map                
+npm notice 936B   lib/mimetype.js.map             
+npm notice 3.5kB  lib/mode.js.map                 
+npm notice 3.4kB  lib/syntaxstatus.js.map         
+npm notice 202B   README.md                       
+npm notice 71B    lib/codemirror-ipython.d.ts     
+npm notice 112B   lib/codemirror-ipythongfm.d.ts  
+npm notice 16.3kB lib/editor.d.ts                 
+npm notice 805B   lib/factory.d.ts                
+npm notice 289B   lib/index.d.ts                  
+npm notice 752B   lib/mimetype.d.ts               
+npm notice 2.4kB  lib/mode.d.ts                   
+npm notice 1.8kB  lib/syntaxstatus.d.ts           
+npm notice === Tarball Details === 
+npm notice name:          @jupyterlab/codemirror                  
+npm notice version:       2.1.0                                   
+npm notice filename:      jupyterlab-codemirror-2.1.0.tgz         
+npm notice package size:  32.1 kB                                 
+npm notice unpacked size: 130.2 kB                                
+npm notice shasum:        a6fd32d703ace089f3b668a35c4b7504c4f14825
+npm notice integrity:     sha512-nFbQzwjPesQP7[...]bvsXi0NFfzayw==
+npm notice total files:   29                                      
+npm notice 
+jupyterlab-codemirror-2.1.0.tgz
+
+Node v13.13.0
+
+Yarn configuration loaded.
+Building jupyterlab assets (build:prod:minimize)
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js install --non-interactive
+yarn install v1.21.1
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+warning @jupyterlab/git > @material-ui/core > popper.js@1.16.1: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
+[3/5] Fetching packages...
+warning @blueprintjs/core@3.26.0: Invalid bin entry for "upgrade-blueprint-2.0.0-rename" (in "@blueprintjs/core").
+warning @blueprintjs/core@3.26.0: Invalid bin entry for "upgrade-blueprint-3.0.0-rename" (in "@blueprintjs/core").
+warning sha.js@2.4.11: Invalid bin entry for "sha.js" (in "sha.js").
+info fsevents@1.2.12: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.12" is an optional dependency and failed compatibility check. Excluding it from installation.
+[4/5] Linking dependencies...
+warning "nbdime-jupyterlab > nbdime@6.0.0" has unmet peer dependency "codemirror@^5.0.0".
+warning " > @jupyterlab/git@0.20.0-rc.0" has unmet peer dependency "codemirror@^5.0.0".
+[5/5] Building fresh packages...
+success Saved lockfile.
+Done in 91.97s.
+
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js yarn-deduplicate -s fewer --fail
+yarn run v1.21.1
+$ /opt/conda/share/jupyter/lab/staging/node_modules/.bin/yarn-deduplicate -s fewer --fail
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js
+yarn install v1.21.1
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+info fsevents@1.2.12: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.12" is an optional dependency and failed compatibility check. Excluding it from installation.
+[4/5] Linking dependencies...
+warning "nbdime-jupyterlab > nbdime@6.0.0" has unmet peer dependency "codemirror@^5.0.0".
+warning " > @jupyterlab/git@0.20.0-rc.0" has unmet peer dependency "codemirror@^5.0.0".
+[5/5] Building fresh packages...
+Done in 7.77s.
+
+> node /opt/conda/lib/python3.6/site-packages/jupyterlab/staging/yarn.js run build:prod:minimize
+yarn run v1.21.1
+$ ensure-max-old-space webpack --config webpack.prod.minimize.config.js
+child_process.js:632
+    throw err;
+    ^
+
+Error: Command failed: /opt/conda/share/jupyter/lab/staging/node_modules/.bin/webpack --config webpack.prod.minimize.config.js
+    at checkExecSyncError (child_process.js:611:11)
+    at Object.execFileSync (child_process.js:629:15)
+    at Object.<anonymous> (/opt/conda/share/jupyter/lab/staging/node_modules/@jupyterlab/buildutils/lib/ensure-max-old-space.js:38:17)
+    at Module._compile (internal/modules/cjs/loader.js:1123:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+    at Module.load (internal/modules/cjs/loader.js:972:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:872:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12)
+    at internal/main/run_main_module.js:17:47 {
+  status: null,
+  signal: 'SIGKILL',
+  output: [ null, null, null ],
+  pid: 228,
+  stdout: null,
+  stderr: null
+}
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
+JupyterLab failed to build
+Traceback (most recent call last):
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/debuglog.py", line 47, in debug_logging
+    yield
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/labextensions.py", line 105, in start
+    command=command, app_options=app_options)
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/commands.py", line 460, in build
+    command=command, clean_staging=clean_staging)
+
+  File "/opt/conda/lib/python3.6/site-packages/jupyterlab/commands.py", line 661, in build
+    raise RuntimeError(msg)
+
+RuntimeError: JupyterLab failed to build
+
+Exiting application: jupyter

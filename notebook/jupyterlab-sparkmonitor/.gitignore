@@ -1,0 +1,16 @@
+.vscode/settings.json
+*.pyc
+*.log
+**/.ipynb_checkpoints/
+scalalistener/project/
+scalalistener/target/
+*.egg-info/
+dist/
+build/
+node_modules/
+sparkmonitor/static/
+docs/
+lib/
+venv
+.tox
+yarn.lock

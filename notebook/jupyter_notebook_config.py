@@ -8,7 +8,9 @@ c.InteractiveShellApp.exec_lines = [
     "os.environ['MODIN_ENGINE'] = 'dask'",
     "import modin.pandas as pd",
 ]
-#c.GatewayClient.url = 'http://enterprise-gateway.enterprise-gateway.svc.cluster.local:8888'
-#c.NotebookApp.contents_manager_class = "jupytext.TextFileContentsManager"
 c.NotebookApp.ip = '*'
 c.NotebookApp.port = 8888
+c.LatexConfig.latex_command = 'pdflatex'
+c.NotebookApp.contents_manager_class = 'jupytext.TextFileContentsManager'
+c.NotebookApp.ResourceUseDisplay.track_cpu_percent = True
+c.MappingKernelManager.cull_idle_timeout = 600
