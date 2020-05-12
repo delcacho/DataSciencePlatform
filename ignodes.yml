@@ -1,0 +1,18 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: "2020-05-10T20:46:22Z"
+  labels:
+    kops.k8s.io/cluster: k8s.dev.bayescluster.com
+  name: nodes
+spec:
+  image: kope.io/k8s-1.16-debian-stretch-amd64-hvm-ebs-2020-01-17
+  machineType: t2.large
+  maxPrice: "0.0928"
+  maxSize: 5
+  minSize: 5
+  nodeLabels:
+    kops.k8s.io/instancegroup: nodes
+  role: Node
+  subnets:
+  - us-east-1a

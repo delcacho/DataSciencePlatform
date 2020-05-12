@@ -32,3 +32,11 @@ services:
       - "443:443"
     environment:
       - DASK_SCHEDULER_ADDRESS="tcp://scheduler:8786"
+
+  jenkins-connector:
+    build:
+      context: ./jenkins-connector
+      dockerfile: Dockerfile
+    image: delcacho/jenkins-connector
+    hostname: jenkins-connector
+    command: ["python3", "/usr/local/bin/jenkins-connector/connector.py"]

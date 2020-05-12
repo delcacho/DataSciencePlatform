@@ -8,7 +8,7 @@ RUN apt-get update \
 RUN sudo apt-get purge openjdk* \
   && apt-get install -yq openjdk-8-jdk-headless ca-certificates-java \
   && apt-get -yqq install docker.io maven curl libcurl4-openssl-dev software-properties-common \
-     libxml2-dev libssl-dev vim iputils-ping \
+     libxml2-dev libssl-dev vim iputils-ping libopenblas-dev \
   && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
 RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
 RUN apt update && apt install -yq r-base r-base-core r-recommended r-base-dev \
@@ -37,7 +37,7 @@ ENV SPARK_OPTS="--driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M 
 RUN conda install python=3.6.9
 RUN pip install h2o_pysparkling_2.4  colorama ipykernel portalocker \
     causal_impact modin ipyparallel hyperopt psycopg2-binary \
-    nbconvert mlflow  ipywidgets jupyterlab_latex
+    nbconvert mlflow  ipywidgets jupyterlab_latex 
 RUN pip install jupyter_helpers dvc seaborn spacy sqlalchemy flask
 RUN pip install tensorflow-cpu tensorflow-gpu
 RUN pip install --pre jupyter-lsp
@@ -50,7 +50,7 @@ RUN pip install ml-versioning-tools dask-kubernetes sqlalchemy-redshift PyHive P
  pybigquery pymssql snowflake-sqlalchemy kylinpy \
     sqlalchemy-pytds snowflake-sqlalchemy jupyter_contrib_nbextensions
 RUN pip install pyspark kubernetes jupyter-archive tensorboard jupyter-tensorboard
-RUN pip install jupyter-offlinenotebook nbresuse[resources]
+RUN pip install jupyter-offlinenotebook nbresuse[resources] sdnotify
 #RUN pip install jupyterlab-sparkmonitor
 COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
 RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
