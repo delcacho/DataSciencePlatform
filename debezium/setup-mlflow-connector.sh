@@ -12,6 +12,10 @@ curl -v -X POST \
             "database.password": "pruebademlflow",
             "database.dbname": "mlflowdb",
             "database.server.name": "postgres",
-            "table.whitelist": "public.model_versions"
+            "batch.size": "1",
+            "max.batch.size": "1",
+            "table.whitelist": "public.model_versions",
+            "errors.log.enable": "true",
+            "errors.logs.include.messages": "true"
       }
 }'

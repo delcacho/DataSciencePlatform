@@ -39,4 +39,10 @@ services:
       dockerfile: Dockerfile
     image: delcacho/jenkins-connector
     hostname: jenkins-connector
-    command: ["python3", "/usr/local/bin/jenkins-connector/connector.py"]
+
+  jenkins-agent:
+    build:
+      context: ./jenkins-agent
+      dockerfile: Dockerfile
+    image: delcacho/jenkins-agent
+    hostname: jenkins-agent

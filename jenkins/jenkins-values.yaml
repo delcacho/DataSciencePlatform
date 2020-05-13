@@ -1,3 +1,6 @@
+agent:
+  image: delcacho/jenkins-connector
+
 master:
   adminPassword: jenkins
   credentialsXmlSecret: jenkins-credentials

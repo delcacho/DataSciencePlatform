@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: kafkaconnect-container
-          image: debezium/connect:0.10.0.CR1
+          image: debezium/connect:latest
           readinessProbe:
             httpGet:
               path: /
@@ -38,6 +38,14 @@ spec:
               value: connect-configs
             - name: STATUS_STORAGE_TOPIC
               value: connect-status
+            - name: CONNECT_HEARTBEAT_INTERVAL_MS
+              value: "1000"
+            - name: OFFSET_FLUSH_INTERVAL_MS
+              value: "1000"
+            - name: CONNECT_FLUSH_MESSAGES
+              value: "1"
+            - name: CONNECT_BATCH_SIZE
+              value: "1"
           ports:
           - containerPort: 8083
 ---

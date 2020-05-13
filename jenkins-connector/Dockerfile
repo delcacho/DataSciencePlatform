@@ -1,14 +1,10 @@
 FROM continuumio/miniconda3:4.7.12
 
-RUN pip install kafka-python
+RUN conda install python=3.6.9
+
+RUN pip install -U kafka-python requests confluent-kafka
 
 RUN mkdir -p /usr/local/bin/jenkins-connector
 COPY connector.py /usr/local/bin/jenkins-connector/connector.py
 
-RUN conda install --yes \
-    -c conda-forge \
-    tini==0.18.0
-
-COPY prepare.sh /usr/bin/prepare.sh
-
-ENTRYPOINT ["tini", "-g", "--", "/usr/bin/prepare.sh"]
+CMD ["python3", "/usr/local/bin/jenkins-connector/connector.py"]

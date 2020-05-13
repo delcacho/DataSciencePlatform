@@ -1,7 +1,7 @@
 echo "Installing Debezium..."
 helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
 helm repo update
-helm install --wait kafka incubator/kafka --set external.enabled=true
+helm install --wait kafka incubator/kafka --set external.enabled=false
 kubectl create -f ./debezium/kafka-client-deploy.yaml
 kubectl wait pod/kafka-client --for condition=available
 kubectl exec kafka-client -- kafka-topics --zookeeper kafka-zookeeper:2181 --topic connect-offsets --create --partitions 1 --replication-factor 1

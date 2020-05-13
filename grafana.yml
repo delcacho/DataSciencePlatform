@@ -1,9 +1,0 @@
-grafana:
-  grafana.ini:
-    smtp:
-      enabled: true
-      host: "smtp.gmail.com:465"
-      user: "cdelcacho@paradigmadigital.com"
-      password: "caradebola"
-      skip_verify: true
-      from_name: "MLOps Monitoring System"

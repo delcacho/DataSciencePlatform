@@ -1,5 +1,0 @@
-from pysparkling import *
-from pyspark.sql import SparkSession
-import h2o
-spark = SparkSession.builder.config("spark.driver.port", "29413").getOrCreate()
-hc = H2OContext.getOrCreate(spark)

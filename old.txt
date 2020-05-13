@@ -1,1 +1,0 @@
-  "PYTHONSTARTUP": "/usr/local/spark/python/pyspark/shell.py",
