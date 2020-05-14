@@ -25,6 +25,7 @@ helm repo update
 ./superset/superset.sh
 helm install --wait postgres --values pg-values.yaml stable/postgresql --set extendedConfConfigMap=postgresql-config
 python3 ./debezium/debeziumcopy.py
+python3 ./jenkins/jenkinsinit.py
 ./mlflow/mlflow.sh
 ./spark/spark.sh
 kubectl create -f jenkins-connector.yaml 

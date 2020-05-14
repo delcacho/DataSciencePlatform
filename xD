@@ -1,0 +1,656 @@
+2020-05-14 10:03:03 kubewatch [21 TMainThread] 0.50.1 INFO: kubewatch starting: mode 'cluster-id' ambassador_config_dir '/ambassador/ambassador-config' envoy_config_file '/ambassador/envoy/envoy.json' debug 'False' delay '1.0' pid 'None'
+2020-05-14 10:03:03 kubewatch [21 TMainThread] 0.50.1 INFO: namespace default, watching all namespaces
+2020-05-14 10:03:03 kubewatch [21 TMainThread] 0.50.1 INFO: cluster ID is ced438f5-1539-57ef-9997-1c1f3e5c0c2e (from namespace default)
+AMBASSADOR: using cluster ID ced438f5-1539-57ef-9997-1c1f3e5c0c2e
+AMBASSADOR: starting ads
+AMBASSADOR: starting diagd
+AMBASSADOR: pinging diagd (10)...
+time="2020-05-14T10:03:03Z" level=info msg="Ambex 0.1.1 starting..."
+time="2020-05-14T10:03:03Z" level=info msg=Listening port=18000
+time="2020-05-14T10:03:03Z" level=info msg="Wrote PID" file=ambex.pid pid=28
+time="2020-05-14T10:03:03Z" level=info msg="Pushing snapshot v0"
+AMBASSADOR: pinging diagd (9)...
+2020-05-14 10:03:04 diagd 0.50.1 [P29TMainThread] INFO: thread count 5, listening on 0.0.0.0:8877
+[2020-05-14 10:03:04 +0000] [29] [INFO] Starting gunicorn 19.9.0
+[2020-05-14 10:03:04 +0000] [29] [INFO] Listening at: http://0.0.0.0:8877 (29)
+[2020-05-14 10:03:04 +0000] [29] [INFO] Using worker: threads
+[2020-05-14 10:03:04 +0000] [44] [INFO] Booting worker with pid: 44
+2020-05-14 10:03:04 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: starting event watcher
+2020-05-14 10:03:04 diagd 0.50.1 [P44TMainThread] INFO: Starting periodic updates
+2020-05-14 10:03:04 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: loading configuration from disk: /ambassador/ambassador-config
+2020-05-14 10:03:04 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: no configuration found at /ambassador/ambassador-config
+AMBASSADOR: pinging diagd (8)...
++ set +x
++ kubewatch --sync 'python3 /ambassador/post_update.py' --warmup-delay 10s secrets services
+AMBASSADOR: diagd running
+AMBASSADOR: waiting
+PIDS: 28:ambex 29:diagd 50:kubewatch
+2020-05-14 10:03:09 diagd 0.50.1 [P44TAmbassadorEventWatcher] WARNING: EnvoyStats.update_log_levels failed: HTTPConnectionPool(host='127.0.0.1', port=8001): Max retries exceeded with url: /logging (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f04286ea438>: Failed to establish a new connection: [Errno 111] Connection refused',))
+2020-05-14 10:03:09 diagd 0.50.1 [P44TAmbassadorEventWatcher] WARNING: EnvoyStats.update failed: HTTPConnectionPool(host='127.0.0.1', port=8001): Max retries exceeded with url: /stats (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f04286eab38>: Failed to establish a new connection: [Errno 111] Connection refused',))
+2020-05-14 10:03:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] WARNING: EnvoyStats.update_log_levels failed: HTTPConnectionPool(host='127.0.0.1', port=8001): Max retries exceeded with url: /logging (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f0428704208>: Failed to establish a new connection: [Errno 111] Connection refused',))
+2020-05-14 10:03:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] WARNING: EnvoyStats.update failed: HTTPConnectionPool(host='127.0.0.1', port=8001): Max retries exceeded with url: /stats (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f0428704898>: Failed to establish a new connection: [Errno 111] Connection refused',))
+2020/05/14 10:03:16 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/1
+2020-05-14 10:03:16 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/1
+2020-05-14 10:03:16 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/1 to /ambassador/snapshots/snapshot-1.yaml
+2020-05-14 10:03:16 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 20260 bytes of YAML
+2020-05-14 10:03:16 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:03:16 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450596.959768}
+2020-05-14 10:03:16 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:16 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 1
+2020-05-14 10:03:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: started Envoy as PID 69
+KICK: kicking ambex
+time="2020-05-14T10:03:17Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:17Z" level=info msg="Pushing snapshot v1"
+2020-05-14 10:03:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:203] initializing epoch 0 (hot restart version=10.200.16384.127.options=capacity=16384, num_slots=8209 hash=228984379728933363 size=2654312)
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:205] statically linked extensions:
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:207]   access_loggers: envoy.file_access_log,envoy.http_grpc_access_log
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:210]   filters.http: envoy.buffer,envoy.cors,envoy.ext_authz,envoy.fault,envoy.filters.http.header_to_metadata,envoy.filters.http.jwt_authn,envoy.filters.http.rbac,envoy.grpc_http1_bridge,envoy.grpc_json_transcoder,envoy.grpc_web,envoy.gzip,envoy.health_check,envoy.http_dynamo_filter,envoy.ip_tagging,envoy.lua,envoy.rate_limit,envoy.router,envoy.squash
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:213]   filters.listener: envoy.listener.original_dst,envoy.listener.proxy_protocol,envoy.listener.tls_inspector
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:216]   filters.network: envoy.client_ssl_auth,envoy.echo,envoy.ext_authz,envoy.filters.network.dubbo_proxy,envoy.filters.network.rbac,envoy.filters.network.sni_cluster,envoy.filters.network.thrift_proxy,envoy.http_connection_manager,envoy.mongo_proxy,envoy.ratelimit,envoy.redis_proxy,envoy.tcp_proxy
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:218]   stat_sinks: envoy.dog_statsd,envoy.metrics_service,envoy.stat_sinks.hystrix,envoy.statsd
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:220]   tracers: envoy.dynamic.ot,envoy.lightstep,envoy.tracers.datadog,envoy.zipkin
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:223]   transport_sockets.downstream: envoy.transport_sockets.alts,envoy.transport_sockets.capture,raw_buffer,tls
+[2020-05-14 10:03:17.030][000069][info][main] [source/server/server.cc:226]   transport_sockets.upstream: envoy.transport_sockets.alts,envoy.transport_sockets.capture,raw_buffer,tls
+[2020-05-14 10:03:17.039][000069][info][main] [source/server/server.cc:268] admin address: 127.0.0.1:8001
+[2020-05-14 10:03:17.041][000069][info][config] [source/server/configuration_impl.cc:50] loading 0 static secret(s)
+[2020-05-14 10:03:17.041][000069][info][config] [source/server/configuration_impl.cc:56] loading 1 cluster(s)
+[2020-05-14 10:03:17.045][000069][info][upstream] [source/common/upstream/cluster_manager_impl.cc:132] cm init: initializing cds
+[2020-05-14 10:03:17.045][000069][info][config] [source/server/configuration_impl.cc:61] loading 0 listener(s)
+[2020-05-14 10:03:17.045][000069][info][config] [source/server/configuration_impl.cc:94] loading tracing configuration
+[2020-05-14 10:03:17.045][000069][info][config] [source/server/configuration_impl.cc:112] loading stats sink configuration
+[2020-05-14 10:03:17.046][000069][info][main] [source/server/server.cc:456] starting main dispatch loop
+[2020-05-14 10:03:17.051][000069][info][upstream] [source/common/upstream/cluster_manager_impl.cc:496] add/update cluster cluster_127_0_0_1_8877 during init
+[2020-05-14 10:03:17.051][000069][info][upstream] [source/common/upstream/cluster_manager_impl.cc:136] cm init: all clusters initialized
+[2020-05-14 10:03:17.051][000069][info][main] [source/server/server.cc:428] all clusters initialized. initializing init manager
+[2020-05-14 10:03:17.060][000069][info][upstream] [source/server/lds_api.cc:80] lds: add/update listener 'ambassador-listener-8080'
+[2020-05-14 10:03:17.060][000069][info][config] [source/server/listener_manager_impl.cc:908] all dependencies initialized. starting workers
+2020/05/14 10:03:19 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/2
+2020-05-14 10:03:20 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/2
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/2 to /ambassador/snapshots/snapshot-2.yaml
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 20260 bytes of YAML
+2020/05/14 10:03:20 SYNC: read |0: file already closed
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:03:20 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/3
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450600.788694}
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:20 diagd 0.50.1 [P44TThreadPoolExecutor-0_1] INFO: Update requested from http://localhost:34493/api/snapshot/3
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 2
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/3 to /ambassador/snapshots/snapshot-3.yaml
+time="2020-05-14T10:03:20Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:20Z" level=info msg="Pushing snapshot v2"
+2020-05-14 10:03:20 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 21962 bytes of YAML
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450601.293475}
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 3
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:03:21 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:03:21Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:21Z" level=info msg="Pushing snapshot v3"
+2020/05/14 10:03:22 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/4
+2020-05-14 10:03:23 diagd 0.50.1 [P44TThreadPoolExecutor-0_4] INFO: Update requested from http://localhost:34493/api/snapshot/4
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/4 to /ambassador/snapshots/snapshot-4.yaml
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 22058 bytes of YAML
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450603.441303}
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 4
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:03:23 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:03:23Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:23Z" level=info msg="Pushing snapshot v4"
+2020/05/14 10:03:37 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/5
+2020-05-14 10:03:37 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/5
+2020-05-14 10:03:37 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/5 to /ambassador/snapshots/snapshot-5.yaml
+2020-05-14 10:03:37 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 22058 bytes of YAML
+2020-05-14 10:03:37 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:03:37 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450617.995338}
+2020-05-14 10:03:37 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:37 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 5
+2020-05-14 10:03:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:03:38Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:38Z" level=info msg="Pushing snapshot v5"
+2020-05-14 10:03:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:03:38 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/6
+2020-05-14 10:03:38 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/6
+2020-05-14 10:03:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/6 to /ambassador/snapshots/snapshot-6.yaml
+2020-05-14 10:03:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 22058 bytes of YAML
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450619.308414}
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 6
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:03:39Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:39Z" level=info msg="Pushing snapshot v6"
+2020/05/14 10:03:39 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/7
+2020-05-14 10:03:39 diagd 0.50.1 [P44TThreadPoolExecutor-0_2] INFO: Update requested from http://localhost:34493/api/snapshot/7
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/7 to /ambassador/snapshots/snapshot-7.yaml
+2020-05-14 10:03:39 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 22058 bytes of YAML
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450620.26349}
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 7
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:03:40 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:03:40Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:40Z" level=info msg="Pushing snapshot v7"
+2020/05/14 10:03:44 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/8
+2020-05-14 10:03:44 diagd 0.50.1 [P44TThreadPoolExecutor-0_2] INFO: Update requested from http://localhost:34493/api/snapshot/8
+2020-05-14 10:03:44 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/8 to /ambassador/snapshots/snapshot-8.yaml
+2020-05-14 10:03:44 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 22058 bytes of YAML
+2020-05-14 10:03:44 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:03:45 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/9
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450625.035035}
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 8
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:03:45Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:45Z" level=info msg="Pushing snapshot v8"
+2020-05-14 10:03:45 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/9
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/9 to /ambassador/snapshots/snapshot-9.yaml
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 22058 bytes of YAML
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:03:45 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/10
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450625.70044}
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 9
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+KICK: kicking ambex
+time="2020-05-14T10:03:45Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:45Z" level=info msg="Pushing snapshot v9"
+2020-05-14 10:03:45 diagd 0.50.1 [P44TThreadPoolExecutor-0_2] INFO: Update requested from http://localhost:34493/api/snapshot/10
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/10 to /ambassador/snapshots/snapshot-10.yaml
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 23557 bytes of YAML
+2020-05-14 10:03:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:03:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450626.167164}
+2020-05-14 10:03:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:03:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:03:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 10
+2020-05-14 10:03:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:03:46Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:03:46Z" level=info msg="Pushing snapshot v10"
+2020-05-14 10:03:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:08:46 deleting snapshot 1
+2020/05/14 10:08:46 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/11
+2020-05-14 10:08:46 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/11
+2020-05-14 10:08:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/11 to /ambassador/snapshots/snapshot-11.yaml
+2020-05-14 10:08:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 23557 bytes of YAML
+2020-05-14 10:08:46 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:08:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450927.156522}
+2020-05-14 10:08:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:08:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:08:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:08:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 11
+2020-05-14 10:08:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:08:47Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:08:47Z" level=info msg="Pushing snapshot v11"
+2020-05-14 10:08:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:08:52 deleting snapshot 2
+2020/05/14 10:08:52 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/12
+2020-05-14 10:08:52 diagd 0.50.1 [P44TThreadPoolExecutor-0_4] INFO: Update requested from http://localhost:34493/api/snapshot/12
+2020-05-14 10:08:52 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/12 to /ambassador/snapshots/snapshot-12.yaml
+2020-05-14 10:08:52 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 23557 bytes of YAML
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450933.284501}
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 12
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:08:53Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:08:53Z" level=info msg="Pushing snapshot v12"
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:08:53 deleting snapshot 3
+2020/05/14 10:08:53 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/13
+2020-05-14 10:08:53 diagd 0.50.1 [P44TThreadPoolExecutor-0_1] INFO: Update requested from http://localhost:34493/api/snapshot/13
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/13 to /ambassador/snapshots/snapshot-13.yaml
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 26512 bytes of YAML
+2020-05-14 10:08:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:08:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589450934.041775}
+2020-05-14 10:08:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:08:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:08:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:08:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 13
+2020-05-14 10:08:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:08:54Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:08:54Z" level=info msg="Pushing snapshot v13"
+2020-05-14 10:08:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+ACCESS [2020-05-14T10:09:31.927Z] "GET / HTTP/1.1" 400 - 0 0 226 - "-" "-" "-" "-" "-"
+2020/05/14 10:10:58 deleting snapshot 4
+2020/05/14 10:10:58 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/14
+2020-05-14 10:10:58 diagd 0.50.1 [P44TThreadPoolExecutor-0_1] INFO: Update requested from http://localhost:34493/api/snapshot/14
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/14 to /ambassador/snapshots/snapshot-14.yaml
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 26512 bytes of YAML
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451058.694774}
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 14
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:10:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:10:58Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:10:58Z" level=info msg="Pushing snapshot v14"
+2020/05/14 10:11:38 deleting snapshot 5
+2020/05/14 10:11:38 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/15
+2020-05-14 10:11:38 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/15
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/15 to /ambassador/snapshots/snapshot-15.yaml
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 27102 bytes of YAML
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451098.737017}
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 15
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:11:38Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:11:38Z" level=info msg="Pushing snapshot v15"
+2020-05-14 10:11:38 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:12:13 deleting snapshot 6
+2020/05/14 10:12:13 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/16
+2020-05-14 10:12:13 diagd 0.50.1 [P44TThreadPoolExecutor-0_2] INFO: Update requested from http://localhost:34493/api/snapshot/16
+2020-05-14 10:12:13 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/16 to /ambassador/snapshots/snapshot-16.yaml
+2020-05-14 10:12:13 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 27681 bytes of YAML
+2020-05-14 10:12:13 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:12:14 deleting snapshot 7
+2020/05/14 10:12:14 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/17
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451134.195156}
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 16
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:12:14Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:12:14Z" level=info msg="Pushing snapshot v16"
+2020-05-14 10:12:14 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/17
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/17 to /ambassador/snapshots/snapshot-17.yaml
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 27681 bytes of YAML
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451134.750099}
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 17
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:12:14Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:12:14Z" level=info msg="Pushing snapshot v17"
+2020-05-14 10:12:14 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+ACCESS [2020-05-14T10:12:38.126Z] "POST /dvr/cmd HTTP/1.1" 404 NR 0 0 0 - "172.20.61.223" "Python-httplib2/0.17.3 (gzip)" "182653f9-0731-4476-8d62-ae66e6bd7e5c" "127.0.0.1" "-"
+ACCESS [2020-05-14T10:12:38.316Z] "POST /dvr/cmd HTTP/1.1" 404 NR 0 0 0 - "172.20.62.112" "Python-httplib2/0.17.3 (gzip)" "805a23d0-cfa4-4a8c-8e3a-cdb9e8dd89b1" "127.0.0.1" "-"
+ACCESS [2020-05-14T10:12:38.478Z] "POST /dvr/cmd HTTP/1.1" 404 NR 0 0 0 - "172.20.37.233" "Python-httplib2/0.17.3 (gzip)" "a981b01b-14ce-421e-81df-d6182784e536" "127.0.0.1" "-"
+ACCESS [2020-05-14T10:12:38.651Z] "POST /dvr/cmd HTTP/1.1" 404 NR 0 0 0 - "100.96.3.1" "Python-httplib2/0.17.3 (gzip)" "933ca9f0-2747-4a77-9358-1f8d0cc0f47e" "127.0.0.1" "-"
+ACCESS [2020-05-14T10:12:38.819Z] "POST /dvr/cmd HTTP/1.1" 404 NR 0 0 0 - "172.20.58.154" "Python-httplib2/0.17.3 (gzip)" "68ce6c89-2b6a-4026-b553-09d505b10bdc" "127.0.0.1" "-"
+ACCESS [2020-05-14T10:12:38.997Z] "POST /dvr/cmd HTTP/1.1" 404 NR 0 0 0 - "172.20.61.223" "Python-httplib2/0.17.3 (gzip)" "724f6573-e2b8-4a94-ae94-0fcd06e5db29" "127.0.0.1" "-"
+2020/05/14 10:13:34 deleting snapshot 8
+2020/05/14 10:13:34 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/18
+2020-05-14 10:13:34 diagd 0.50.1 [P44TThreadPoolExecutor-0_4] INFO: Update requested from http://localhost:34493/api/snapshot/18
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/18 to /ambassador/snapshots/snapshot-18.yaml
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 27681 bytes of YAML
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451214.867384}
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 18
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:13:34Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:13:34Z" level=info msg="Pushing snapshot v18"
+2020-05-14 10:13:34 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:13:52 deleting snapshot 9
+2020/05/14 10:13:52 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/19
+2020-05-14 10:13:52 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/19
+2020-05-14 10:13:52 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/19 to /ambassador/snapshots/snapshot-19.yaml
+2020-05-14 10:13:52 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 27681 bytes of YAML
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451233.454704}
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 19
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:13:53Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:13:53Z" level=info msg="Pushing snapshot v19"
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:13:53 deleting snapshot 10
+2020/05/14 10:13:53 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/20
+2020-05-14 10:13:53 diagd 0.50.1 [P44TThreadPoolExecutor-0_2] INFO: Update requested from http://localhost:34493/api/snapshot/20
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/20 to /ambassador/snapshots/snapshot-20.yaml
+2020-05-14 10:13:53 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 28962 bytes of YAML
+2020/05/14 10:13:53 SYNC: read |0: file already closed
+2020/05/14 10:13:53 SYNC: read |0: file already closed
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451234.292183}
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 20
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:13:54Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:13:54Z" level=info msg="Pushing snapshot v20"
+2020-05-14 10:13:54 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:14:30 deleting snapshot 11
+2020/05/14 10:14:30 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/21
+2020-05-14 10:14:30 diagd 0.50.1 [P44TThreadPoolExecutor-0_1] INFO: Update requested from http://localhost:34493/api/snapshot/21
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/21 to /ambassador/snapshots/snapshot-21.yaml
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 28962 bytes of YAML
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451270.793441}
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 21
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:14:30 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:14:30Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:14:30Z" level=info msg="Pushing snapshot v21"
+2020/05/14 10:15:01 deleting snapshot 12
+2020/05/14 10:15:01 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/22
+2020-05-14 10:15:01 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/22
+2020-05-14 10:15:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/22 to /ambassador/snapshots/snapshot-22.yaml
+2020-05-14 10:15:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 28962 bytes of YAML
+2020-05-14 10:15:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:15:02 deleting snapshot 13
+2020/05/14 10:15:02 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/23
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451302.193223}
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:02 diagd 0.50.1 [P44TThreadPoolExecutor-0_1] INFO: Update requested from http://localhost:34493/api/snapshot/23
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 22
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/23 to /ambassador/snapshots/snapshot-23.yaml
+time="2020-05-14T10:15:02Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:02Z" level=info msg="Pushing snapshot v22"
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 28962 bytes of YAML
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:15:02 deleting snapshot 14
+2020/05/14 10:15:02 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/24
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451302.793406}
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:02 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/24
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 23
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/24 to /ambassador/snapshots/snapshot-24.yaml
+time="2020-05-14T10:15:02Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:02Z" level=info msg="Pushing snapshot v23"
+2020-05-14 10:15:02 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 30664 bytes of YAML
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451303.340108}
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 24
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:15:03Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:03Z" level=info msg="Pushing snapshot v24"
+2020-05-14 10:15:03 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:15:04 deleting snapshot 15
+2020/05/14 10:15:04 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/25
+2020-05-14 10:15:04 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/25
+2020-05-14 10:15:04 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/25 to /ambassador/snapshots/snapshot-25.yaml
+2020-05-14 10:15:04 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 30762 bytes of YAML
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451305.348606}
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 25
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+2020-05-14 10:15:05 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+KICK: kicking ambex
+time="2020-05-14T10:15:05Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:05Z" level=info msg="Pushing snapshot v25"
+2020/05/14 10:15:27 deleting snapshot 16
+2020/05/14 10:15:27 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/26
+2020-05-14 10:15:27 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/26
+2020-05-14 10:15:27 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/26 to /ambassador/snapshots/snapshot-26.yaml
+2020-05-14 10:15:27 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 30762 bytes of YAML
+2020-05-14 10:15:27 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:28 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451328.193021}
+2020-05-14 10:15:28 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:28 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:28 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:28 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 26
+2020-05-14 10:15:28 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:15:28 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:15:28Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:28Z" level=info msg="Pushing snapshot v26"
+2020/05/14 10:15:28 deleting snapshot 17
+2020/05/14 10:15:28 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/27
+2020-05-14 10:15:29 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/27
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/27 to /ambassador/snapshots/snapshot-27.yaml
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 30762 bytes of YAML
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451329.476085}
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 27
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:15:29Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:29Z" level=info msg="Pushing snapshot v27"
+2020-05-14 10:15:29 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:15:32 deleting snapshot 18
+2020/05/14 10:15:32 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/28
+2020-05-14 10:15:32 diagd 0.50.1 [P44TThreadPoolExecutor-0_1] INFO: Update requested from http://localhost:34493/api/snapshot/28
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/28 to /ambassador/snapshots/snapshot-28.yaml
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 30762 bytes of YAML
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:15:32 deleting snapshot 19
+2020/05/14 10:15:32 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/29
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451332.845573}
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:32 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/29
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 28
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:15:32Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:32Z" level=info msg="Pushing snapshot v28"
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/29 to /ambassador/snapshots/snapshot-29.yaml
+2020-05-14 10:15:32 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 31519 bytes of YAML
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451333.351294}
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 29
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:15:33Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:33Z" level=info msg="Pushing snapshot v29"
+2020-05-14 10:15:33 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:15:55 deleting snapshot 20
+2020/05/14 10:15:55 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/30
+2020-05-14 10:15:55 diagd 0.50.1 [P44TThreadPoolExecutor-0_1] INFO: Update requested from http://localhost:34493/api/snapshot/30
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/30 to /ambassador/snapshots/snapshot-30.yaml
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 31519 bytes of YAML
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451355.898654}
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 30
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:15:55Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:55Z" level=info msg="Pushing snapshot v30"
+2020-05-14 10:15:55 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:15:56 deleting snapshot 21
+2020/05/14 10:15:56 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/31
+2020-05-14 10:15:56 diagd 0.50.1 [P44TThreadPoolExecutor-0_0] INFO: Update requested from http://localhost:34493/api/snapshot/31
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/31 to /ambassador/snapshots/snapshot-31.yaml
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 32405 bytes of YAML
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451356.952985}
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 31
+2020-05-14 10:15:56 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:15:57 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:15:57Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:57Z" level=info msg="Pushing snapshot v31"
+2020/05/14 10:15:58 deleting snapshot 22
+2020/05/14 10:15:58 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/32
+2020-05-14 10:15:58 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/32
+2020-05-14 10:15:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/32 to /ambassador/snapshots/snapshot-32.yaml
+2020-05-14 10:15:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 32503 bytes of YAML
+2020/05/14 10:15:58 SYNC: read |0: file already closed
+2020-05-14 10:15:58 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:15:59 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451359.199774}
+2020-05-14 10:15:59 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:59 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:15:59 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:15:59 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 32
+2020-05-14 10:15:59 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:15:59Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:15:59Z" level=info msg="Pushing snapshot v32"
+2020-05-14 10:15:59 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020/05/14 10:15:59 deleting snapshot 23
+2020/05/14 10:15:59 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/33
+2020-05-14 10:16:00 diagd 0.50.1 [P44TThreadPoolExecutor-0_2] INFO: Update requested from http://localhost:34493/api/snapshot/33
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/33 to /ambassador/snapshots/snapshot-33.yaml
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 33097 bytes of YAML
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020/05/14 10:16:00 deleting snapshot 24
+2020/05/14 10:16:00 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/34
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451360.617014}
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 33
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:16:00Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:16:00Z" level=info msg="Pushing snapshot v33"
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+2020-05-14 10:16:00 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/34
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/34 to /ambassador/snapshots/snapshot-34.yaml
+2020-05-14 10:16:00 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 33896 bytes of YAML
+2020/05/14 10:16:00 SYNC: read |0: file already closed
+2020/05/14 10:16:00 SYNC: read |0: file already closed
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451361.359671}
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 34
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+time="2020-05-14T10:16:01Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+2020-05-14 10:16:01 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:16:01Z" level=info msg="Pushing snapshot v34"
+KICK: kicking ambex
+[2020-05-14 10:18:17.052][000069][info][main] [source/server/drain_manager_impl.cc:63] shutting down parent after drain
+2020/05/14 10:19:47 deleting snapshot 25
+2020/05/14 10:19:47 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/35
+2020-05-14 10:19:47 diagd 0.50.1 [P44TThreadPoolExecutor-0_2] INFO: Update requested from http://localhost:34493/api/snapshot/35
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/35 to /ambassador/snapshots/snapshot-35.yaml
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 33896 bytes of YAML
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451587.760705}
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 35
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:19:47 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:19:47Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:19:47Z" level=info msg="Pushing snapshot v35"
+2020/05/14 10:25:17 deleting snapshot 26
+2020/05/14 10:25:17 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/36
+2020-05-14 10:25:17 diagd 0.50.1 [P44TThreadPoolExecutor-0_3] INFO: Update requested from http://localhost:34493/api/snapshot/36
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/36 to /ambassador/snapshots/snapshot-36.yaml
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 34794 bytes of YAML
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589451917.79264}
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 36
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+2020-05-14 10:25:17 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+time="2020-05-14T10:25:17Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:25:17Z" level=info msg="Pushing snapshot v36"
+2020/05/14 10:27:44 deleting snapshot 27
+2020/05/14 10:27:44 SYNC: python3 /ambassador/post_update.py http://localhost:34493/api/snapshot/37
+2020-05-14 10:27:44 diagd 0.50.1 [P44TThreadPoolExecutor-0_4] INFO: Update requested from http://localhost:34493/api/snapshot/37
+2020-05-14 10:27:44 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: copying configuration from http://localhost:34493/api/snapshot/37 to /ambassador/snapshots/snapshot-37.yaml
+2020-05-14 10:27:44 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 35696 bytes of YAML
+2020-05-14 10:27:44 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: anonymous YAML.1: parsing 89 bytes of YAML
+2020-05-14 10:27:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout reports {"latest_version": "1.4.2", "application": "ambassador", "cached": false, "timestamp": 1589452065.235294}
+2020-05-14 10:27:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: Scout notices: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:27:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: App notices after scout: [{"level": "INFO", "message": "Upgrade available! to Ambassador version 1.4.2"}]
+2020-05-14 10:27:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: successfully validated the resulting envoy configuration, continuing...
+2020-05-14 10:27:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: saving Envoy configuration for snapshot 37
+2020-05-14 10:27:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: running 'sh /ambassador/kick_ads.sh 28'
+KICK: kicking ambex
+time="2020-05-14T10:27:45Z" level=info msg="Loaded file /ambassador/envoy/envoy.json"
+time="2020-05-14T10:27:45Z" level=info msg="Pushing snapshot v37"
+2020-05-14 10:27:45 diagd 0.50.1 [P44TAmbassadorEventWatcher] INFO: configuration updated
+ACCESS [2020-05-14T10:27:50.135Z] "POST /seldon/none/vino-del-gueno/api/v1.0/predictions HTTP/1.1" 404 NR 0 0 0 - "172.20.61.223" "python-requests/2.22.0" "9731d92d-6249-4c60-981c-13faaa70fb44" "api.bayescluster.com" "-"
+ACCESS [2020-05-14T10:28:51.853Z] "POST /seldon/staging/vino-del-gueno/api/v1.0/predictions HTTP/1.1" 404 NR 0 0 0 - "172.20.58.154" "python-requests/2.22.0" "93e3a6ae-06c1-4ba2-a285-aff65ba368bb" "api.bayescluster.com" "-"
+ACCESS [2020-05-14T10:29:41.344Z] "POST /seldon/staging/vino-del-gueno/api/v1.0/predictions HTTP/1.1" 404 NR 0 0 0 - "172.20.37.233" "python-requests/2.22.0" "cd363ac8-92aa-4909-b59d-4d0a7d581379" "api.bayescluster.com" "-"
+ACCESS [2020-05-14T10:30:10.488Z] "POST /seldon/staging/vino-del-gueno/api/v1.0/predictions HTTP/1.1" 404 NR 0 0 0 - "172.20.62.112" "python-requests/2.22.0" "0e0bf12f-7ad0-4903-8bd9-c5cf6c0f0a27" "api.bayescluster.com" "-"
+ACCESS [2020-05-14T10:31:08.620Z] "GET / HTTP/1.1" 404 NR 0 0 0 - "100.96.3.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36" "f1250556-c765-418b-a003-0dd9929f4579" "ab35ac1250d334a6da2445ee2e79daff-2130236177.us-east-1.elb.amazonaws.com" "-"

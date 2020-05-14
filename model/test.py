@@ -10,13 +10,15 @@ x_0 = data.drop(["quality"], axis=1).values[:1]
 batch = x_0
 
 sc = SeldonClient( \
-   deployment_name="mlflow",namespace="staging", \
+   deployment_name="vino-del-gueno",
+   namespace="none", \
    gateway_endpoint="api.bayescluster.com",
+   gateway="ambassador",
+   transport="rest",
    debug = True \
 )
 
-for i in range(0,1000):
-   r = sc.predict(gateway="ambassador",transport="rest",data=batch, names=data.columns.tolist(),\
-                  payload_type = "ndarray", gateway_endpoint="api.bayescluster.com")
-   print(r)
+r = sc.predict(data=batch, names=data.columns.tolist(), payload_type = "ndarray", namespace="none")
+print(r)
+
 assert(r.success==True)
