@@ -1,5 +1,7 @@
 agent:
-  image: delcacho/jenkins-connector
+  image: delcacho/jenkins-agent
+  tag: latest
+  alwaysPullImage: true
 
 master:
   adminPassword: jenkins
