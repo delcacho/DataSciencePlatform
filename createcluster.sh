@@ -25,6 +25,8 @@ kops create cluster \
 kops replace -f ignodes.yml --state=${KOPS_STATE_STORE}
 kops update cluster ${NAME} --state=${KOPS_STATE_STORE} --yes
 
+kops export kubecfg --name ${NAME} --state=${KOPS_STATE_STORE}  --kubeconfig ./test-kubeconfig.yaml
+
 echo "Attaching policy rules"
 aws iam attach-role-policy --role-name nodes.k8s.dev.bayescluster.com --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
 aws iam attach-role-policy --role-name nodes.k8s.dev.bayescluster.com --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess

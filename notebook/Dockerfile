@@ -16,7 +16,7 @@ RUN apt update && apt install -yq r-base r-base-core r-recommended r-base-dev \
   && rm -rf /var/lib/apt/lists/*
 
 # Spark dependencies
-ENV APACHE_SPARK_VERSION=2.4.5 \
+ENV APACHE_SPARK_VERSION=3.0.0-preview2 \
     HADOOP_VERSION=2.7
 
 # Using the preferred mirror to download the file
@@ -45,11 +45,11 @@ RUN pip install jupytext --upgrade
 RUN pip install jupyterlab==2.1.1
 RUN pip install --pre jupyterlab-git==0.20.0rc0
 RUN pip install python-language-server[all]
-RUN pip install matplotlib xgboost lightgbm keras psutil
+RUN pip install matplotlib xgboost lightgbm keras psutil seldon-core alibi
 RUN pip install ml-versioning-tools dask-kubernetes sqlalchemy-redshift PyHive PyAthena pydruid impyla pinotdb sqlalchemy-clickhouse gsheetsdb gsheets \
  pybigquery pymssql snowflake-sqlalchemy kylinpy \
     sqlalchemy-pytds snowflake-sqlalchemy jupyter_contrib_nbextensions
-RUN pip install pyspark kubernetes jupyter-archive tensorboard jupyter-tensorboard
+RUN pip install pyspark kubernetes jupyter-archive 
 RUN pip install jupyter-offlinenotebook nbresuse[resources] sdnotify
 #RUN pip install jupyterlab-sparkmonitor
 COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
@@ -126,8 +126,6 @@ COPY prepare.sh /usr/bin/prepare.sh
 #COPY nbgrader_config.py /etc/jupyter/nbgrader_config.py
 WORKDIR /opt/conda/lib/python3.7/site-packages
 RUN jupyter labextension install jupyterlab-topbar-extension
-RUN jupyter tensorboard enable
-RUN jupyter labextension install jupyterlab_tensorboard
 #RUN ipcluster nbextension enable
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 RUN jupyter labextension install jupyter-matplotlib
@@ -159,8 +157,6 @@ RUN jupyter nbextension enable --py jupyter_offlinenotebook --sys-prefix
 RUN jupyter serverextension enable --py jupyter_offlinenotebook --sys-prefix
 RUN jupyter labextension install /usr/local/jupyterlab-sparkmonitor # install the jupyterlab extension
 RUN jupyter serverextension enable --py sparkmonitor
-RUN jupyter serverextension enable jupyter_tensorboard
-RUN jupyter nbextension enable jupyter_tensorboard/tree 
 #RUN jupyter labextension install nbgather 
 #RUN jupyter labextension install @liorbaber/jupyterlab-spark-ui-tab
 #RUN jupyter serverextension install --py spark-ui-tab

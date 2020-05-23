@@ -46,3 +46,10 @@ services:
       dockerfile: Dockerfile
     image: delcacho/jenkins-agent
     hostname: jenkins-agent
+
+  mlflow:
+    build:
+      context: ./mlflow-docker
+      dockerfile: Dockerfile
+    image: delcacho/mlflow
+    hostname: mlflow

@@ -8,7 +8,6 @@ helm install ambassador stable/ambassador --version 1.1.0
 
 helm install seldon-core seldon-core-operator \
     --repo https://storage.googleapis.com/seldon-charts \
-    --set usageMetrics.enabled=true \
     --namespace seldon-system \
     --set ambassador.enabled=true 
 

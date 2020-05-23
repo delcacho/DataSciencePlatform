@@ -23,7 +23,7 @@ hostnames = {
    "grafana.bayescluster.com":"default/ingress-seldon-nginx-ingress-controller",
    "superset.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
    "jenkins.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
-   "gocd.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
+   "manager.bayescluster.com":"default/ingress-https-nginx-ingress-controller",
    "spark.bayescluster.com":"default/spark-ui-proxy"
 }
 

@@ -1,7 +1,7 @@
 kubectl create namespace mlflow
 kubectl create namespace staging
 kubectl create namespace production
-kubectl create namespace none
+kubectl create namespace development
 dscacheutil -flushcache
 helm init --service-account tiller
 helm install hdfs gradiant/hdfs

@@ -3,7 +3,15 @@ import requests
 import logging
 from urllib.parse import quote
 from confluent_kafka import Consumer, KafkaException
+from sqlalchemy import create_engine
 
+def getRunIdFromSource(source):
+   # s3://clusters.dev.bayescluster.com/mlruns/1/22f86133a05344f099c580a453c386b5/artifacts/wine
+   pos = source.find("/mlruns/") + len("/mlruns/")
+   start = source.find("/",pos)
+   end = source.find("/",start+1)
+   return source[(start+1):end]
+   
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s.%(msecs)03d %(levelname)s %(module)s - %(funcName)s: %(message)s',
@@ -47,9 +55,21 @@ while True:
              version = after["version"]
              stage = after["current_stage"]
              source = after["source"]
+             dbstr = 'postgres://postgres:pruebademlflow@postgres-postgresql-headless.default.svc.cluster.local:5432/mlflowdb'
+             try:
+                db = create_engine(dbstr)
+                run_id = getRunIdFromSource(source)
+                result_set = db.execute("SELECT value FROM tags WHERE key='replicas' and run_uuid='{}'".format(run_id))
+                row = result_set.fetchone()
+                replicas = row[0] if row is not None else '1'
+             except:
+                replicas = '1'
+                pass
+             finally:
+                db.dispose()
              logging.info("Going to launch Jenkins job: name={}, version={}, stage={}, source={}".format(name,version,stage,source))
              url = "http://jenkins:8080/job/SeldonDeployer/buildWithParameters?token={}"\
-                   "&name={}&version={}&stage={}&source={}".format(quote(token),quote(name),quote(str(version)),quote(stage),quote(source))
+                   "&name={}&version={}&stage={}&source={}&replicas={}".format(quote(token),quote(name),quote(str(version)),quote(stage),quote(source),quote(str(replicas)))
              session = requests.Session()
              session.auth = (user, password)
              r = session.get(url)
