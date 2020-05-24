@@ -16,7 +16,7 @@ RUN apt update && apt install -yq r-base r-base-core r-recommended r-base-dev \
   && rm -rf /var/lib/apt/lists/*
 
 # Spark dependencies
-ENV APACHE_SPARK_VERSION=3.0.0-preview2 \
+ENV APACHE_SPARK_VERSION=2.4.5 \
     HADOOP_VERSION=2.7
 
 # Using the preferred mirror to download the file
