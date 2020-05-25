@@ -1,0 +1,1 @@
+docker run -p 5000:5000 -e PREDICTIVE_UNIT_PARAMETERS='[{"type":"STRING","name":"model_uri","value":"s3://clusters.dev.bayescluster.com/mlruns/2/88266c8746d545a2a23e22d42f1ec036/artifacts/wine"},{"type":"STRING","name":"envSecretRefName","value":"seldon-init-container-secret"}]' seldonio/mlflowserver_rest:0.1

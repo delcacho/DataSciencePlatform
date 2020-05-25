@@ -1,0 +1,1 @@
+docker run -p 5000:5000 -e PREDICTIVE_UNIT_PARAMETERS='[{"type":"STRING","name":"model_uri","value":"s3://clusters.dev.bayescluster.com/mlruns/1/b3a81467dd704a889d963918f1955437/artifacts/sparkmodel"}]' seldonio/mlflowserver_rest:0.1

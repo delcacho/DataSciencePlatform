@@ -1,0 +1,79 @@
+{
+    "features":[
+	{
+	    "name":"fixed acidity",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[4,8]
+	},
+	{
+	    "name":"volatile acidity",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[1,10]
+	},
+	{
+	    "name":"citric acid",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"residual sugar",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"chlorides",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"free sulfur dioxide",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"total sulfur dioxide",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"density",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"pH",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"sulphates",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	},
+	{
+	    "name":"alcohol",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,3]
+	}
+    ],
+    "targets":[
+	{
+	    "name":"class",
+	    "dtype":"FLOAT",
+	    "ftype":"continuous",
+	    "range":[0,10],
+	    "repeat": 1
+	}
+    ]
+}

@@ -1,0 +1,20 @@
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: vinojados
+  namespace: production
+spec:
+  name: vinojados
+  predictors:
+    - graph:
+        children: []
+        implementation: MLFLOW_SERVER
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/05fc680a05cc4a2387c2ba87e9bb14ac/artifacts/wine
+        name: classifier
+        envSecretRefName: seldon-init-container-secret
+      name: default
+      replicas: 1
+      svcOrchSpec:
+         env:
+           - name: SELDON_LOG_LEVEL
+             value: DEBUG

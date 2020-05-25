@@ -60,7 +60,7 @@ executor:
 image:
   pullPolicy: IfNotPresent
   registry: docker.io
-  repository: seldonio/seldon-core-operator
+  repository: delcacho/seldon-core-operator
   tag: 1.1.1-SNAPSHOT
 manager:
   cpuLimit: 500m
