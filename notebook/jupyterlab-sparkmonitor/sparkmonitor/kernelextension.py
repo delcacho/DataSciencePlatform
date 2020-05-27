@@ -261,6 +261,7 @@ def configure(conf):
     logger.info('JAR PATH:' + jarpath)
     conf.set('spark.driver.extraClassPath', jarpath)
     conf.set('spark.driver.port','29413')
+    conf.set('spark.sql.repl.eagerEval.enabled', True)
     conf.set('spark.ui.port',generateUiPort())
 
 

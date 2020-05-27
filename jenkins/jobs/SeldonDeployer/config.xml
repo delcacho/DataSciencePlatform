@@ -1,0 +1,154 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.39">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.6.0"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.6.0">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description>Integration of Seldon with MLFlow.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>name</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>version</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>stage</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>source</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>replicas</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>minReplicas</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>maxReplicas</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>targetCpu</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>targetMem</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.80">
+    <script>def deployment = &apos;&apos;&apos;
+apiVersion: machinelearning.seldon.io/v1alpha2
+kind: SeldonDeployment
+metadata:
+  name: NAME
+  namespace: NAMESPACE
+spec:
+  name: NAME
+  predictors:
+    - componentSpecs:
+       - hpaSpec:
+           minReplicas: MIN_REPLICAS
+           maxReplicas: MAX_REPLICAS
+           metrics:
+           - resource:
+               name: cpu
+               targetAverageUtilization: TARGET_CPU
+             type: Resource
+           - resource:
+               name: memory
+               targetAverageValue: TARGET_MEM
+             type: Resource
+      graph:
+        children: []
+        implementation: MLFLOW_SERVER
+        modelUri: S3URL
+        name: classifier
+        envSecretRefName: seldon-init-container-secret
+      name: default
+      svcOrchSpec:
+         env:
+           - name: SELDON_LOG_LEVEL
+             value: DEBUG
+                
+&apos;&apos;&apos;
+
+pipeline {
+   agent any
+
+   stages {
+      
+      stage(&apos;Deploy&apos;) {
+         steps {
+             script {
+                name = &quot;${name}&quot;.toLowerCase().replaceAll(&quot; &quot;,&quot;-&quot;)
+                stage = &quot;${stage}&quot;.toLowerCase()
+                if(stage == &quot;none&quot;) {
+                    stage = &quot;development&quot;
+                }
+                replicas = &quot;${replicas}&quot;
+                maxReplicas = &quot;${maxReplicas}&quot;
+                minReplicas = &quot;${minReplicas}&quot;
+                if (minReplicas == &quot;0&quot;) {
+                    minReplicas = replicas
+                }
+                if (maxReplicas == &quot;0&quot;) {
+                    maxReplicas = replicas
+                }
+                deployment = deployment.replaceAll(&quot;S3URL&quot;, &quot;${source}&quot;)
+                deployment = deployment.replaceAll(&quot;NAMESPACE&quot;, &quot;${stage}&quot;)
+                deployment = deployment.replaceAll(&quot;MIN_REPLICAS&quot;,minReplicas)
+                deployment = deployment.replaceAll(&quot;MAX_REPLICAS&quot;,maxReplicas)
+                deployment = deployment.replaceAll(&quot;TARGET_CPU&quot;,&quot;${targetCpu}&quot;)
+                deployment = deployment.replaceAll(&quot;TARGET_MEM&quot;,&quot;${targetMem}&quot;)
+                deployment = deployment.replaceAll(&quot;NAME&quot;, name)
+                print(deployment)
+             }
+             writeFile file: &quot;deployment.yaml&quot;, text: deployment
+             sh &apos;kubectl apply -f deployment.yaml&apos;
+         }
+      }
+   }
+}
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <authToken>gundisalvo</authToken>
+  <disabled>false</disabled>
+</flow-definition>

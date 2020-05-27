@@ -10,7 +10,7 @@ x_0 = data.drop(["quality"], axis=1).values[:1]
 batch = x_0
 
 sc = SeldonClient( \
-   deployment_name="vino-sklearn",
+   deployment_name="vino-spark",
    namespace="development", \
    gateway_endpoint="api.bayescluster.com",
    transport="rest",
@@ -20,7 +20,7 @@ sc = SeldonClient( \
 colnames = data.columns.tolist()
 colnames.remove("quality")
 
-for i in range(1,2000):
+for i in range(1,2):
   r = sc.predict(data=batch, names=colnames, payload_type = "ndarray")
   print(r)
 

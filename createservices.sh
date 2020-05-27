@@ -30,4 +30,5 @@ python3 ./jenkins/jenkinsinit.py
 ./spark/spark.sh
 kubectl create -f jenkins-connector.yaml 
 kubectl apply -f rbac-authorization.yml
+sleep 1m
 python3 updatedns.py

@@ -1,6 +1,7 @@
 FROM jupyter/base-notebook:lab-2.0.1
 
 USER root
+RUN conda install python=3.6.10
 RUN apt-get update \
   && apt-get install -yq --no-install-recommends graphviz git build-essential \
      build-essential texlive-latex-base texlive-fonts-recommended texlive-xetex \
@@ -34,10 +35,10 @@ ENV PYTHONPATH=$SPARK_HOME/python:$SPARK_HOME/python/lib/py4j-0.10.7-src.zip
 ENV SPARK_OPTS="--driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M --driver-java-options=-Dlog4j.logLevel=info"
 
 #USER $NB_USER
-RUN conda install python=3.6.9
+#RUN conda config --add channels conda-forge
 RUN pip install h2o_pysparkling_2.4  colorama ipykernel portalocker \
     causal_impact modin ipyparallel hyperopt psycopg2-binary \
-    nbconvert mlflow  ipywidgets jupyterlab_latex 
+    nbconvert ipywidgets jupyterlab_latex 
 RUN pip install jupyter_helpers dvc seaborn spacy sqlalchemy flask
 RUN pip install tensorflow-cpu tensorflow-gpu
 RUN pip install --pre jupyter-lsp
@@ -56,6 +57,7 @@ COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
 RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
 WORKDIR /usr/local/jupyterlab-sparkmonitor
 RUN pip install -e .
+RUN pip install git+https://github.com/delcacho/mlflow.git
 
 RUN conda install --yes \
     -c conda-forge \
@@ -216,11 +218,11 @@ RUN chmod ugo+rw /srv/nbgrader/exchange
 
 USER admin
 WORKDIR /home/admin
-RUN wget http://h2o-release.s3.amazonaws.com/sparkling-water/spark-2.4/3.30.0.1-1-2.4/sparkling-water-3.30.0.1-1-2.4.zip && unzip sparkling-water-3.30.0.1-1-2.4.zip && rm sparkling-water-3.30.0.1-1-2.4.zip
+RUN wget http://h2o-release.s3.amazonaws.com/sparkling-water/spark-2.4/3.30.0.3-1-2.4/sparkling-water-3.30.0.3-1-2.4.zip && unzip sparkling-water-3.30.0.3-1-2.4.zip && rm sparkling-water-3.30.0.3-1-2.4.zip
 USER root
 #RUN R -e 'remove.packages("h2o")'
-RUN R -e 'install.packages("h2o", type = "source", repos = "http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/1/R")'
-RUN R -e 'install.packages("/home/admin/sparkling-water-3.30.0.1-1-2.4/rsparkling_3.30.0.1-1-2.4.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("h2o", type = "source", repos = "http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/3/R")'
+RUN R -e 'install.packages("/home/admin/sparkling-water-3.30.0.3-1-2.4/rsparkling_3.30.0.3-1-2.4.tar.gz", repos=NULL, type="source")'
 USER admin
 ENV MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64

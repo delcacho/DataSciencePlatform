@@ -36,6 +36,12 @@ token = "gundisalvo"
 user = "admin"
 password = "11ee1c7cb4a9daf80133c23476e2fa3fc0"
 
+def getParameter(db,param,run_id,default_val):
+   result_set = db.execute("SELECT value FROM tags WHERE key='{}' and run_uuid='{}'".format(param,run_id))
+   row = result_set.fetchone()
+   result = row[0] if row is not None else default_val
+   return(result)
+
 
 logging.info("Starting polling loop...")
 while True:
@@ -59,9 +65,11 @@ while True:
              try:
                 db = create_engine(dbstr)
                 run_id = getRunIdFromSource(source)
-                result_set = db.execute("SELECT value FROM tags WHERE key='replicas' and run_uuid='{}'".format(run_id))
-                row = result_set.fetchone()
-                replicas = row[0] if row is not None else '1'
+                replicas = getParameter(db,"replicas",run_id,"1")
+                minReplicas = getParameter(db,"replicas",run_id,"0")
+                maxReplicas = getParameter(db,"replicas",run_id,"0")
+                targetCpu = getParameter(db,"targetCpu",run_id,"50")
+                targetMem = getParameter(db,"targetCpu",run_id,"50")+"Mi"
              except:
                 replicas = '1'
                 pass
@@ -69,7 +77,7 @@ while True:
                 db.dispose()
              logging.info("Going to launch Jenkins job: name={}, version={}, stage={}, source={}".format(name,version,stage,source))
              url = "http://jenkins:8080/job/SeldonDeployer/buildWithParameters?token={}"\
-                   "&name={}&version={}&stage={}&source={}&replicas={}".format(quote(token),quote(name),quote(str(version)),quote(stage),quote(source),quote(str(replicas)))
+                   "&name={}&version={}&stage={}&source={}&replicas={}&minReplicas={}&maxReplicas={}&targetCpu={}&targetMem={}".format(quote(token),quote(name),quote(str(version)),quote(stage),quote(source),quote(str(replicas)),quote(str(minReplicas)),quote(str(maxReplicas)),quote(str(targetCpu)),quote(str(targetMem)))
              session = requests.Session()
              session.auth = (user, password)
              r = session.get(url)

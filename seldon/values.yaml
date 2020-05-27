@@ -45,7 +45,7 @@ executor:
   image:
     pullPolicy: IfNotPresent
     registry: docker.io
-    repository: delcacho/seldon-core-executor
+    repository: seldonio/seldon-core-executor
     tag: 1.1.1-SNAPSHOT
   prometheus:
     path: /prometheus

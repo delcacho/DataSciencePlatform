@@ -1,19 +1,31 @@
 apiVersion: machinelearning.seldon.io/v1alpha2
 kind: SeldonDeployment
 metadata:
-  name: vinojados
-  namespace: production
+  name: vino-rico
+  namespace: staging
 spec:
-  name: vinojados
+  name: vino-rico
   predictors:
-    - graph:
+    - componentSpecs:
+       - hpaSpec:
+           minReplicas: 1
+           maxReplicas: 1
+           metrics:
+           - resource:
+               name: cpu
+               targetAverageUtilization: 50
+             type: Resource
+           - resource:
+               name: memory
+               targetAverageValue: 50Mi
+             type: Resource
+      graph:
         children: []
         implementation: MLFLOW_SERVER
-        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/05fc680a05cc4a2387c2ba87e9bb14ac/artifacts/wine
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/1ffdeaefc5b747548f4aa061f3d0e5a8/artifacts/wine
         name: classifier
         envSecretRefName: seldon-init-container-secret
       name: default
-      replicas: 1
       svcOrchSpec:
          env:
            - name: SELDON_LOG_LEVEL
