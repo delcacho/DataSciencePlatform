@@ -3,7 +3,7 @@ export AWS_SECRET_ACCESS_KEY="CK4d3p0HSVj1rhfmcwSqNWGS+8F2zjqrdvFsh93w"
 export KOPS_STATE_STORE=s3://delcachokops
 export NAME=k8s.dev.bayescluster.com 
 
-export NUM_WORKERS=5
+export NUM_WORKERS=7
 
 kops create secret --name k8s.dev.bayescluster.com sshpublickey admin -i ~/.ssh/id_rsa.pub
 

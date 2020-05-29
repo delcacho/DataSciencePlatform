@@ -21,6 +21,7 @@ hostnames = {
    "ide.bayescluster.com":"default/ingress-https-nginx-ingress-controller",
    "mlflow.bayescluster.com":"default/ingress-mlflow-nginx-ingress-controller",
    "grafana.bayescluster.com":"default/ingress-seldon-nginx-ingress-controller",
+   "kibana.bayescluster.com":"default/ingress-kibana-nginx-ingress-controller",
    "superset.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
    "jenkins.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
    "manager.bayescluster.com":"default/ingress-https-nginx-ingress-controller",

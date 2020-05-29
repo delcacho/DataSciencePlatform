@@ -1,1 +1,1 @@
-kubectl get sdep --namespace staging $1 -o json | jq .status
+kubectl get sdep --namespace $2 $1 -o json | jq .status

@@ -50,8 +50,8 @@ RUN pip install matplotlib xgboost lightgbm keras psutil seldon-core alibi
 RUN pip install ml-versioning-tools dask-kubernetes sqlalchemy-redshift PyHive PyAthena pydruid impyla pinotdb sqlalchemy-clickhouse gsheetsdb gsheets \
  pybigquery pymssql snowflake-sqlalchemy kylinpy \
     sqlalchemy-pytds snowflake-sqlalchemy jupyter_contrib_nbextensions
-RUN pip install pyspark kubernetes jupyter-archive 
-RUN pip install jupyter-offlinenotebook nbresuse[resources] sdnotify
+RUN pip install pyspark kubernetes jupyter-archive sdnotify
+RUN pip install jupyter-offlinenotebook nbresuse[resources]
 #RUN pip install jupyterlab-sparkmonitor
 COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
 RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
@@ -242,6 +242,8 @@ ENV PYSPARK_PYTHON=python3
 ENV PATH=$SPARK_HOME/bin:$PATH:~/.local/bin:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 ENV SPARKMONITOR_UI_HOST=spark-master-svc
 ENV SPARKMONITOR_UI_PORT=80
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
 
 ENTRYPOINT ["tini", "--", "/usr/bin/prepare.sh"]
 #CMD ["start.sh", "jupyter", "lab"]
