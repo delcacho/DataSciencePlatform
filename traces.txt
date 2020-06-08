@@ -1,0 +1,46 @@
+2020/05/30 21:48:55 INFO mlflow.projects: === Building docker image delcacho/mlflow-kubernetes-example:7af15bb ===
+2020/05/30 21:48:55 INFO mlflow.projects.kubernetes: === Pushing docker image delcacho/mlflow-kubernetes-example:7af15bb ===
+2020/05/30 21:48:59 INFO mlflow.projects: === Created directory /tmp/tmp3m8wwdoj for downloading remote URIs passed to arguments of type 'path' ===
+2020/05/30 21:48:59 INFO mlflow.projects.kubernetes: === Creating Job tutorial-2020-05-30-21-48-59-509988 ===
+2020/05/30 21:48:59 INFO mlflow.projects.kubernetes: No valid kube config found, using in-cluster configuration
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.6/site-packages/mlflow/projects/kubernetes.py", line 62, in _load_kube_context
+    kubernetes.config.load_kube_config(context=context)
+  File "/opt/conda/lib/python3.6/site-packages/kubernetes/config/kube_config.py", line 739, in load_kube_config
+    persist_config=persist_config)
+  File "/opt/conda/lib/python3.6/site-packages/kubernetes/config/kube_config.py", line 701, in _get_kube_config_loader_for_yaml_file
+    'Invalid kube-config file. '
+kubernetes.config.config_exception.ConfigException: Invalid kube-config file. No configuration found.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/conda/bin/mlflow", line 8, in <module>
+    sys.exit(cli())
+  File "/opt/conda/lib/python3.6/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/opt/conda/lib/python3.6/site-packages/click/core.py", line 1259, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/conda/lib/python3.6/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/conda/lib/python3.6/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/opt/conda/lib/python3.6/site-packages/mlflow/cli.py", line 131, in run
+    run_id=run_id
+  File "/opt/conda/lib/python3.6/site-packages/mlflow/projects/__init__.py", line 279, in run
+    synchronous=synchronous)
+  File "/opt/conda/lib/python3.6/site-packages/mlflow/projects/__init__.py", line 187, in _run
+    kube_config['kube-job-template']
+  File "/opt/conda/lib/python3.6/site-packages/mlflow/projects/kubernetes.py", line 79, in run_kubernetes_job
+    _load_kube_context(context=kube_context)
+  File "/opt/conda/lib/python3.6/site-packages/mlflow/projects/kubernetes.py", line 66, in _load_kube_context
+    kubernetes.config.load_incluster_config()
+  File "/opt/conda/lib/python3.6/site-packages/kubernetes/config/incluster_config.py", line 94, in load_incluster_config
+    cert_filename=SERVICE_CERT_FILENAME).load_and_set()
+  File "/opt/conda/lib/python3.6/site-packages/kubernetes/config/incluster_config.py", line 45, in load_and_set
+    self._load_config()
+  File "/opt/conda/lib/python3.6/site-packages/kubernetes/config/incluster_config.py", line 51, in _load_config
+    raise ConfigException("Service host/port is not set.")
+kubernetes.config.config_exception.ConfigException: Service host/port is not set.

@@ -38,21 +38,21 @@ ENV SPARK_OPTS="--driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M 
 #RUN conda config --add channels conda-forge
 RUN pip install h2o_pysparkling_2.4  colorama ipykernel portalocker \
     causal_impact modin ipyparallel hyperopt psycopg2-binary \
-    nbconvert ipywidgets jupyterlab_latex 
+    nbconvert ipywidgets jupyterlab_latex
 RUN pip install jupyter_helpers dvc seaborn spacy sqlalchemy flask
 RUN pip install tensorflow-cpu tensorflow-gpu
 RUN pip install --pre jupyter-lsp
 RUN pip install jupytext --upgrade
 RUN pip install jupyterlab==2.1.1
 RUN pip install --pre jupyterlab-git==0.20.0rc0
-RUN pip install python-language-server[all]
+RUN pip install python-language-server[all] pigeonXT-jupyter jupyterhub-firstuseauthenticator
 RUN pip install matplotlib xgboost lightgbm keras psutil seldon-core alibi
 RUN pip install ml-versioning-tools dask-kubernetes sqlalchemy-redshift PyHive PyAthena pydruid impyla pinotdb sqlalchemy-clickhouse gsheetsdb gsheets \
  pybigquery pymssql snowflake-sqlalchemy kylinpy \
     sqlalchemy-pytds snowflake-sqlalchemy jupyter_contrib_nbextensions
 RUN pip install pyspark kubernetes jupyter-archive sdnotify
 RUN pip install jupyter-offlinenotebook nbresuse[resources]
-#RUN pip install jupyterlab-sparkmonitor
+RUN pip install analytics-zoo jupyter_starters
 COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
 RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
 WORKDIR /usr/local/jupyterlab-sparkmonitor
@@ -123,12 +123,12 @@ RUN mkdir /opt/app \
 RUN mkdir -p /home/$NB_USER/.local/share/jupyter
 RUN chmod 777 /home/$NB_USER/.local/share/jupyter
 RUN chmod 777 /usr/local/lib/R/site-library
-COPY --chown=1000:100 examples/ /home/$NB_USER/examples
 COPY prepare.sh /usr/bin/prepare.sh
 #COPY nbgrader_config.py /etc/jupyter/nbgrader_config.py
 WORKDIR /opt/conda/lib/python3.7/site-packages
 RUN jupyter labextension install jupyterlab-topbar-extension
 #RUN ipcluster nbextension enable
+RUN jupyter nbextension enable --py widgetsnbextension
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 RUN jupyter labextension install jupyter-matplotlib
 RUN jupyter labextension install jupyterlab-system-monitor
@@ -150,7 +150,7 @@ RUN jupyter contrib nbextension install --user
 RUN jupyter-nbextension enable skip-traceback/main --sys-prefix
 RUN jupyter-nbextension enable snippets_menu/main --sys-prefix
 #RUN jupyter-nbextension enable toc2/main --sys-prefix
-RUN jupyter labextension install @jupyterlab/latex 
+#RUN jupyter labextension install @jupyterlab/latex 
 #RUN jupyter labextension install jupyterlab-plotly
 RUN jupyter labextension install @jupyterlab/codemirror
 RUN jupyter labextension install @krassowski/jupyterlab-lsp
@@ -159,13 +159,13 @@ RUN jupyter nbextension enable --py jupyter_offlinenotebook --sys-prefix
 RUN jupyter serverextension enable --py jupyter_offlinenotebook --sys-prefix
 RUN jupyter labextension install /usr/local/jupyterlab-sparkmonitor # install the jupyterlab extension
 RUN jupyter serverextension enable --py sparkmonitor
+RUN jupyter labextension install @deathbeds/jupyterlab-starters
 #RUN jupyter labextension install nbgather 
 #RUN jupyter labextension install @liorbaber/jupyterlab-spark-ui-tab
 #RUN jupyter serverextension install --py spark-ui-tab
 #RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 COPY jupyter_notebook_config.py /etc/ipython/ipython_config.py
 COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
-COPY kernels/ /usr/local/share/jupyter/kernels/
 RUN mkdir -p /usr/local/share/jupyter/kernels/
 RUN jupyter lab build
 RUN jlpm cache clean
@@ -210,6 +210,13 @@ RUN mkdir -p /srv/nbgrader/exchange
 RUN mkdir -p /home/admin/source
 RUN mkdir -p /home/admin/.jupyter
 COPY jupyter_notebook_config.py /home/admin/.jupyter/jupyter_notebook_config.py
+COPY jupyter_notebook_config.json /home/admin/.jupyter/jupyter_notebook_config.json
+COPY jupyter_notebook_config.json /etc/jupyter/jupyter_notebook_config.json
+COPY jupyter_notebook_config.json /etc/ipython/ipython_config.json
+COPY kernels/ /usr/local/share/jupyter/kernels/
+ARG target=/opt/conda/share/jupyter/notebook_templates/
+RUN mkdir -p ${target}
+COPY ./examples/*.ipynb ${target}
 RUN chmod ugo+rw /tmp/exchange
 RUN chmod ugo+rw /home/admin/source
 RUN chmod ugo+rw /home/admin/.jupyter
@@ -231,6 +238,7 @@ ENV PATH=$SPARK_HOME/bin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$PATH
 #ENV JAVA_HOME=$(/usr/libexec/java_home -v 1.8) 
 ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-client/4.9.1/kubernetes-client-4.9.1.jar $SPARK_HOME/jars
 USER root
+RUN chmod +r /usr/local/spark/jars/kubernetes-client-4.9.1.jar
 ENV MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV HADOOP_HOME=/usr/local/hadoop
@@ -244,6 +252,8 @@ ENV SPARKMONITOR_UI_HOST=spark-master-svc
 ENV SPARKMONITOR_UI_PORT=80
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
+ENV DASK_SCHEDULER_ADDRESS=tcp://scheduler:8786
+ENV DOCKER_HOST=tcp://localhost:2375
 
 ENTRYPOINT ["tini", "--", "/usr/bin/prepare.sh"]
 #CMD ["start.sh", "jupyter", "lab"]

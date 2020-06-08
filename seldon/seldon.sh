@@ -2,7 +2,6 @@ echo "Installing Seldon Core..."
 ./seldon/s3.sh
 kubectl create namespace seldon-system
 kubectl create namespace ambassador
-kubectl create namespace models
 
 helm install ambassador stable/ambassador --version 1.1.0
 

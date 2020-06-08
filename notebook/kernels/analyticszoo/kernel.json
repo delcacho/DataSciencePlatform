@@ -1,0 +1,34 @@
+{
+ "display_name": "BigDL 0.10",
+ "language": "python",
+ "argv": [
+  "python3",
+  "-m",
+  "ipykernel",
+  "-f",
+  "{connection_file}",
+  "--config=/usr/local/share/jupyter/kernels/analyticszoo/jupyter_notebook_config.py"
+ ],
+ "env": {
+  "JUPYTER_CONFIG_DIR": "/usr/local/share/jupyter/kernels/analyticszoo",
+  "IPYTHONDIR": "/usr/local/share/jupyter/kernels/analyticszoo",
+  "JUPYTERLAB_SETTINGS_DIR": "/usr/local/share/jupyter/kernels/analyticszoo",
+  "JUPYTERLAB_WORKSPACES_DIR": "/usr/local/share/jupyter/kernels/analyticszoo",
+  "HADOOP_CONF_DIR":"/usr/local/hadoop/etc/hadoop",
+  "PYSPARK_PYTHON":"python3",
+  "PYSPARK_DRIVER_PYTHON": "jupyter",
+  "PYSPARK_DRIVER_PYTHON_OPTS": "notebook --notebook-dir=./ --ip=* --no-browser --NotebookApp.token=''",
+  "SPARK_HOME": "/usr/local/spark",
+  "BIGDL_HOME": "/opt/conda/lib/python3.6/site-packages/bigdl/share",
+  "BIGDL_JAR": "/opt/conda/lib/python3.6/site-packages/bigdl/share/lib/bigdl-0.10.0-jar-with-dependencies.jar",
+  "BIGDL_PY_ZIP_NAME": "bigdl-0.10.0-python-api.zip",
+  "BIGDL_PY_ZIP": "/opt/conda/lib/python3.6/site-packages/bigdl/share/lib/bigdl-0.10.0-python-api.zip",
+  "BIGDL_CONF": "/opt/conda/lib/python3.6/site-packages/bigdl/share/conf/spark-bigdl.conf",
+  "$BIGDL_JAR_NAME": "bigdl-0.10.0-jar-with-dependencies.jar",
+  "ANALYTICS_ZOO_HOME": "/opt/conda/lib/python3.6/site-packages/zoo/share",
+  "ANALYTICS_ZOO_CONF": "/opt/conda/lib/python3.6/site-packages/zoo/share/conf/spark-analytics-zoo.conf",
+  "PYTHONPATH": "/opt/conda/lib/python3.6/site-packages/bigdl/share/lib/bigdl-0.10.0-python-api.zip:/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python",
+  "MASTER": "spark://spark-master-svc:7077",
+  "PYSPARK_SUBMIT_ARGS": " --properties-file /opt/conda/lib/python3.6/site-packages/bigdl/share/conf/spark-bigdl.conf --py-files /opt/conda/lib/python3.6/site-packages/bigdl/share/lib/bigdl-0.10.0-python-api.zip --jars /opt/conda/lib/python3.6/site-packages/bigdl/share/lib/bigdl-0.10.0-jar-with-dependencies.jar,/opt/conda/lib/python3.6/site-packages/zoo/share/lib/analytics-zoo-bigdl_0.10.0-spark_2.4.3-0.8.1-jar-with-dependencies.jar --conf spark.driver.extraClassPath=/opt/conda/lib/python3.6/site-packages/bigdl/share/lib/bigdl-0.10.0-jar-with-dependencies.jar,/opt/conda/lib/python3.6/site-packages/zoo/share/lib/analytics-zoo-bigdl_0.10.0-spark_2.4.3-0.8.1-jar-with-dependencies.jar --conf spark.executor.extraClassPath=/opt/conda/lib/python3.6/site-packages/bigdl/share/lib/bigdl-0.10.0-jar-with-dependencies.jar,/opt/conda/lib/python3.6/site-packages/zoo/share/lib/analytics-zoo-bigdl_0.10.0-spark_2.4.3-0.8.1-jar-with-dependencies.jar --conf spark.sql.catalogImplementation='in-memory' --conf spark.driver.port=29413 pyspark-shell"
+ }
+}

@@ -1,0 +1,42 @@
+la idea es que el piloto se amplie al resto de plantas
+
+Reunion con GPG
+Base de datos Scada. MySQL. Accesibilidad PBHarvard.
+Fabricante PBH y otro de dispositivos.
+Hacer algo que ni se imaginan
+Problemas en tiempo real porque vuelcan datos periodicamente.
+Lo detectan las plantas. Paradas.
+Centro de control del operador.
+Seguimiento del performance. No online, mensualmente.
+Chequeos intermedios a veces.
+Comparando con el potencial en la planta, cuanto están perdiendo.
+Identificar las perdidas que componen ese total.
+Optimizar periodos de limpieza de vegetacion o de paneles.
+Analisis de performance: Performance ratio de la planta.
+Desglose de medidas disponibles.
+Comparaciones y control de trackers.
+Sensores de ensuciamiento
+Optimizar el mantenimiento, en los ciclos de limpieza. Vegetacion da sombra.
+Herramienta de analisis especificos. SIC. Interrogando la base de datos, hacer comparaciones.
+Empezar por las mas antiguas porque tienen mas historico. 5000 señales.
+Tracker multifila. Control y un motor para una serie de filas. Agregador de metricas de paneles.
+25 entradas por inversor.
+Primer nivel de desagregacion. Inversor. Inversor parado. Cuantificar energia perdida. El inversor esta generando menos de lo que deberia.
+Mas abajo: Entrada DC-BUS. otros inversores. 24 o 25 por inversor. Analizar si algun DC-BUS no está aportando corriente.
+Dentro del DC-BUS => Tercer nivel. Modulos conectados en serio. Fallos por fusion de fusible, paneles rotos, ensuciamiento. Stream no esta monitorizado.
+Capas que hemos comentado. Comparar corrientes de un DC-BUS
+5% de desviacion. Un stream
+Menos de 5. ensuciamiento, problemas de seguimiento.
+Se detecta por la forma de las curvas.
+Condiciones meteorologicas.
+Varias hectareas. 1.5
+Sobral y Sertao
+2 universos paralelos a nivel de capas de control. Seguidor o tracker.
+Dos arboles jerarquicos.
+No esta la jerarquia en bbdd. solo hasta nivel de inversor.
+No se almacena el historico de incidencias.
+A nivel de planta. Prevision de generacion. Simular con herramientas de prevision. PV-Sys. Con los datos medidos de las estaciones meteorologicas. En las capas inferiores. Se dividen
+Cuanto se esta perdiendo en produccion por sombras. Ver si es optimo limpiar vegetacion.
+Calculo de degradacion de los paneles.
+Se puso en marcha a finales de 2017.
+

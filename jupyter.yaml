@@ -39,7 +39,7 @@ spec:
         - containerPort: 443
         resources: {}
       - name: dind
-        image: docker:18.05-dind
+        image: docker:18.09.6-dind
         securityContext:
           privileged: true
         volumeMounts:

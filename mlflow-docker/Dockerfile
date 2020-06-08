@@ -1,4 +1,4 @@
-FROM python:3.8.2-slim
+FROM python:3.6.10
 
 # We need to install the following dependencies explicitly:
 # - psycopg2-binary to work with a Postgres-backed backend store

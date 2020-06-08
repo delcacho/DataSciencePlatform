@@ -1,0 +1,21 @@
+from bigdl.nn.layer import *
+from bigdl.nn.criterion import *
+from bigdl.util.common import *
+from bigdl.dlframes.dl_classifier import *
+
+from pyspark.sql.types import *
+from pyspark.context import SparkContext
+
+conf = create_spark_conf()
+conf = conf.set("spark.executor.cores","1")
+conf = conf.set("spark.cores.max","4")
+conf = conf.setMaster("spark://spark-master-svc:7077")
+sc = SparkContext.getOrCreate(conf=conf)
+
+sqlContext = SQLContext(sc)
+
+# Init BigDL
+init_engine()
+
+bigdl.version.__version__ # Get the current BigDL version
+linear = Linear(2, 3) # Try to create a Linear layer

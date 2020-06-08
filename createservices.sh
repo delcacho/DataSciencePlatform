@@ -5,7 +5,10 @@ kubectl create namespace development
 dscacheutil -flushcache
 helm init --service-account tiller
 helm install hdfs gradiant/hdfs
-kubectl create -f dashboard.yaml
+kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
+kubectl create serviceaccount dashboard-admin-sa
+kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+
 kubectl create -f jupyter.yaml 
 kubectl create -f tiller-rbac-config.yaml
 helm install --wait ingress-https --set controller.scope.enabled=true \

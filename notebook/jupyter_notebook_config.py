@@ -14,3 +14,10 @@ c.LatexConfig.latex_command = 'pdflatex'
 c.NotebookApp.contents_manager_class = 'jupytext.TextFileContentsManager'
 c.NotebookApp.ResourceUseDisplay.track_cpu_percent = True
 c.MappingKernelManager.cull_idle_timeout = 600
+c.LauncherShortcuts.shortcuts = {
+    'my-shiny-application': {
+        'title': 'SkLearn and MLflow integrtion',
+        'target': '/opt/conda/share/jupyter/notebook_templates/MLflow/KLearnExample.ipynb',
+        'icon_path': '/path/to/svg/file'
+    }
+}

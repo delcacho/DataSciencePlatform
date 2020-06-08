@@ -53,3 +53,10 @@ services:
       dockerfile: Dockerfile
     image: delcacho/mlflow
     hostname: mlflow
+
+  spark:
+    build:
+      context: ./spark-docker
+      dockerfile: Dockerfile
+    image: delcacho/spark
+    hostname: spark
