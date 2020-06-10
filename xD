@@ -1,0 +1,667 @@
+no environment.yml
++ '[' '' ']'
++ '[' -e /opt/app/environment.yml ']'
++ echo 'no environment.yml'
++ '[' '' ']'
++ '[' '' ']'
++ export HADOOP_HOME=/usr/local/hadoop
++ HADOOP_HOME=/usr/local/hadoop
++ export MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
++ MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
++ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
++ JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
++ sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -mkdir -p hdfs://hdfs-namenode:8020/user/admin
++ sudo -u hdfs -E /usr/local/hadoop/bin/hdfs dfs -chmod -R 777 hdfs://hdfs-namenode:8020/
++ exec jupyterhub --debug --port=8000 -f /etc/jupyterhub/jupyterhub_config.py --ssl-key=/home/jovyan/jhub.key --ssl-cert=/home/jovyan/jhub.crt
+[D 2020-06-10 18:24:11.158 JupyterHub application:556] Looking for /etc/jupyterhub/jupyterhub_config in /home/admin
+[D 2020-06-10 18:24:11.159 JupyterHub application:578] Loaded config file: /etc/jupyterhub/jupyterhub_config.py
+[I 2020-06-10 18:24:11.160 JupyterHub app:2240] Running JupyterHub version 1.1.0
+[I 2020-06-10 18:24:11.160 JupyterHub app:2271] Using Authenticator: oauthenticator.github.GitHubOAuthenticator-0.11.0
+[I 2020-06-10 18:24:11.160 JupyterHub app:2271] Using Spawner: jupyterhub.spawner.LocalProcessSpawner-1.1.0
+[I 2020-06-10 18:24:11.160 JupyterHub app:2271] Using Proxy: jupyterhub.proxy.ConfigurableHTTPProxy-1.1.0
+[D 2020-06-10 18:24:11.169 JupyterHub app:1389] Generating new cookie_secret
+[I 2020-06-10 18:24:11.169 JupyterHub app:1394] Writing cookie_secret to /home/admin/jupyterhub_cookie_secret
+[D 2020-06-10 18:24:11.169 JupyterHub app:1516] Connecting to db: sqlite:///jupyterhub.sqlite
+[D 2020-06-10 18:24:11.195 JupyterHub orm:718] Stamping empty database with alembic revision 4dc2d5a8c53c
+[I 2020-06-10 18:24:11.205 alembic.runtime.migration migration:155] Context impl SQLiteImpl.
+[I 2020-06-10 18:24:11.205 alembic.runtime.migration migration:162] Will assume non-transactional DDL.
+[I 2020-06-10 18:24:11.215 alembic.runtime.migration migration:515] Running stamp_revision  -> 4dc2d5a8c53c
+[D 2020-06-10 18:24:11.215 alembic.runtime.migration migration:725] new branch insert 4dc2d5a8c53c
+[I 2020-06-10 18:24:11.286 JupyterHub proxy:461] Generating new CONFIGPROXY_AUTH_TOKEN
+[I 2020-06-10 18:24:11.312 JupyterHub app:1655] Not using whitelist. Any authenticated user will be allowed.
+[D 2020-06-10 18:24:11.331 JupyterHub app:1914] Initializing spawners
+[D 2020-06-10 18:24:11.339 JupyterHub app:2011] Loading state for admin from db
+[D 2020-06-10 18:24:11.340 JupyterHub app:2038] Loaded users:
+       admin admin
+[I 2020-06-10 18:24:11.340 JupyterHub app:2311] Initialized 0 spawners in 0.009 seconds
+[I 2020-06-10 18:24:11.343 JupyterHub proxy:646] Starting proxy @ http://:8000
+[D 2020-06-10 18:24:11.343 JupyterHub proxy:647] Proxy cmd: ['configurable-http-proxy', '--ip', '', '--port', '8000', '--api-ip', '127.0.0.1', '--api-port', '8001', '--error-target', 'http://127.0.0.1:8081/hub/error', '--ssl-key', '/home/jovyan/jhub.key', '--ssl-cert', '/home/jovyan/jhub.crt']
+[D 2020-06-10 18:24:11.347 JupyterHub proxy:562] Writing proxy pid file: jupyterhub-proxy.pid
+18:24:11.576 [ConfigProxy] [32minfo[39m: Proxying https://*:8000 to (no default)
+18:24:11.579 [ConfigProxy] [32minfo[39m: Proxy API at http://127.0.0.1:8001/api/routes
+[D 2020-06-10 18:24:11.739 JupyterHub proxy:682] Proxy started and appears to be up
+[D 2020-06-10 18:24:11.741 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+18:24:11.752 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+[I 2020-06-10 18:24:11.754 JupyterHub app:2556] Hub API listening on http://127.0.0.1:8081/hub/
+[D 2020-06-10 18:24:11.754 JupyterHub proxy:315] Fetching routes to check
+[D 2020-06-10 18:24:11.754 JupyterHub proxy:766] Proxy: Fetching GET http://127.0.0.1:8001/api/routes
+18:24:11.756 [ConfigProxy] [32minfo[39m: 200 GET /api/routes 
+[I 2020-06-10 18:24:11.756 JupyterHub proxy:320] Checking routes
+[I 2020-06-10 18:24:11.756 JupyterHub proxy:400] Adding default route for Hub: / => http://127.0.0.1:8081
+[D 2020-06-10 18:24:11.756 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/
+18:24:11.758 [ConfigProxy] [32minfo[39m: Adding route / -> http://127.0.0.1:8081
+18:24:11.758 [ConfigProxy] [32minfo[39m: Route added / -> http://127.0.0.1:8081
+18:24:11.759 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/ 
+[I 2020-06-10 18:24:11.759 JupyterHub app:2631] JupyterHub is now running at http://:8000
+[D 2020-06-10 18:24:11.760 JupyterHub app:2233] It took 0.605 seconds for the Hub to start
+[I 2020-06-10 18:24:32.799 JupyterHub log:174] 302 GET /user/delcacho/api/kernels/faf0f004-6662-4096-966d-017f12d53be0/channels?session_id=9b234f5b-28d6-45ed-a470-9657be90c5d7&token=[secret] -> /hub/user/delcacho/api/kernels/faf0f004-6662-4096-966d-017f12d53be0/channels?session_id=9b234f5b-28d6-45ed-a470-9657be90c5d7&token=[secret] (@172.20.36.131) 1.28ms
+18:24:32.802 [ConfigProxy] [31merror[39m: Uncaught Exception: read ECONNRESET
+18:24:32.803 [ConfigProxy] [31merror[39m: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:205:27)
+[I 2020-06-10 18:24:34.381 JupyterHub log:174] 302 GET /user/delcacho/api/kernels/faf0f004-6662-4096-966d-017f12d53be0/channels?session_id=9b234f5b-28d6-45ed-a470-9657be90c5d7&token=[secret] -> /hub/user/delcacho/api/kernels/faf0f004-6662-4096-966d-017f12d53be0/channels?session_id=9b234f5b-28d6-45ed-a470-9657be90c5d7&token=[secret] (@172.20.54.32) 1.08ms
+18:24:34.382 [ConfigProxy] [31merror[39m: Uncaught Exception: read ECONNRESET
+18:24:34.383 [ConfigProxy] [31merror[39m: Error: read ECONNRESET
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:205:27)
+[I 2020-06-10 18:28:02.913 JupyterHub log:174] 302 GET / -> /hub/ (@172.20.42.242) 0.92ms
+[W 2020-06-10 18:28:03.018 JupyterHub base:392] Invalid or expired cookie token
+[I 2020-06-10 18:28:03.019 JupyterHub log:174] 302 GET /hub/ -> /hub/login (@172.20.42.242) 1.69ms
+[I 2020-06-10 18:28:03.153 JupyterHub log:174] 200 GET /hub/login (@172.20.42.242) 30.77ms
+[D 2020-06-10 18:28:03.281 JupyterHub log:174] 200 GET /hub/static/components/bootstrap/dist/js/bootstrap.min.js?v=2f34b630ffe30ba2ff2b91e3f3c322a1 (@172.20.42.242) 1.30ms
+[D 2020-06-10 18:28:03.286 JupyterHub log:174] 200 GET /hub/logo (@172.20.42.242) 1.17ms
+[D 2020-06-10 18:28:03.287 JupyterHub log:174] 200 GET /hub/static/components/requirejs/require.js?v=f0cc8bbb2fcef87fc194fecbb632fcfa (@172.20.42.242) 8.47ms
+[D 2020-06-10 18:28:03.288 JupyterHub log:174] 200 GET /hub/static/css/style.min.css?v=ab35cbd1a6857ec00620a56c43760477 (@172.20.42.242) 10.63ms
+[D 2020-06-10 18:28:03.288 JupyterHub log:174] 200 GET /hub/static/components/jquery/dist/jquery.min.js?v=220afd743d9e9643852e31a135a9f3ae (@172.20.42.242) 5.27ms
+[I 2020-06-10 18:28:03.581 JupyterHub log:174] 302 GET / -> /hub/ (@172.20.42.242) 1.03ms
+[I 2020-06-10 18:28:04.095 JupyterHub log:174] 302 GET /hub/ -> /hub/login (@172.20.42.242) 1.04ms
+[I 2020-06-10 18:28:04.235 JupyterHub log:174] 200 GET /hub/login (@172.20.42.242) 1.57ms
+[D 2020-06-10 18:28:04.437 JupyterHub log:174] 200 GET /hub/static/components/bootstrap/dist/js/bootstrap.min.js?v=2f34b630ffe30ba2ff2b91e3f3c322a1 (@172.20.42.242) 1.25ms
+[D 2020-06-10 18:28:04.440 JupyterHub log:174] 200 GET /hub/static/components/requirejs/require.js?v=f0cc8bbb2fcef87fc194fecbb632fcfa (@172.20.42.242) 6.36ms
+[D 2020-06-10 18:28:04.441 JupyterHub log:174] 200 GET /hub/static/components/jquery/dist/jquery.min.js?v=220afd743d9e9643852e31a135a9f3ae (@172.20.42.242) 5.91ms
+[D 2020-06-10 18:28:04.442 JupyterHub log:174] 200 GET /hub/static/css/style.min.css?v=ab35cbd1a6857ec00620a56c43760477 (@172.20.42.242) 3.86ms
+[D 2020-06-10 18:28:04.922 JupyterHub log:174] 200 GET /hub/logo (@172.20.42.242) 0.85ms
+[I 2020-06-10 18:28:06.586 JupyterHub oauth2:103] OAuth redirect: 'http://ide.bayescluster.com/hub/oauth_callback'
+[I 2020-06-10 18:28:06.587 JupyterHub log:174] 302 GET /hub/oauth_login?next= -> https://github.com/login/oauth/authorize?redirect_uri=http%3A%2F%2Fide.bayescluster.com%2Fhub%2Foauth_callback&client_id=3f9704c2486b3f9543ae&response_type=code&state=[secret] (@172.20.42.242) 1.95ms
+[D 2020-06-10 18:28:07.775 JupyterHub base:526] Setting cookie for delcacho: jupyterhub-hub-login
+[D 2020-06-10 18:28:07.775 JupyterHub base:522] Setting cookie jupyterhub-hub-login: {'httponly': True, 'secure': True, 'path': '/hub/'}
+[I 2020-06-10 18:28:07.776 JupyterHub base:707] User logged in: delcacho
+[D 2020-06-10 18:28:07.776 JupyterHub user:242] Creating <class 'jupyterhub.spawner.LocalProcessSpawner'> for delcacho:
+[I 2020-06-10 18:28:07.780 JupyterHub log:174] 302 GET /hub/oauth_callback?code=[secret]&state=[secret] -> /hub/spawn (@172.20.42.242) 273.70ms
+[D 2020-06-10 18:28:07.886 JupyterHub base:285] Recording first activity for <User(delcacho 0/1 running)>
+[D 2020-06-10 18:28:07.892 JupyterHub pages:195] Triggering spawn with default options for delcacho
+[D 2020-06-10 18:28:07.892 JupyterHub base:825] Initiating spawn for delcacho
+[D 2020-06-10 18:28:07.892 JupyterHub base:832] 0/100 concurrent spawns
+[D 2020-06-10 18:28:07.892 JupyterHub base:837] 0 active servers
+[I 2020-06-10 18:28:07.924 JupyterHub jupyterhub_config:29] Hello from the spawn hook
+[I 2020-06-10 18:28:07.924 JupyterHub jupyterhub_config:31] Prespawn delcacho
+[I 2020-06-10 18:28:07.925 JupyterHub jupyterhub_config:40] Key error! delcacho
+[D 2020-06-10 18:28:09.885 JupyterHub user:556] Calling Spawner.start for delcacho
+[I 2020-06-10 18:28:09.886 JupyterHub spawner:1417] Spawning jupyterhub-singleuser --port=48363 '--notebook-dir=~/notebooks' --NotebookApp.default_url=/lab --debug
+[I 2020-06-10 18:28:09.893 JupyterHub log:174] 302 GET /hub/spawn -> /hub/spawn-pending/delcacho (delcacho@172.20.42.242) 2009.17ms
+[D 2020-06-10 18:28:09.900 JupyterHub spawner:1113] Polling subprocess every 30s
+[I 2020-06-10 18:28:09.998 JupyterHub pages:347] delcacho is pending spawn
+[I 2020-06-10 18:28:10.003 JupyterHub log:174] 200 GET /hub/spawn-pending/delcacho (delcacho@172.20.42.242) 8.67ms
+[D 2020-06-10 18:28:10.205 JupyterHub log:174] 200 GET /hub/static/components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0 (@172.20.42.242) 1.45ms
+[D 2020-06-10 18:28:10.351 SingleUserNotebookApp application:179] Searching ['/home/delcacho', '/home/delcacho/.jupyter', '/opt/conda/etc/jupyter', '/usr/local/etc/jupyter', '/etc/jupyter'] for config files
+[D 2020-06-10 18:28:10.351 SingleUserNotebookApp application:556] Looking for jupyter_config in /etc/jupyter
+[D 2020-06-10 18:28:10.352 SingleUserNotebookApp application:556] Looking for jupyter_config in /usr/local/etc/jupyter
+[D 2020-06-10 18:28:10.352 SingleUserNotebookApp application:556] Looking for jupyter_config in /opt/conda/etc/jupyter
+[D 2020-06-10 18:28:10.352 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/delcacho/.jupyter
+[D 2020-06-10 18:28:10.352 SingleUserNotebookApp application:556] Looking for jupyter_config in /home/delcacho
+[D 2020-06-10 18:28:10.353 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /etc/jupyter
+[D 2020-06-10 18:28:10.354 SingleUserNotebookApp application:578] Loaded config file: /etc/jupyter/jupyter_notebook_config.py
+[D 2020-06-10 18:28:10.354 SingleUserNotebookApp application:578] Loaded config file: /etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:10.354 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /usr/local/etc/jupyter
+[D 2020-06-10 18:28:10.354 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /opt/conda/etc/jupyter
+[D 2020-06-10 18:28:10.355 SingleUserNotebookApp application:578] Loaded config file: /opt/conda/etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:10.355 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/delcacho/.jupyter
+[D 2020-06-10 18:28:10.355 SingleUserNotebookApp application:556] Looking for jupyter_notebook_config in /home/delcacho
+[W 2020-06-10 18:28:10.358 SingleUserNotebookApp configurable:168] Config option `open_browser` not recognized by `SingleUserNotebookApp`.  Did you mean `browser`?
+[D 2020-06-10 18:28:10.363 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:10.364 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/usr/local/etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:10.364 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/dask_labextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/ipyparallel-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-lsp-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-server-proxy-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-starters-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_git.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_latex.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupytext.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/nbdime.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/offlinenotebook_serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:10.366 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/home/delcacho/.jupyter/jupyter_notebook_config.json
+[I 2020-06-10 18:28:11.855 SingleUserNotebookApp handlers:78] Loading IPython parallel extension
+[D 2020-06-10 18:28:11.941 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/bash-language-server/bin/main.js
+[D 2020-06-10 18:28:11.942 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/bash-language-server/bin/main.js
+[D 2020-06-10 18:28:11.942 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/bash-language-server/bin/main.js
+[D 2020-06-10 18:28:11.942 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/bash-language-server/bin/main.js
+[D 2020-06-10 18:28:11.942 SingleUserNotebookApp types:223] bash-language-server/bin/main.js not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:11.942 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/dockerfile-language-server-nodejs/lib/server.js
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:223] dockerfile-language-server-nodejs/lib/server.js not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-06-10 18:28:11.943 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js
+[D 2020-06-10 18:28:11.944 SingleUserNotebookApp types:223] javascript-typescript-langserver/lib/language-server-stdio.js not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:11.945 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/unified-language-server/src/server.js
+[D 2020-06-10 18:28:11.945 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/unified-language-server/src/server.js
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/unified-language-server/src/server.js
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/unified-language-server/src/server.js
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:223] unified-language-server/src/server.js not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/vscode-css-languageserver-bin/cssServerMain.js
+[D 2020-06-10 18:28:11.946 SingleUserNotebookApp types:223] vscode-css-languageserver-bin/cssServerMain.js not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/vscode-html-languageserver-bin/htmlServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:223] vscode-html-languageserver-bin/htmlServerMain.js not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/vscode-json-languageserver-bin/jsonServerMain.js
+[D 2020-06-10 18:28:11.947 SingleUserNotebookApp types:223] vscode-json-languageserver-bin/jsonServerMain.js not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:11.948 SingleUserNotebookApp types:215] Checking for /home/delcacho/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-06-10 18:28:11.948 SingleUserNotebookApp types:215] Checking for /opt/conda/share/jupyter/lab/staging/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-06-10 18:28:11.948 SingleUserNotebookApp types:215] Checking for /opt/conda/lib/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-06-10 18:28:11.948 SingleUserNotebookApp types:215] Checking for /opt/conda/node_modules/yaml-language-server/bin/yaml-language-server
+[D 2020-06-10 18:28:11.948 SingleUserNotebookApp types:223] yaml-language-server/bin/yaml-language-server not found in node_modules of [PosixPath('/home/delcacho'), PosixPath('/opt/conda/share/jupyter/lab/staging'), PosixPath('/opt/conda/lib'), PosixPath('/opt/conda')]
+[D 2020-06-10 18:28:12.050 SingleUserNotebookApp serverextension:27] [lsp] rootUri will be file:///home/delcacho/notebooks
+[D 2020-06-10 18:28:12.051 SingleUserNotebookApp serverextension:31] [lsp] virtualDocumentsUri will be file:///home/delcacho/notebooks/.virtual_documents
+[D 2020-06-10 18:28:12.052 SingleUserNotebookApp serverextension:44] [lsp] The following Language Servers will be available: {
+      "pyls": {
+        "argv": [
+          "/opt/conda/bin/pyls"
+        ],
+        "config_schema": {
+          "properties": {
+            "pyls.configurationSources": {
+              "default": [
+                "pycodestyle"
+              ],
+              "description": "List of configuration sources to use.",
+              "items": {
+                "enum": [
+                  "pycodestyle",
+                  "pyflakes"
+                ],
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.executable": {
+              "default": "pyls",
+              "description": "Language server executable",
+              "type": "string"
+            },
+            "pyls.plugins.jedi_completion.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_completion.include_params": {
+              "default": true,
+              "description": "Auto-completes methods and classes with tabstops for each parameter.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_definition.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_definition.follow_builtin_imports": {
+              "default": true,
+              "description": "If follow_imports is True will decide if it follow builtin imports.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_definition.follow_imports": {
+              "default": true,
+              "description": "The goto call will follow imports.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_hover.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_references.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_signature_help.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_symbols.all_scopes": {
+              "default": true,
+              "description": "If True lists the names of all scopes instead of only the module namespace.",
+              "type": "boolean"
+            },
+            "pyls.plugins.jedi_symbols.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.mccabe.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.mccabe.threshold": {
+              "default": 15,
+              "description": "The minimum threshold that triggers warnings about cyclomatic complexity.",
+              "type": "number"
+            },
+            "pyls.plugins.preload.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.preload.modules": {
+              "default": null,
+              "description": "List of modules to import on startup",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pycodestyle.exclude": {
+              "default": null,
+              "description": "Exclude files or directories which match these patterns.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.filename": {
+              "default": null,
+              "description": "When parsing directories, only check filenames matching these patterns.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.hangClosing": {
+              "default": null,
+              "description": "Hang closing bracket instead of matching indentation of opening bracket's line.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pycodestyle.ignore": {
+              "default": null,
+              "description": "Ignore errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pycodestyle.maxLineLength": {
+              "default": null,
+              "description": "Set maximum allowed line length.",
+              "type": "number"
+            },
+            "pyls.plugins.pycodestyle.select": {
+              "default": null,
+              "description": "Select errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.addIgnore": {
+              "default": null,
+              "description": "Ignore errors and warnings in addition to the specified convention.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.addSelect": {
+              "default": null,
+              "description": "Select errors and warnings in addition to the specified convention.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.convention": {
+              "default": null,
+              "description": "Choose the basic list of checked errors by specifying an existing convention.",
+              "enum": [
+                "pep257",
+                "numpy"
+              ],
+              "type": "string"
+            },
+            "pyls.plugins.pydocstyle.enabled": {
+              "default": false,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pydocstyle.ignore": {
+              "default": null,
+              "description": "Ignore errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pydocstyle.match": {
+              "default": "(?!test_).*\\.py",
+              "description": "Check only files that exactly match the given regular expression; default is to match files that don't start with 'test_' but end with '.py'.",
+              "type": "string"
+            },
+            "pyls.plugins.pydocstyle.matchDir": {
+              "default": "[^\\.].*",
+              "description": "Search only dirs that exactly match the given regular expression; default is to match dirs which do not begin with a dot.",
+              "type": "string"
+            },
+            "pyls.plugins.pydocstyle.select": {
+              "default": null,
+              "description": "Select errors and warnings",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            },
+            "pyls.plugins.pyflakes.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.pylint.args": {
+              "default": null,
+              "description": "Arguments to pass to pylint.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": false
+            },
+            "pyls.plugins.pylint.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.rope_completion.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.plugins.yapf.enabled": {
+              "default": true,
+              "description": "Enable or disable the plugin.",
+              "type": "boolean"
+            },
+            "pyls.rope.extensionModules": {
+              "default": null,
+              "description": "Builtin and c-extension modules that are allowed to be imported and inspected by rope.",
+              "type": "string"
+            },
+            "pyls.rope.ropeFolder": {
+              "default": null,
+              "description": "The name of the folder in which rope stores project configurations and data.  Pass `null` for not using such a folder at all.",
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "title": "Python Language Server Configuration",
+          "type": "object"
+        },
+        "display_name": "pyls",
+        "env": {
+          "PYTHONUNBUFFERED": "1"
+        },
+        "extend": [
+          {
+            "display_name": "pyls-mypy",
+            "install": {
+              "pip": "pip install pyls-mypy"
+            }
+          },
+          {
+            "display_name": "pyls-black",
+            "install": {
+              "pip": "pip install pyls-black"
+            }
+          },
+          {
+            "display_name": "pyls-isort",
+            "install": {
+              "pip": "pip install pyls-isort"
+            }
+          }
+        ],
+        "install": {
+          "conda": "conda install -c conda-forge python-language-server",
+          "pip": "pip install python-language-server[all]"
+        },
+        "languages": [
+          "python"
+        ],
+        "mime_types": [
+          "text/python",
+          "text/x-ipython"
+        ],
+        "urls": {
+          "home": "https://github.com/palantir/python-language-server",
+          "issues": "https://github.com/palantir/python-language-server/issues"
+        },
+        "version": 2
+      },
+      "r-languageserver": {
+        "argv": [
+          "/usr/bin/Rscript",
+          "--slave",
+          "/opt/conda/lib/python3.6/site-packages/jupyter_lsp/specs/helpers/languageserver.R"
+        ],
+        "display_name": "r-languageserver",
+        "install": {
+          "conda": "conda install -c conda-forge r-languageserver",
+          "cran": "install.packages(\"languageserver\")"
+        },
+        "languages": [
+          "r"
+        ],
+        "mime_types": [
+          "text/x-rsrc"
+        ],
+        "urls": {
+          "home": "https://github.com/REditorSupport/languageserver",
+          "issues": "https://github.com/REditorSupport/languageserver/issues"
+        },
+        "version": 2
+      }
+    }
+[D 2020-06-10 18:28:12.095 SingleUserNotebookApp cookiecutter:72] 🍪 install cookiecutter to enable the cookiecutter starter. yum!
+[D 2020-06-10 18:28:12.096 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:12.097 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/usr/local/etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:12.097 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/dask_labextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/ipyparallel-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-lsp-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-server-proxy-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyter-starters-serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_git.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupyterlab_latex.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/jupytext.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/nbdime.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/offlinenotebook_serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.d/serverextension.json
+    	/opt/conda/etc/jupyter/jupyter_notebook_config.json
+[D 2020-06-10 18:28:12.098 SingleUserNotebookApp config_manager:97] Paths used for configuration of jupyter_notebook_config: 
+    	/home/delcacho/.jupyter/jupyter_notebook_config.json
+[I 2020-06-10 18:28:12.103 SingleUserNotebookApp serverextension:12] 💡 starters: cron-starter, h2o-starter, sklearn-starter, spark-starter
+[I 2020-06-10 18:28:12.521 SingleUserNotebookApp extension:158] JupyterLab extension loaded from /opt/conda/lib/python3.6/site-packages/jupyterlab
+[I 2020-06-10 18:28:12.521 SingleUserNotebookApp extension:159] JupyterLab application directory is /opt/conda/share/jupyter/lab
+[I 2020-06-10 18:28:12.581 SingleUserNotebookApp __init__:31] [Jupytext Server Extension] Deriving a JupytextContentsManager from LargeFileManager
+[D 2020-06-10 18:28:12.789 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-06-10 18:28:12.789 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-06-10 18:28:12.789 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-06-10 18:28:12.790 SingleUserNotebookApp loader:342] Using default logger
+[D 2020-06-10 18:28:12.790 SingleUserNotebookApp loader:342] Using default logger
+[I 2020-06-10 18:28:12.797 SingleUserNotebookApp singleuser:561] Starting jupyterhub-singleuser server version 1.1.0
+[D 2020-06-10 18:28:12.800 JupyterHub utils:218] Server at http://127.0.0.1:48363/user/delcacho/ responded with 302
+[D 2020-06-10 18:28:12.800 JupyterHub _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
+[I 2020-06-10 18:28:12.800 JupyterHub base:855] User delcacho took 4.908 seconds to start
+[I 2020-06-10 18:28:12.800 JupyterHub proxy:262] Adding user delcacho to proxy /user/delcacho/ => http://127.0.0.1:48363
+[D 2020-06-10 18:28:12.800 JupyterHub proxy:766] Proxy: Fetching POST http://127.0.0.1:8001/api/routes/user/delcacho
+18:28:12.802 [ConfigProxy] [32minfo[39m: Adding route /user/delcacho -> http://127.0.0.1:48363
+18:28:12.802 [ConfigProxy] [32minfo[39m: Route added /user/delcacho -> http://127.0.0.1:48363
+18:28:12.803 [ConfigProxy] [32minfo[39m: 201 POST /api/routes/user/delcacho 
+[I 2020-06-10 18:28:12.804 JupyterHub users:609] Server delcacho is ready
+[I 2020-06-10 18:28:12.805 JupyterHub log:174] 200 GET /hub/api (@127.0.0.1) 1.46ms
+[I 2020-06-10 18:28:12.806 JupyterHub log:174] 200 GET /hub/api/users/delcacho/server/progress (delcacho@172.20.42.242) 2599.39ms
+[D 2020-06-10 18:28:12.806 SingleUserNotebookApp _version:60] jupyterhub and jupyterhub-singleuser both on version 1.1.0
+[I 2020-06-10 18:28:12.806 SingleUserNotebookApp notebookapp:1924] Serving notebooks from local directory: /home/delcacho/notebooks
+[I 2020-06-10 18:28:12.806 SingleUserNotebookApp notebookapp:1924] The Jupyter Notebook is running at:
+[I 2020-06-10 18:28:12.806 SingleUserNotebookApp notebookapp:1924] http://notebook:48363/user/delcacho/
+[I 2020-06-10 18:28:12.806 SingleUserNotebookApp notebookapp:1925] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 2020-06-10 18:28:12.811 SingleUserNotebookApp singleuser:542] Updating Hub with activity every 300 seconds
+[D 2020-06-10 18:28:12.813 SingleUserNotebookApp singleuser:503] Notifying Hub of activity 2020-06-10T18:28:10.373372Z
+[D 2020-06-10 18:28:12.817 JupyterHub base:285] Recording first activity for <APIToken('ad64...', user='delcacho')>
+[D 2020-06-10 18:28:12.827 JupyterHub users:711] Activity for user delcacho: 2020-06-10T18:28:10.373372Z
+[D 2020-06-10 18:28:12.827 JupyterHub users:732] Activity on server delcacho/: 2020-06-10T18:28:10.373372Z
+[I 2020-06-10 18:28:12.832 JupyterHub log:174] 200 POST /hub/api/users/delcacho/activity (delcacho@127.0.0.1) 16.97ms
+[I 2020-06-10 18:28:12.969 JupyterHub log:174] 302 GET /hub/spawn-pending/delcacho -> /user/delcacho/ (delcacho@172.20.42.242) 3.41ms
+[D 2020-06-10 18:28:13.288 JupyterHub provider:414] Validating client id jupyterhub-user-delcacho
+[D 2020-06-10 18:28:13.289 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-delcacho, redirect_uri=/user/delcacho/oauth_callback
+[D 2020-06-10 18:28:13.291 JupyterHub auth:247] Skipping oauth confirmation for <User(delcacho 1/1 running)> accessing Server at /user/delcacho/
+[D 2020-06-10 18:28:13.291 JupyterHub provider:414] Validating client id jupyterhub-user-delcacho
+[D 2020-06-10 18:28:13.292 JupyterHub provider:492] validate_redirect_uri: client_id=jupyterhub-user-delcacho, redirect_uri=/user/delcacho/oauth_callback
+[D 2020-06-10 18:28:13.293 JupyterHub provider:241] Saving authorization code jupyterhub-user-delcacho, sJu..., (), {}
+[I 2020-06-10 18:28:13.301 JupyterHub log:174] 302 GET /hub/api/oauth2/authorize?client_id=jupyterhub-user-delcacho&redirect_uri=%2Fuser%2Fdelcacho%2Foauth_callback&response_type=code&state=[secret] -> /user/delcacho/oauth_callback?code=[secret]&state=[secret] (delcacho@172.20.42.242) 16.06ms
+[D 2020-06-10 18:28:13.417 JupyterHub provider:60] authenticate_client <oauthlib.Request url="/hub/api/oauth2/token", http_method="POST", headers="{'Host': '127.0.0.1:8081', 'User-Agent': 'python-requests/2.23.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': '<SANITIZED>', 'Content-Length': '196'}", body="client_id=jupyterhub-user-delcacho&client_secret=ad64740157e641209da812e25dc347af&grant_type=authorization_code&code=sJuMeMIZOY8yS1u2nKXmMvYDJQE08H&redirect_uri=%2Fuser%2Fdelcacho%2Foauth_callback">
+[D 2020-06-10 18:28:13.424 JupyterHub provider:119] confirm_redirect_uri: client_id=jupyterhub-user-delcacho, redirect_uri=/user/delcacho/oauth_callback
+[D 2020-06-10 18:28:13.424 JupyterHub provider:339] Saving bearer token {'access_token': 'REDACTED', 'expires_in': 3600, 'token_type': 'Bearer', 'scope': 'identify', 'refresh_token': 'REDACTED'}
+[D 2020-06-10 18:28:13.432 JupyterHub provider:194] Deleting oauth code sJu... for jupyterhub-user-delcacho
+[I 2020-06-10 18:28:13.439 JupyterHub log:174] 200 POST /hub/api/oauth2/token (delcacho@127.0.0.1) 25.64ms
+[I 2020-06-10 18:28:13.455 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (delcacho@127.0.0.1) 13.66ms
+[D 2020-06-10 18:28:13.560 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-06-10 18:28:13.695 SingleUserNotebookApp handlers:828] Path main.5f1bdb88b5da19792d9f.js served from /opt/conda/share/jupyter/lab/static/main.5f1bdb88b5da19792d9f.js
+[D 2020-06-10 18:28:13.696 SingleUserNotebookApp handlers:828] Path vendors~main.696db82d3f5e3898aca8.js served from /opt/conda/share/jupyter/lab/static/vendors~main.696db82d3f5e3898aca8.js
+[I 2020-06-10 18:28:21.275 JupyterHub log:174] 200 GET /hub/api/authorizations/token/[secret] (delcacho@127.0.0.1) 11.19ms
+[D 2020-06-10 18:28:21.277 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-06-10 18:28:21.277 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.277 SingleUserNotebookApp kernelspec:168] Found kernel analyticszoo in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.277 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.277 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.277 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.277 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.393 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-06-10 18:28:21.393 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.393 SingleUserNotebookApp kernelspec:168] Found kernel analyticszoo in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.393 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.393 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.393 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.393 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:21.663 SingleUserNotebookApp handlers:252] Using contents: services/contents
+[D 2020-06-10 18:28:21.708 SingleUserNotebookApp handlers:828] Path @jupyterlab/theme-light-extension/index.css served from /opt/conda/share/jupyter/lab/themes/@jupyterlab/theme-light-extension/index.css
+[D 2020-06-10 18:28:22.399 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-06-10 18:28:22.399 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.399 SingleUserNotebookApp kernelspec:168] Found kernel analyticszoo in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.399 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.399 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.399 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.399 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.511 SingleUserNotebookApp kernelspec:168] Found kernel python3 in /opt/conda/share/jupyter/kernels
+[D 2020-06-10 18:28:22.511 SingleUserNotebookApp kernelspec:168] Found kernel pyspark in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.511 SingleUserNotebookApp kernelspec:168] Found kernel analyticszoo in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.511 SingleUserNotebookApp kernelspec:168] Found kernel sparkly in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.511 SingleUserNotebookApp kernelspec:168] Found kernel pysparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.511 SingleUserNotebookApp kernelspec:168] Found kernel rsparkling in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.511 SingleUserNotebookApp kernelspec:168] Found kernel ir in /usr/local/share/jupyter/kernels
+[D 2020-06-10 18:28:22.848 SingleUserNotebookApp commands:1761] Node v13.13.0
+    
+[D 2020-06-10 18:28:23.417 SingleUserNotebookApp commands:1796] Yarn configuration loaded.
+[D 2020-06-10 18:28:23.442 SingleUserNotebookApp commands:81] > /opt/conda/bin/npm pack /usr/local/jupyterlab-sparkmonitor
+[D 2020-06-10 18:28:24.034 SingleUserNotebookApp commands:1796] Yarn configuration loaded.
+[D 2020-06-10 18:28:24.215 SingleUserNotebookApp commands:111] npm notice 
+    npm notice 📦  jupyterlab_sparkmonitor@1.1.0
+    npm notice === Tarball Contents === 
+    npm notice 11.4kB  LICENSE                                     
+    npm notice 3.0kB   js/jobtable.css                             
+    npm notice 6.2kB   js/styles.css                               
+    npm notice 2.6kB   js/taskdetails.css                          
+    npm notice 2.3kB   js/timeline.css                             
+    npm notice 191.6kB dist/jupyterlab_sparkmonitor-1.1.0-py3.7.egg
+    npm notice 8.9kB   js/images/spinner.gif                       
+    npm notice 34.0kB  js/CellMonitor.js                           
+    npm notice 2.3kB   js/index.js                                 
+    npm notice 1.3kB   js/NotebookListener.js                      
+    npm notice 13.0kB  js/SparkMonitor.js                          
+    npm notice 9.1kB   js/TaskChart.js                             
+    npm notice 9.8kB   js/taskdetails.js                           
+    npm notice 21.2kB  js/Timeline.js                              
+    npm notice 2.3kB   package.json                                
+    npm notice 6.4kB   README.md                                   
+    npm notice === Tarball Details === 
+    npm notice name:          jupyterlab_sparkmonitor                 
+    npm notice version:       1.1.0                                   
+    npm notice filename:      jupyterlab_sparkmonitor-1.1.0.tgz       
+    npm notice package size:  229.9 kB                                
+    npm notice unpacked size: 325.2 kB                                
+    npm notice shasum:        3cc2b3e5052e29a1bfe8597c89083c2868181ea8
+    npm notice integrity:     sha512-aBX56I11pKvVA[...]mWd53S1DSqfYA==
+    npm notice total files:   16                                      
+    npm notice 
+    jupyterlab_sparkmonitor-1.1.0.tgz
+    
+[I 2020-06-10 18:28:24.314 SingleUserNotebookApp build_handler:47] Build is up to date
+[D 2020-06-10 18:28:24.389 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-jupytext
+[D 2020-06-10 18:28:24.501 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@deathbeds%2Fjupyterlab-starters
+[D 2020-06-10 18:28:25.103 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/analyticszoo
+[D 2020-06-10 18:28:25.106 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/pyspark
+[D 2020-06-10 18:28:25.110 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/rsparkling
+[D 2020-06-10 18:28:25.112 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/ir
+[D 2020-06-10 18:28:25.114 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/sparkly
+[D 2020-06-10 18:28:25.122 SingleUserNotebookApp handlers:18] Serving kernel resource from: /opt/conda/share/jupyter/kernels/python3
+[D 2020-06-10 18:28:25.128 SingleUserNotebookApp handlers:18] Serving kernel resource from: /usr/local/share/jupyter/kernels/pysparkling
+[D 2020-06-10 18:28:25.325 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab_sparkmonitor
+[D 2020-06-10 18:28:25.848 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Ftoc
+[D 2020-06-10 18:28:25.901 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@krassowski%2Fjupyterlab-lsp
+[D 2020-06-10 18:28:25.963 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Fcodemirror
+[D 2020-06-10 18:28:26.022 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab_filetree
+[D 2020-06-10 18:28:26.065 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@lckr%2Fjupyterlab_variableinspector
+[D 2020-06-10 18:28:26.489 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-theme-toggle
+[D 2020-06-10 18:28:26.933 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-logout
+[D 2020-06-10 18:28:26.976 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-system-monitor
+[D 2020-06-10 18:28:27.026 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyter-matplotlib
+[D 2020-06-10 18:28:27.061 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyter-widgets%2Fjupyterlab-manager
+[D 2020-06-10 18:28:27.118 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/jupyterlab-topbar-extension
+[D 2020-06-10 18:28:27.150 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/@jupyterlab%2Fgit
+[D 2020-06-10 18:28:27.570 SingleUserNotebookApp commands:2220] Fetching URL: https://registry.yarnpkg.com/nbdime-jupyterlab
+[D 2020-06-10 18:28:27.607 SingleUserNotebookApp commands:81] > /opt/conda/bin/npm pack jupyterlab-jupytext@1.2.1 @deathbeds/jupyterlab-starters@0.3.0-a0 jupyterlab_sparkmonitor@1.1.0 @jupyterlab/toc@4.0.0 @krassowski/jupyterlab-lsp@1.0.0 @jupyterlab/codemirror@2.1.1 jupyterlab_filetree@0.2.2 @lckr/jupyterlab_variableinspector@0.5.1 jupyterlab-theme-toggle@0.5.0 jupyterlab-logout@0.5.0 jupyterlab-system-monitor@0.6.0 jupyter-matplotlib@0.7.2 @jupyter-widgets/jupyterlab-manager@2.0.0 jupyterlab-topbar-extension@0.5.0 @jupyterlab/git@0.20.0 nbdime-jupyterlab@2.0.0

@@ -52,7 +52,7 @@ RUN pip install ml-versioning-tools dask-kubernetes sqlalchemy-redshift PyHive P
     sqlalchemy-pytds snowflake-sqlalchemy jupyter_contrib_nbextensions
 RUN pip install pyspark kubernetes jupyter-archive sdnotify
 RUN pip install jupyter-offlinenotebook nbresuse[resources]
-RUN pip install analytics-zoo jupyter_starters
+RUN pip install analytics-zoo jupyter_starters opencv-python oauthenticator
 COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
 RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
 WORKDIR /usr/local/jupyterlab-sparkmonitor
@@ -164,8 +164,6 @@ RUN jupyter labextension install @deathbeds/jupyterlab-starters
 #RUN jupyter labextension install @liorbaber/jupyterlab-spark-ui-tab
 #RUN jupyter serverextension install --py spark-ui-tab
 #RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
-COPY jupyter_notebook_config.py /etc/ipython/ipython_config.py
-COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
 RUN mkdir -p /usr/local/share/jupyter/kernels/
 RUN jupyter lab build
 RUN jlpm cache clean
@@ -213,6 +211,8 @@ COPY jupyter_notebook_config.py /home/admin/.jupyter/jupyter_notebook_config.py
 COPY jupyter_notebook_config.json /home/admin/.jupyter/jupyter_notebook_config.json
 COPY jupyter_notebook_config.json /etc/jupyter/jupyter_notebook_config.json
 COPY jupyter_notebook_config.json /etc/ipython/ipython_config.json
+COPY jupyter_notebook_config.py /etc/ipython/ipython_config.py
+COPY jupyterhub_config.py /etc/jupyterhub/jupyterhub_config.py
 COPY kernels/ /usr/local/share/jupyter/kernels/
 ARG target=/opt/conda/share/jupyter/notebook_templates/
 RUN mkdir -p ${target}
@@ -254,6 +254,10 @@ ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 ENV DASK_SCHEDULER_ADDRESS=tcp://scheduler:8786
 ENV DOCKER_HOST=tcp://localhost:2375
+ENV GITHUB_CLIENT_ID=3f9704c2486b3f9543ae
+ENV GITHUB_CLIENT_SECRET=80c2ad430d9fa1e5fa386fe0e36850a8f9195664
+ENV OAUTH_CALLBACK_URL=http://ide.bayescluster.com/hub/oauth_callback
+#ENV CONFIGPROXY_AUTH_TOKEN=super-secret
 
 ENTRYPOINT ["tini", "--", "/usr/bin/prepare.sh"]
 #CMD ["start.sh", "jupyter", "lab"]
