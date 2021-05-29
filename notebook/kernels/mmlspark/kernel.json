@@ -1,0 +1,23 @@
+{
+ "display_name": "Microsoft ML (Spark 2.4.6)",
+ "language": "python",
+ "argv": [
+  "python3",
+  "-m",
+  "ipykernel",
+  "-f",
+  "{connection_file}",
+  "--config=/usr/local/share/jupyter/kernels/mmlspark/jupyter_notebook_config.py"
+ ],
+ "env": {
+  "JUPYTER_CONFIG_DIR": "/usr/local/share/jupyter/kernels/mmlspark",
+  "IPYTHONDIR": "/usr/local/share/jupyter/kernels/mmlspark",
+  "JUPYTERLAB_SETTINGS_DIR": "/usr/local/share/jupyter/kernels/mmlspark",
+  "HADOOP_CONF_DIR":"/usr/local/hadoop/etc/hadoop",
+  "PYSPARK_PYTHON":"python3",
+  "SPARK_HOME": "/usr/local/spark",
+  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python",
+  "MASTER": "spark://spark-master-svc:7077",
+  "PYSPARK_SUBMIT_ARGS": " --conf spark.hadoop.fs.s3n.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3n.impl=org.apache.hadoop.fs.s3native.NativeS3FileSystem --conf spark.hadoop.fs.AbstractFileSystem.wasb.impl=org.apache.hadoop.fs.azure.Wasb --conf spark.hadoop.fs.wasbs.impl=org.apache.hadoop.fs.azure.NativeAzureFileSystem --conf spark.hadoop.fs.azure=org.apache.hadoop.fs.azure.NativeAzureFileSystem --conf spark.driver.port=29413 pyspark-shell --packages io.delta:delta-core_2.11:0.6.1 --packages com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc3 --packages com.microsoft.azure:azure-storage:2.2.0 --packages org.apache.hadoop:hadoop-azure:2.7.7 --packages com.amazonaws:aws-java-sdk-pom:1.10.34,org.apache.hadoop:hadoop-aws:2.7.7 --packages org.apache.hadoop:hadoop-client:2.7.7 --driver-java-options '-Dcom.amazonaws.services.s3.enableV4'"
+ }
+}

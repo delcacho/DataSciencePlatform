@@ -1,5 +1,5 @@
 {
- "display_name": "PySpark (Spark 2.4.6)",
+ "display_name": "PySpark (Spark 2.4.5)",
  "language": "python",
  "argv": [
   "python3",
@@ -13,11 +13,13 @@
   "JUPYTER_CONFIG_DIR": "/usr/local/share/jupyter/kernels/pyspark",
   "IPYTHONDIR": "/usr/local/share/jupyter/kernels/pyspark",
   "JUPYTERLAB_SETTINGS_DIR": "/usr/local/share/jupyter/kernels/pyspark",
+  "JUPYTERLAB_WORKSPACES_DIR": "/usr/local/share/jupyter/kernels/pyspark",
   "HADOOP_CONF_DIR":"/usr/local/hadoop/etc/hadoop",
   "PYSPARK_PYTHON":"python3",
   "SPARK_HOME": "/usr/local/spark",
   "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python",
   "MASTER": "spark://spark-master-svc:7077",
-  "PYSPARK_SUBMIT_ARGS": " --conf spark.hadoop.fs.s3n.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.hadoop.fs.s3a.impl=org.apache.hadoop.fs.s3a.S3AFileSystem --conf spark.driver.port=29413 pyspark-shell --packages io.delta:delta-core_2.11:0.6.1 --packages com.amazonaws:aws-java-sdk-pom:1.10.34,org.apache.hadoop:hadoop-aws:2.7.7 --packages org.apache.hadoop:hadoop-client:2.7.7 --driver-java-options '-Dcom.amazonaws.services.s3.enableV4'"
+  "PYSPARK_SUBMIT_ARGS": " --conf spark.driver.port=29413 pyspark-shell"
+  #"PYSPARK_SUBMIT_ARGS": " --conf spark.driver.extraClassPath=/usr/local/jupyterlab-sparkmonitor/sparkmonitor/listener.jar --conf spark.extraListeners=sparkmonitor.listener.JupyterSparkMonitorListener --conf spark.driver.port=29413 pyspark-shell"
  }
 }

@@ -18,14 +18,15 @@ config.load_kube_config()
 
 hostnames = {
    "api.bayescluster.com":"default/ambassador",
-   "ide.bayescluster.com":"default/ingress-https-nginx-ingress-controller",
-   "mlflow.bayescluster.com":"default/ingress-mlflow-nginx-ingress-controller",
-   "grafana.bayescluster.com":"default/ingress-seldon-nginx-ingress-controller",
-   "kibana.bayescluster.com":"default/ingress-kibana-nginx-ingress-controller",
-   "superset.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
-   "jenkins.bayescluster.com":"default/ingress-http-nginx-ingress-controller",
-   "manager.bayescluster.com":"default/ingress-https-nginx-ingress-controller",
-   "spark.bayescluster.com":"default/spark-ui-proxy"
+   "ide.bayescluster.com":"default/ingress-https-nginx-ingress",
+   "mlflow.bayescluster.com":"default/ingress-mlflow-nginx-ingress",
+   "grafana.bayescluster.com":"default/ingress-seldon-nginx-ingress",
+   "kibana.bayescluster.com":"default/ingress-kibana-nginx-ingress",
+   "superset.bayescluster.com":"default/ingress-https-nginx-ingress",
+   "jenkins.bayescluster.com":"default/ingress-https-nginx-ingress",
+   "manager.bayescluster.com":"default/ingress-https-nginx-ingress",
+   "spark.bayescluster.com":"default/spark-ui-proxy",
+   "recruit.bayescluster.com":"default/docassemble-nginx-ingress"
 }
 
 addresses = {}

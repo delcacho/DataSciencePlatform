@@ -1,7 +1,7 @@
 FROM continuumio/miniconda3:4.7.12
 
 RUN pip install \
-    causal_impact modin
+    modin
 
 RUN conda install --yes \
     -c conda-forge \

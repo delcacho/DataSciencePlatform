@@ -3,7 +3,7 @@ export AWS_SECRET_ACCESS_KEY="CK4d3p0HSVj1rhfmcwSqNWGS+8F2zjqrdvFsh93w"
 export KOPS_STATE_STORE=s3://delcachokops
 export NAME=k8s.dev.bayescluster.com 
 
-export NUM_WORKERS=7
+export NUM_WORKERS=9
 
 kops create secret --name k8s.dev.bayescluster.com sshpublickey admin -i ~/.ssh/id_rsa.pub
 
@@ -34,3 +34,4 @@ aws iam attach-role-policy --role-name nodes.k8s.dev.bayescluster.com --policy-a
 aws iam attach-role-policy --role-name nodes.k8s.dev.bayescluster.com --policy-arn arn:aws:iam::301813298158:policy/SagemakerExecutionPolicy
 aws iam attach-role-policy --role-name nodes.k8s.dev.bayescluster.com --policy-arn arn:aws:iam::301813298158:policy/AccessToECR
 aws iam update-assume-role-policy --role-name nodes.k8s.dev.bayescluster.com --policy-document  file://trust-policy.txt
+kops export kubecfg ${NAME} --admin --state ${KOPS_STATE_STORE}

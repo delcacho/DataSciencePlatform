@@ -11,10 +11,11 @@ kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin
 
 kubectl create -f jupyter.yaml 
 kubectl create -f tiller-rbac-config.yaml
+helm repo add nginx-stable https://helm.nginx.com/stable
 helm install --wait ingress-https --set controller.scope.enabled=true \
- --set controller.scope.namespace=default --set controller.publishService.enabled=true stable/nginx-ingress
+ --set controller.scope.namespace=default --set controller.publishService.enabled=true --set controller.ingressClass=nginx-https nginx-stable/nginx-ingress
 helm install --wait ingress-http --set controller.scope.enabled=true \
- --set controller.scope.namespace=default --set controller.publishService.enabled=true stable/nginx-ingress
+ --set controller.scope.namespace=default --set controller.publishService.enabled=true --set controller.ingressClass=nginx-http nginx-stable/nginx-ingress
 kubectl apply -f ingress-https.yml
 kubectl apply -f ingress-http.yml
 helm repo add cetic https://cetic.github.io/helm-charts
@@ -26,7 +27,8 @@ helm repo update
 ./jenkins/jenkins.sh
 ./debezium/debezium.sh
 ./superset/superset.sh
-helm install --wait postgres --values pg-values.yaml stable/postgresql --set extendedConfConfigMap=postgresql-config
+#helm install docassemble jhpyle/docassemble     --set daHostname=recruit.bayescluster.com --set replicas=1 --set resources.deployment.requests.cpu=1 --set resources.deployment.limits.cpu=2
+helm install --wait postgres --values pg-values.yaml bitnami/postgresql --set extendedConfConfigMap=postgresql-config
 python3 ./debezium/debeziumcopy.py
 python3 ./jenkins/jenkinsinit.py
 ./mlflow/mlflow.sh

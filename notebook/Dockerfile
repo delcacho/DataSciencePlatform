@@ -1,32 +1,28 @@
-FROM jupyter/base-notebook:lab-2.0.1
+FROM jupyter/base-notebook:lab-2.2.8
 
 USER root
 RUN conda install python=3.6.10
 RUN apt-get update \
   && apt-get install -yq --no-install-recommends graphviz git build-essential \
-     build-essential texlive-latex-base texlive-fonts-recommended texlive-xetex \
-     texlive-fonts-extra texlive-latex-extra libgsl-dev libatlas-base-dev gfortran
+     build-essential texlive-latex-base texlive-xetex \
+     texlive-latex-extra libgsl-dev libatlas-base-dev gfortran
 RUN sudo apt-get purge openjdk* \
   && apt-get install -yq openjdk-8-jdk-headless ca-certificates-java \
   && apt-get -yqq install docker.io maven curl libcurl4-openssl-dev software-properties-common \
      libxml2-dev libssl-dev vim iputils-ping libopenblas-dev \
   && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
-RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/'
+RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/'
 RUN apt update && apt install -yq r-base r-base-core r-recommended r-base-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
 # Spark dependencies
-ENV APACHE_SPARK_VERSION=2.4.5 \
+ENV APACHE_SPARK_VERSION=2.4.6 \
     HADOOP_VERSION=2.7
 
 # Using the preferred mirror to download the file
-RUN cd /tmp && \
-    wget -q $(wget -qO- https://www.apache.org/dyn/closer.lua/spark/spark-${APACHE_SPARK_VERSION}/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz\?as_json | \
-    python -c "import sys, json; content=json.load(sys.stdin); print(content['preferred']+content['path_info'])") && \
-    echo "2426a20c548bdfc07df288cd1d18d1da6b3189d0b78dee76fa034c52a4e02895f0ad460720c526f163ba63a17efae4764c46a1cd8f9b04c60f9937a554db85d2 *spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz" | sha512sum -c - && \
-    tar xzf spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz -C /usr/local --owner root --group root --no-same-owner && \
-    rm spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
+RUN cd /tmp && wget https://archive.apache.org/dist/spark/spark-${APACHE_SPARK_VERSION}/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz
+RUN tar xvzf /tmp/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && rm /tmp/spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz && mv spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} /usr/local
 RUN cd /usr/local && ln -s spark-${APACHE_SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark
 
 ENV SPARK_HOME=/usr/local/spark
@@ -37,7 +33,7 @@ ENV SPARK_OPTS="--driver-java-options=-Xms1024M --driver-java-options=-Xmx4096M 
 #USER $NB_USER
 #RUN conda config --add channels conda-forge
 RUN pip install h2o_pysparkling_2.4  colorama ipykernel portalocker \
-    causal_impact modin ipyparallel hyperopt psycopg2-binary \
+    modin ipyparallel hyperopt psycopg2-binary \
     nbconvert ipywidgets jupyterlab_latex
 RUN pip install jupyter_helpers dvc seaborn spacy sqlalchemy flask
 RUN pip install tensorflow-cpu tensorflow-gpu
@@ -51,12 +47,12 @@ RUN pip install ml-versioning-tools dask-kubernetes sqlalchemy-redshift PyHive P
  pybigquery pymssql snowflake-sqlalchemy kylinpy \
     sqlalchemy-pytds snowflake-sqlalchemy jupyter_contrib_nbextensions
 RUN pip install pyspark kubernetes jupyter-archive sdnotify
-RUN pip install jupyter-offlinenotebook nbresuse[resources]
-RUN pip install analytics-zoo jupyter_starters opencv-python oauthenticator
-COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
-RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
-WORKDIR /usr/local/jupyterlab-sparkmonitor
-RUN pip install -e .
+RUN pip install jupyter-offlinenotebook nbresuse[resources] hide_code
+RUN pip install analytics-zoo jupyter_starters opencv-python oauthenticator metakernel
+#COPY jupyterlab-sparkmonitor/ /usr/local/jupyterlab-sparkmonitor/
+#RUN chmod -R 777 /usr/local/jupyterlab-sparkmonitor/
+#WORKDIR /usr/local/jupyterlab-sparkmonitor
+#RUN pip install -e .
 RUN pip install git+https://github.com/delcacho/mlflow.git
 
 RUN conda install --yes \
@@ -146,19 +142,23 @@ RUN jupyter nbextension enable --py jupytext
 RUN jupyter nbextension enable codefolding/main
 RUN jupyter labextension install jupyterlab_filetree
 RUN jupyter contrib nbextension install --user
+RUN jupyter-nbextension enable init_cell/init_cell --sys-prefix
 #RUN jupyter-nbextension enable hinterland/hinterland --sys-prefix
 RUN jupyter-nbextension enable skip-traceback/main --sys-prefix
 RUN jupyter-nbextension enable snippets_menu/main --sys-prefix
 #RUN jupyter-nbextension enable toc2/main --sys-prefix
 #RUN jupyter labextension install @jupyterlab/latex 
 #RUN jupyter labextension install jupyterlab-plotly
-RUN jupyter labextension install @jupyterlab/codemirror
+#RUN jupyter labextension install @jupyterlab/codemirror
 RUN jupyter labextension install @krassowski/jupyterlab-lsp
-RUN jupyter labextension install @jupyterlab/toc
+#RUN jupyter labextension install @jupyterlab/toc
 RUN jupyter nbextension enable --py jupyter_offlinenotebook --sys-prefix
 RUN jupyter serverextension enable --py jupyter_offlinenotebook --sys-prefix
-RUN jupyter labextension install /usr/local/jupyterlab-sparkmonitor # install the jupyterlab extension
-RUN jupyter serverextension enable --py sparkmonitor
+RUN jupyter nbextension install --py hide_code
+RUN jupyter nbextension enable --py hide_code
+RUN jupyter serverextension enable --py hide_code
+#RUN jupyter labextension install /usr/local/jupyterlab-sparkmonitor # install the jupyterlab extension
+#RUN jupyter serverextension enable --py sparkmonitor
 RUN jupyter labextension install @deathbeds/jupyterlab-starters
 #RUN jupyter labextension install nbgather 
 #RUN jupyter labextension install @liorbaber/jupyterlab-spark-ui-tab
@@ -178,6 +178,7 @@ RUN R -e 'install.packages("randomForest")' && R -e 'install.packages("e1071")' 
 RUN R -e 'install.packages("tm")' && R -e 'install.packages("MICE")' && R -e 'install.packages("igraph")' && R -e 'install.packages("ROCR")' && R -e 'install.packages("DataExplorer")'
 RUN R -e 'install.packages("mlr")' && R -e 'install.packages("arules")' && R -e 'install.packages("mboost")' && R -e 'install.packages("party")' && R -e 'install.packages("mlflow")' 
 RUN R -e 'install.packages("ranger")' && R -e 'install.packages("SparkR")' && R -e 'install.packages("sparklyr")' && R -e 'install.packages("xgboost")' && R -e 'install.packages("esquisse")' && R -e 'install.packages("RCurl")' && R -e 'install.packages("glmnet")'
+RUN R -e 'install.packages("carrier")'
 
 ADD /sudoers.txt /etc/sudoers
 RUN chmod 440 /etc/sudoers
@@ -225,21 +226,23 @@ RUN chmod ugo+rw /srv/nbgrader/exchange
 
 USER admin
 WORKDIR /home/admin
-RUN wget http://h2o-release.s3.amazonaws.com/sparkling-water/spark-2.4/3.30.0.3-1-2.4/sparkling-water-3.30.0.3-1-2.4.zip && unzip sparkling-water-3.30.0.3-1-2.4.zip && rm sparkling-water-3.30.0.3-1-2.4.zip
+RUN wget http://h2o-release.s3.amazonaws.com/sparkling-water/spark-2.4/3.30.1.2-1-2.4/sparkling-water-3.30.1.2-1-2.4.zip && unzip sparkling-water-3.30.1.2-1-2.4.zip && rm sparkling-water-3.30.1.2-1-2.4.zip
 USER root
 #RUN R -e 'remove.packages("h2o")'
-RUN R -e 'install.packages("h2o", type = "source", repos = "http://h2o-release.s3.amazonaws.com/h2o/rel-zahradnik/3/R")'
-RUN R -e 'install.packages("/home/admin/sparkling-water-3.30.0.3-1-2.4/rsparkling_3.30.0.3-1-2.4.tar.gz", repos=NULL, type="source")'
+RUN R -e 'install.packages("h2o", type = "source", repos = "http://h2o-release.s3.amazonaws.com/h2o/latest_stable_R")'
+RUN R -e 'install.packages("/home/admin/sparkling-water-3.30.1.2-1-2.4/rsparkling_3.30.1.2-1-2.4.tar.gz", repos=NULL, type="source")'
 USER admin
 ENV MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV HADOOP_HOME=/usr/local/hadoop
 ENV PATH=$SPARK_HOME/bin:$HADOOP_HOME/bin:$JAVA_HOME/bin:$PATH
-#ENV JAVA_HOME=$(/usr/libexec/java_home -v 1.8) 
-ADD https://repo1.maven.org/maven2/io/fabric8/kubernetes-client/4.9.1/kubernetes-client-4.9.1.jar $SPARK_HOME/jars
+#ENV JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+RUN wget https://repo1.maven.org/maven2/io/fabric8/kubernetes-client/4.9.1/kubernetes-client-4.9.1.jar && sudo mv kubernetes-client-4.9.1.jar $SPARK_HOME/jars
 USER root
-RUN chmod +r /usr/local/spark/jars/kubernetes-client-4.9.1.jar
+RUN chmod +r $SPARK_HOME/jars/kubernetes-client-4.9.1.jar
 ENV MLFLOW_TRACKING_URI=http://mlflow.bayescluster.com
+ENV MLFLOW_PYTHON_BIN=/opt/conda/bin/python3
+ENV MLFLOW_BIN=/opt/conda/bin/mlflow
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ENV HADOOP_HOME=/usr/local/hadoop
 ENV PATH=$SPARK_HOME/bin:$PATH:$HADOOP_HOME/bin

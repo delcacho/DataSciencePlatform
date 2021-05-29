@@ -3,18 +3,18 @@ agent:
   tag: latest
   alwaysPullImage: true
 
-master:
+controller:
   adminPassword: jenkins
   credentialsXmlSecret: jenkins-credentials
   secretsFilesSecret: jenkins-secrets-secret
   installPlugins:
-    - kubernetes:1.25.4
-      workflow-aggregator:2.6
-      credentials-binding:1.23
-      git:4.2.2
-      workflow-job:2.39
-      pipeline-aws:1.41
-      config-autorefresh-plugin:1.0
+    - kubernetes:1.29.6
+    - workflow-aggregator:2.6
+    - credentials-binding:1.24
+    - git:4.7.1
+    - workflow-job:2.40
+    - pipeline-aws:1.43
+    - config-autorefresh-plugin:1.0
   authorizationStrategy: |-
      <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured">
        <denyAnonymousReadAccess>false</denyAnonymousReadAccess>

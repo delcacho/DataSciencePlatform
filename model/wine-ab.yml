@@ -9,7 +9,7 @@ spec:
     - graph:
         children: []
         implementation: MLFLOW_SERVER
-        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/600d698441fd4fe1b99974fbf2b17d66/artifacts/wine
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/c5c16c07c8b44c5b9012e76ef32abfb0/artifacts/wine
         name: wines-classifier
         envSecretRefName: seldon-init-container-secret
       name: a-mlflow-deployment-dag
@@ -18,7 +18,7 @@ spec:
     - graph:
         children: []
         implementation: MLFLOW_SERVER
-        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/600d698441fd4fe1b99974fbf2b17d66/artifacts/wine
+        modelUri: s3://clusters.dev.bayescluster.com/mlruns/1/c5c16c07c8b44c5b9012e76ef32abfb0/artifacts/wine
         name: wines-classifier
         envSecretRefName: seldon-init-container-secret
       name: b-mlflow-deployment-dag

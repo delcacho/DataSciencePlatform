@@ -22,7 +22,7 @@
   "CAPTURE_STANDARD_OUT": "true",
   "CAPTURE_STANDARD_ERR": "true",
   "SEND_EMPTY_OUTPUT": "false",
-  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python:/home/admin/sparkling-water-3.30.0.3-1-2.4/py/build/dist/h2o_pysparkling_2.4-3.30.0.3-1-2.4.zip",
+  "PYTHONPATH": "/usr/local/spark/python/lib/py4j-0.10.7-src.zip:/usr/local/spark/python:/home/admin/sparkling-water-3.30.1.2-1-2.4/py/build/dist/h2o_pysparkling_2.4-3.30.1.2-1-2.4.zip",
   "PYTHONSTARTUP": "/usr/local/spark/python/pyspark/shell.py",
   "MASTER": "spark://spark-master-svc:7077",
   "PYSPARK_SUBMIT_ARGS": "--master spark://spark-master-svc:7077 --conf spark.ext.h2o.client.log.dir=/home/admin/ --conf spark.ext.h2o.client.verbose=true --conf spark.ext.h2o.client.log.level=ALL --conf spark.ext.h2o.node.log.level=ALL --conf spark.sql.catalogImplementation=in-memory --driver-memory=1g --executor-memory=1g --py-files /home/admin/sparkling-water-3.30.0.3-1-2.4/py/build/dist/h2o_pysparkling_2.4-3.30.0.3-1-2.4.zip pyspark-shell"

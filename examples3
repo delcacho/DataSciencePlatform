@@ -1,0 +1,1 @@
+data = spark.read.csv("s3://AKIAUMRLZOPXLZIB7DXK:wSId3dWxbiTc0NtBFGpInj+ma6zRi3cDHONiH1fN@product-training-data/products_Sports & Outdoors Fan Shop Office Products.csv")

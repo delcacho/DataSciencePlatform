@@ -2,8 +2,9 @@ echo "Installing Seldon Core..."
 ./seldon/s3.sh
 kubectl create namespace seldon-system
 kubectl create namespace ambassador
-
-helm install ambassador stable/ambassador --version 1.1.0
+helm repo add datawire https://www.getambassador.io
+helm repo update
+helm install ambassador --namespace ambassador datawire/ambassador
 
 helm install seldon-core seldon-core-operator \
     --repo https://storage.googleapis.com/seldon-charts \
@@ -15,5 +16,5 @@ helm install seldon-core-analytics seldon-core-analytics \
    --namespace seldon-system -f ./seldon/grafana.yml
 
 helm install --wait ingress-seldon --set controller.scope.enabled=true \
- --set controller.scope.namespace=seldon-system --set controller.publishService.enabled=true stable/nginx-ingress
+ --set controller.scope.namespace=seldon-system --set controller.publishService.enabled=true nginx-stable/nginx-ingress
 kubectl apply -f ./seldon/ingress-seldon.yml
