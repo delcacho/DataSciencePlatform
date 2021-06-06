@@ -4,13 +4,13 @@ metadata:
   name: ingress-http
   namespace: default
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     nginx.ingress.kubernetes.io/rewrite-target: /
     #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     #nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
-  ingressClassName: nginx-http
   rules:
   - host: superset.bayescluster.com
     http:
@@ -18,7 +18,14 @@ spec:
       - path: /
         backend:
           serviceName: superset
-          servicePort: 8088
+          servicePort: 9000
+  - host: mlflow.bayescluster.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mlflow
+          servicePort: 5000
   - host: jenkins.bayescluster.com
     http:
       paths:
@@ -26,3 +33,10 @@ spec:
         backend:
           serviceName: jenkins
           servicePort: 8080
+  - host: airbyte.bayescluster.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: webapp
+          servicePort: 8000

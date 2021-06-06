@@ -3,7 +3,7 @@ export AWS_SECRET_ACCESS_KEY="CK4d3p0HSVj1rhfmcwSqNWGS+8F2zjqrdvFsh93w"
 export KOPS_STATE_STORE=s3://delcachokops
 export NAME=k8s.dev.bayescluster.com 
 
-export NUM_WORKERS=9
+export NUM_WORKERS=1
 
 kops create secret --name k8s.dev.bayescluster.com sshpublickey admin -i ~/.ssh/id_rsa.pub
 
@@ -23,7 +23,9 @@ kops create cluster \
 --dns-zone=dev.bayescluster.com
 
 kops replace -f ignodes.yml --state=${KOPS_STATE_STORE}
+kops replace -f masternode.yml --state=${KOPS_STATE_STORE]
 kops update cluster ${NAME} --state=${KOPS_STATE_STORE} --yes
+kops rolling-update cluster
 
 kops export kubecfg --name ${NAME} --state=${KOPS_STATE_STORE}  --kubeconfig ./test-kubeconfig.yaml
 

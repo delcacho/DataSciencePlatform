@@ -4,14 +4,13 @@ metadata:
   name: ingress-https
   namespace: default
   annotations:
-    ingressclass.kubernetes.io/is-default-class: "false"
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
-  ingressClassName: nginx-https
   rules:
   - host: ide.bayescluster.com
     http:
@@ -35,3 +34,4 @@ spec:
         backend:
           serviceName: kubernetes-dashboard
           servicePort: 443
+

@@ -1,23 +1,34 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-grafana
-  namespace: seldon-system
+  name: ingress-http
+  namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/rewrite-target: /
     #nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     #nginx.ingress.kubernetes.io/proxy-ssl-verify: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:
-  - host: grafana.bayescluster.com
+  - host: superset.bayescluster.com
     http:
       paths:
       - path: /
+        pathType: Prefix
         backend:
           service:
-             name: seldon-core-analytics-grafana
+             name: superset
              port:
-                number: 80
+                number: 8088
+  - host: jenkins.bayescluster.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+             name: jenkins
+             port:
+                number: 8080

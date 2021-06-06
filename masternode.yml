@@ -1,0 +1,18 @@
+apiVersion: kops.k8s.io/v1alpha2
+kind: InstanceGroup
+metadata:
+  creationTimestamp: "2021-06-02T14:43:04Z"
+  labels:
+    kops.k8s.io/cluster: k8s.dev.bayescluster.com
+  name: master-us-east-1a
+spec:
+  image: 099720109477/ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-20210415
+  machineType: t2.large
+  maxSize: 1
+  minSize: 1
+  nodeLabels:
+    kops.k8s.io/instancegroup: master-us-east-1a
+    airbyte: "true"
+  role: Master
+  subnets:
+  - us-east-1a

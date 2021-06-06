@@ -15,6 +15,4 @@ helm install seldon-core-analytics seldon-core-analytics \
    --repo https://storage.googleapis.com/seldon-charts \
    --namespace seldon-system -f ./seldon/grafana.yml
 
-helm install --wait ingress-seldon --set controller.scope.enabled=true \
- --set controller.scope.namespace=seldon-system --set controller.publishService.enabled=true nginx-stable/nginx-ingress
 kubectl apply -f ./seldon/ingress-seldon.yml

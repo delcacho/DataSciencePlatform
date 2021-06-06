@@ -11,11 +11,8 @@ kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin
 
 kubectl create -f jupyter.yaml 
 kubectl create -f tiller-rbac-config.yaml
-helm repo add nginx-stable https://helm.nginx.com/stable
-helm install --wait ingress-https --set controller.scope.enabled=true \
- --set controller.scope.namespace=default --set controller.publishService.enabled=true --set controller.ingressClass=nginx-https nginx-stable/nginx-ingress
-helm install --wait ingress-http --set controller.scope.enabled=true \
- --set controller.scope.namespace=default --set controller.publishService.enabled=true --set controller.ingressClass=nginx-http nginx-stable/nginx-ingress
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.46.0/deploy/static/provider/aws/deploy.yaml
+ --set controller.extraArgs.enable-ssl-passthrough="true" --set controller.scope.namespace=default --set controller.publishService.enabled=true ingress-nginx/ingress-nginx
 kubectl apply -f ingress-https.yml
 kubectl apply -f ingress-http.yml
 helm repo add cetic https://cetic.github.io/helm-charts
