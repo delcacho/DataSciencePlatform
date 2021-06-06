@@ -1,2 +1,0 @@
-helm install --wait ingress-nginx --set controller.scope.enabled=true \
- --set controller.extraArgs.enable-ssl-passthrough=true --set controller.scope.namespace=default --set controller.publishService.enabled=true nginx-stable/nginx-ingress
